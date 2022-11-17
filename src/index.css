@@ -10,7 +10,7 @@
 :root {
   --pi-red: rgb(194, 30, 74);
   --pi-green: rgb(104, 191, 75);
-  --background-colour: var(--pi-green);
+  --background-colour: var(hex(ffffff));
   --nav-bar-colour: var(--pi-red);
 }
 
