@@ -10,14 +10,35 @@
 :root {
   --pi-red: rgb(194, 30, 74);
   --pi-green: rgb(104, 191, 75);
-  --background-colour: var(hex(ffffff));
-  --nav-bar-colour: var(--pi-red);
+
+  --light-bg: rgb(255, 255, 255);
+  --light-bg2: rgb(230, 230, 230);
+
+  --dark-bg: rgb(5, 1, 18);
+  --dark-bg2: rgb(21, 4, 74);
+
+  --about-container-colour: var(--secondary-background);
+  --home-container-colour: var(--secondary-bckground)
+
+  --background-colour: var(--light-bg);
+  --secondary-background: var(--light-bg2);
+  --nav-bar-colour: rgb(51, 18, 148);
+
+  --text: black;
+  --nav-text: white;
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url('./assets/Montserrat-Regular.ttf');
 }
 
 body {
-  font-family: "Rubik", sans-serif;
+  font-family: "montserrat",sans-serif;
   font-weight: 400;
+  font-style: normal;
   background-color: var(--background-colour);
+  color: var(--text);
 }
 
 .nav-container {
@@ -26,36 +47,34 @@ body {
   justify-content: flex-end;
   padding: 5px;
   height: 4rem;
+  color: var(--nav-text);
 }
 
 .nav-buttons {
-  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .social-icons {
   /*setting the margins in github-icon doesn;t work for some reason*/
   margin-top: auto;
   margin-bottom: auto;
+  margin-left: auto;
+  padding-left: 116px /*size of team-name - size of social-icons (135-30), this centers the buttons*/
 }
 
 #team-name {
   margin-top: auto;
   margin-bottom: auto;
+  margin-right: auto;
 }
 
 #github-icon {
-  padding-left: 41px;
-  padding-right: 41px;
 }
 
 #home-button,
 #about-button {
-  border: none;
-  border-color: var(--nav-bar-colour);
-  border-radius: 3px;
-  background-color: var(--nav-bar-colour);
-  padding: 3px;
-  font-size: larger;
+  color: var(--nav-text);
 }
 
 a,
@@ -67,8 +86,10 @@ a:active {
 }
 
 .about-container {
-  background-color: grey;
+  background-color: var(--about-container-colour);
   border-radius: 5px;
-  margin: 3px;
-  padding: 3px
+  margin: 1rem;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 1rem;
 }

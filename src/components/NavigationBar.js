@@ -3,6 +3,9 @@ import { BsGithub } from "react-icons/bs"
 import { Link, useLocation } from "react-router-dom"
 import "../index.css"
 
+import Button from "@mui/material/Button"
+import ButtonGroup from "@mui/material/ButtonGroup"
+
 const NavigationBar = () => {
 
     const current_address_raw = useLocation();
@@ -10,11 +13,13 @@ const NavigationBar = () => {
 
     return (
         <nav className='nav-container'>
-            <h1 id='team-name'>Team Name Here</h1>
+            <h1 className='text-2xl' id='team-name'>Team Name</h1>
 
             <div className='nav-buttons'>
-                {current_address !== "/" ? <Link to="/"><button id="home-button">Home</button></Link> : null}
-                {current_address !== "/about" ? <Link to="/about"><button id="home-button">About</button></Link> : null}
+                <ButtonGroup variant="text">
+                    <Link to="/"><Button id="home-button">Home</Button></Link>
+                    <Link to="/about"><Button id="about-button">About</Button></Link>
+                </ButtonGroup>
             </div>
             <div className='social-icons'>
                 <a
