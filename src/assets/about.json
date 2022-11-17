@@ -1,0 +1,24 @@
+{
+    "people": [
+        {
+            "name": "Owen",
+            "text": "Designed and built the website and app."
+        },
+        {
+            "name": "Ben",
+            "text": "Designed, built and programmed the electronics. Made the telemetry system"
+        },
+        {
+            "name": "Abbas",
+            "text": "Designed, built and programmed the electronics and figured out the science behind it."
+        },
+        {
+            "name": "Charlie",
+            "text": "3D modelling, animation and presentation"
+        },
+        {
+            "name": "Sean",
+            "text": "Logistics"
+        }
+    ]
+}

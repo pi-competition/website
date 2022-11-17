@@ -3,14 +3,18 @@ import { Route, Routes } from 'react-router-dom'
 
 import PageHandler from './PageHandler'
 import Home from "./components/Home"
+import About from './components/About'
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<PageHandler />}>
-        <Route index element={<Home />} />
-      </Route>
-    </Routes>
+    <div style={{ height: '100vh' }}>
+      <Routes>
+        <Route path="/" element={<PageHandler />}>
+          <Route index element={<Home />} />
+          <Route path='/about' element={<About />} />
+        </Route>
+      </Routes>
+    </div>
   )
 }
 
