@@ -14,17 +14,17 @@
   --light-bg: rgb(255, 255, 255);
   --light-bg2: rgb(230, 230, 230);
 
-  --dark-bg: rgb(5, 1, 18);
-  --dark-bg2: rgb(21, 4, 74);
+  --dark-bg: rgb(24, 26, 27);
+  --dark-bg2: rgb(38, 41, 43);
 
-  --about-container-colour: var(--secondary-background);
-  --home-container-colour: var(--secondary-bckground)
-
-  --background-colour: var(--light-bg);
-  --secondary-background: var(--light-bg2);
+  --background-colour: var(--dark-bg);
+  --secondary-background: var(--dark-bg2);
   --nav-bar-colour: rgb(51, 18, 148);
 
-  --text: black;
+  --about-container-colour: var(--secondary-background);
+  --home-container-colour: var(--secondary-bckground);
+
+  --text: white;
   --nav-text: white;
 }
 
