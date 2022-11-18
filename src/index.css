@@ -72,6 +72,10 @@ body {
 #github-icon {
 }
 
+#about-us-title {
+  margin-top: 1rem;
+}
+
 #home-button,
 #about-button {
   color: var(--nav-text);
