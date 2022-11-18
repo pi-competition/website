@@ -60,7 +60,7 @@ body {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
-  padding-left: 116px /*size of team-name - size of social-icons (135-30), this centers the buttons*/
+  padding-left: 8%; /*size of team-name - size of social-icons (135-30), this centers the buttons*/
 }
 
 #team-name {
