@@ -8,9 +8,6 @@ import ButtonGroup from "@mui/material/ButtonGroup"
 
 const NavigationBar = () => {
 
-    const current_address_raw = useLocation();
-    const current_address = current_address_raw.pathname
-
     return (
         <nav className='nav-container'>
             <h1 className='text-2xl' id='team-name'>Team Name</h1>
