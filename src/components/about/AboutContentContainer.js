@@ -1,5 +1,5 @@
 import React from 'react'
-import parse from "html-react-parser"
+import parse from "html-react-parser";
 
 const AboutContentContainer = ({ name, text }) => {
 
