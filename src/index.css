@@ -74,13 +74,6 @@ body {
   margin-bottom: auto;
 }
 
-.social-icons {
-  /*setting the margins in github-icon doesn;t work for some reason*/
-  margin-top: auto;
-  margin-bottom: auto;
-  padding-left: 1%; /*size of team-name - size of social-icons (135-30), this centers the buttons*/
-}
-
 .colour-mode-buttons {
   margin-top: auto;
   margin-bottom: auto;
@@ -89,7 +82,6 @@ body {
 }
 
 .footer { /* div for the footer in Footer */
-  
   bottom: 0;
   width: 100%;
   height: 70px;
