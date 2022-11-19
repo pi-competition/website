@@ -19,7 +19,7 @@ const App = () => {
           </Route>
         </Routes>
       </div>
-      <div classname="footer-section">
+      <div className="footer-section">
         <Footer />
       </div>
     </div>
