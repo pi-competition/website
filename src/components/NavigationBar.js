@@ -20,18 +20,6 @@ const NavigationBar = () => {
                 </ButtonGroup>
             </div>
             <ColourToggles />
-            <div className='social-icons'>
-                <a
-                    href="https://github.com/pi-competition"
-                    target={"_blank"}
-                    rel="noopener noreferrer"
-                >
-                    <BsGithub
-                        id="github-icon"
-                        size={"30px"}
-                    />
-                </a>
-            </div>
         </nav>
     )
 }
