@@ -5,9 +5,7 @@ export default function ThemeContextWrapper(props) {
     const [theme, setTheme] = useState(themes.dark);
 
     function changeTheme(theme) {
-        console.log("changing theme")
         setTheme(theme);
-        console.log("theme changed")
     }
 
     useEffect(() => {

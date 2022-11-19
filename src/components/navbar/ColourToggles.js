@@ -21,7 +21,6 @@ const ColourToggles = () => {
                         color="primary"
                         value={aligment}
                         exclusive
-
                         onChange={handleAlignment}
                         aria-label="colour toggle"
                     >
@@ -29,9 +28,9 @@ const ColourToggles = () => {
                             value="dark"
                             aria-label='dark'
                             id="colour-toggle-dark"
-                            onClick={() => {
-                                setDarkMode(!darkMode);
-                                changeTheme(darkMode ? themes.light : themes.dark);
+                            onClick={(event) => {
+                                setDarkMode(true);
+                                changeTheme(themes.dark);
                             }}
                         >
                             Dark
@@ -41,8 +40,8 @@ const ColourToggles = () => {
                             aria-label='light'
                             id="colour-toggle-light"
                             onClick={() => {
-                                setDarkMode(!darkMode);
-                                changeTheme(darkMode ? themes.light : themes.dark);
+                                setDarkMode(false);
+                                changeTheme(themes.light);
                             }}
                         >
                             Light
