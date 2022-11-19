@@ -21,8 +21,7 @@
   --secondary-background: var(--dark-bg2);
   --nav-bar-colour: rgb(51, 18, 148);
 
-  --about-container-colour: var(--secondary-background);
-  --home-container-colour: var(--secondary-background);
+  --container-colour: var(--secondary-background);
 
   --text: white;
   --nav-text: white;
@@ -44,19 +43,23 @@ body {
 .light-content {
   --background-colour: var(--light-bg);
   --secondary-background: var(--light-bg2);
-  --about-container-colour: var(--secondary-background);
-  --home-container-colour: var(--secondary-background);
+  --container-colour: var(--secondary-background);
   --text: black;
 }
 
 .dark-content {
   --background-colour: var(--dark-bg);
   --secondary-background: var(--dark-bg2);
-  --about-container-colour: var(--secondary-background);
-  --home-container-colour: var(--secondary-background);
+  --container-colour: var(--secondary-background);
   --text: white;
   
 }
+
+.main-section {
+  min-height: 100vh;
+  
+}
+
 
 .nav-container {
   background-color: var(--nav-bar-colour);
@@ -85,11 +88,12 @@ body {
   margin-left: auto;
 }
 
-.footer {
-  position: fixed;
+.footer { /* div for the footer in Footer */
+  
   bottom: 0;
   width: 100%;
-  height: 60px;   /* Height of the footer */
+  height: 70px;
+  padding: 5px;
   background-color: var(--secondary-background);
   color: var(--text);
 }
@@ -108,13 +112,19 @@ body {
 #github-icon {
 }
 
-#about-us-title {
+#about-us-title,
+#home-title {
   margin-top: 1rem;
 }
 
 #home-button,
 #about-button {
   color: var(--nav-text);
+}
+
+#home-subheading{
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 a,
@@ -125,8 +135,9 @@ a:active {
   text-decoration: none;
 }
 
-.about-container {
-  background-color: var(--about-container-colour);
+.about-container,
+.home-container {
+  background-color: var(--container-colour);
   border-radius: 5px;
   margin: 1rem;
   margin-left: 10%;

@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className='footer flex justify-center align-bottom'>
             <Stack>
-                <h3 className='underline flex justify-center'>Links</h3>
+                <h3 className='underline bold flex justify-center'>Links</h3>
                 <a
                     href="https://github.com/pi-competition"
                     target={"_blank"}

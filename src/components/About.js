@@ -9,7 +9,7 @@ const About = () => {
 
     return (
         <div className='about'>
-            <p className='text-3xl bold flex justify-center' id="about-us-title">About Us</p>
+            <p className='text-4xl bold flex justify-center' id="about-us-title">About Us</p>
             {
                 random_people.map((person) => {
                     return (

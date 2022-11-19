@@ -1,15 +1,17 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import NavigationBar from "./components/NavigationBar"
-import Footer from './components/Footer'
+
 
 const PageHandler = () => {
     return (
-        <>
-            <NavigationBar />
-            <Outlet />
-            <Footer />
-        </>
+        <div className="page-handler">
+            <div >
+                <NavigationBar />
+                <Outlet />
+            </div>
+        </div>
+
     )
 }
 
