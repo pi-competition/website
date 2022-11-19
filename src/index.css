@@ -41,6 +41,23 @@ body {
   color: var(--text);
 }
 
+.light-content {
+  --background-colour: var(--light-bg);
+  --secondary-background: var(--light-bg2);
+  --about-container-colour: var(--secondary-background);
+  --home-container-colour: var(--secondary-background);
+  --text: black;
+}
+
+.dark-content {
+  --background-colour: var(--dark-bg);
+  --secondary-background: var(--dark-bg2);
+  --about-container-colour: var(--secondary-background);
+  --home-container-colour: var(--secondary-background);
+  --text: white;
+  
+}
+
 .nav-container {
   background-color: var(--nav-bar-colour);
   display: flex;
@@ -59,8 +76,18 @@ body {
   /*setting the margins in github-icon doesn;t work for some reason*/
   margin-top: auto;
   margin-bottom: auto;
+  padding-left: 1%; /*size of team-name - size of social-icons (135-30), this centers the buttons*/
+}
+
+.colour-mode-buttons {
+  margin-top: auto;
+  margin-bottom: auto;
   margin-left: auto;
-  padding-left: 8%; /*size of team-name - size of social-icons (135-30), this centers the buttons*/
+}
+
+#colour-toggle-light, 
+#colour-toggle-dark {
+  color: var(--nav-text);
 }
 
 #team-name {

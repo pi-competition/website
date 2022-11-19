@@ -1,10 +1,11 @@
 import React from 'react'
 import { BsGithub } from "react-icons/bs"
-import { Link, useLocation } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "../index.css"
 
 import Button from "@mui/material/Button"
 import ButtonGroup from "@mui/material/ButtonGroup"
+import ColourToggles from './navbar/ColourToggles'
 
 const NavigationBar = () => {
 
@@ -18,10 +19,12 @@ const NavigationBar = () => {
                     <Link to="/about"><Button id="about-button">About</Button></Link>
                 </ButtonGroup>
             </div>
+            <ColourToggles />
             <div className='social-icons'>
                 <a
                     href="https://github.com/pi-competition"
                     target={"_blank"}
+                    rel="noopener noreferrer"
                 >
                     <BsGithub
                         id="github-icon"
