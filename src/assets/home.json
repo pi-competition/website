@@ -1,6 +1,11 @@
 {
     "sections": [
         {
+            "title": "Team Ian",
+            "text": "Our team name, Ian, stands for ...",
+            "subsection": "team name"
+        },
+        {
             "title": "Cars",
             "text": "The cars are cheap remote controlled *insert car name* that we modifed to use as a demonstration.",
             "subsection": "engineering"

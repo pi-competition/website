@@ -9,6 +9,7 @@ const ToggleButton = ({ changeTheme }) => {
 
     useEffect(() => {
         changeTheme(darkMode ? themes.dark : themes.light);
+        // eslint-disable-next-line
     }, [darkMode])
 
     return (

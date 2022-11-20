@@ -10,7 +10,7 @@ const NavigationBar = () => {
 
     return (
         <nav className='nav-container'>
-            <h1 className='text-2xl' id='team-name'>Team Name</h1>
+            <h1 className='text-2xl' id='team-name'>Team Ian</h1>
 
             <div className='nav-buttons'>
                 <ButtonGroup variant="text">

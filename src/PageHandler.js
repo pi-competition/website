@@ -6,10 +6,8 @@ import NavigationBar from "./components/NavigationBar"
 const PageHandler = () => {
     return (
         <div className="page-handler">
-            <div >
-                <NavigationBar />
-                <Outlet />
-            </div>
+            <NavigationBar />
+            <Outlet />
         </div>
 
     )

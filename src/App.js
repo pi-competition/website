@@ -6,6 +6,7 @@ import Home from "./components/Home"
 import About from './components/About'
 import NotFound from './components/NotFound'
 import Footer from "./components/Footer"
+import Admin from "./components/Admin"
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<PageHandler />}>
             <Route index element={<Home />} />
-            <Route path='/about' element={<About />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
