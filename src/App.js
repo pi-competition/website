@@ -9,7 +9,7 @@ import Footer from "./components/Footer"
 
 const App = () => {
   return (
-    <div style={{ height: '100vh' }}>
+    <div style={{ height: '100vh' }} className="the-parent">
       <div className='main-section'>
         <Routes>
           <Route path="/" element={<PageHandler />}>

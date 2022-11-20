@@ -1,8 +1,14 @@
 {
     "sections": [
         {
-            "title": "Website",
-            "text": "subheading"
+            "title": "Cars",
+            "text": "The cars are cheap remote controlled *insert car name* that we modifed to use as a demonstration.",
+            "subsection": "engineering"
+        },
+        {
+            "title": "Road",
+            "text": "The road is (probably going to be) made from triple ply cardboard to keep it strong whilst also being light and portable.",
+            "subsection": "engineering"
         },
         {
             "title": "Hosting",
@@ -13,20 +19,6 @@
             "title": "Framework",
             "text": "This website is built using React, tailwindcss and vanilla css. It also uses the MUI library, a Material UI library that provides prebuilt React components such as toggles, used for the colour switching, and data representation like graphs and charts.",
             "subsection": "website"
-        },
-        {
-            "title": "Engineering",
-            "text": "subheading"
-        },
-        {
-            "title": "Cars",
-            "text": "The cars are cheap remote controlled *insert car name* that we modifed to use as a demonstration.",
-            "subsection": "engineering"
-        },
-        {
-            "title": "Road",
-            "text": "The road is (probably going to be) made from triple ply cardboard to keep it strong whilst also being light and portable.",
-            "subsection": "engineering"
         }
     ]
 }

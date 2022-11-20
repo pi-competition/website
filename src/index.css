@@ -40,6 +40,23 @@ body {
   color: var(--text);
 }
 
+body {
+  -ms-overflow-style: none; /** For IE */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {display:none;}
+@-moz-document url-prefix() {
+  html,
+  body {
+    scrollbar-width: none;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none; /* remove the scrollbar in chrome */
+}
+
 .light-content {
   --background-colour: var(--light-bg);
   --secondary-background: var(--light-bg2);
