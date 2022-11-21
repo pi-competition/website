@@ -9,26 +9,37 @@ const ResetCars = () => {
     const [carsSelected, setCarsSelected] = useState([]);
     const [checkboxStates, setCheckboxStates] = useState([])
 
-    const url = "https://papi-api.ben-services.eu.org/api/cars/status"
-    const fetchOptions = {
-        method: "GET"
-    }
-
-    const carsArray = [];
-
-    result = fetch(url, fetchOptions)
-        .catch((err) => console.error(err))
-
     const getCars = async (result) => {
-        rawAPIData = await (await result).json()
+        const url = "https://papi-api.ben-services.eu.org/api/cars/status"
+        const fetchOptions = {
+            method: "GET"
+        }
+
+        const carsArray = [];
+
+        result = fetch(url, fetchOptions)
+            .catch((err) => console.error(err))
+
+        try {
+            rawAPIData = await (await result).json()
+        } catch (err) {
+            console.error(err)
+            return (
+                <div>
+                    <p>An error occured. Please refresh the page and try again</p>
+                </div>
+            )
+        }
 
         const data = rawAPIData.data;
         //console.log(rawAPIData)
         //console.log(data)
         const temp_checkbox_state_array = [];
         data.forEach((carData) => {
-            carsArray.push(carData.id)
-            temp_checkbox_state_array.push(false)
+            if (carData.state === "online") {
+                carsArray.push(carData.id)
+                temp_checkbox_state_array.push(false)
+            }
         })
         //console.log(carsArray)
         setCheckboxStates(temp_checkbox_state_array)
