@@ -126,6 +126,14 @@ a:active {
   padding: 1rem;
 }
 
+.github-icon{
+  display: flex;
+  justify-content: center;
+}
+
+.copyright-text {
+  padding-bottom: 1rem;
+}
 
 #team-name {
   margin-top: auto;

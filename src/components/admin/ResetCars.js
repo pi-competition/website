@@ -2,10 +2,30 @@ import React, { useEffect, useState } from 'react'
 import Checkbox from '@mui/material/Checkbox';
 import { Button, Stack, Grid } from '@mui/material';
 
-const ResetCars = () => {
+const ResetCars = async () => {
+    let rawAPIData;
+    const [carData, setCarData] = useState({});
     const [carsSelected, setCarsSelected] = useState([]);
 
-    const result = [1, 2, 3]
+    const url = "https://papi-api.ben-services.eu.org/api/cars/status"
+    const fetchOptions = {
+        method: "GET"
+    }
+
+    const cars = [];
+
+    const result = fetch(url, fetchOptions)
+        .catch((err) => console.error(err))
+
+    rawAPIData = await (await result).json()
+
+
+    const data = rawAPIData.data;
+    data.forEach(() => {
+        cars.push(data.id)
+    })
+
+    console.log(cars)
 
     const handleCheck = (event) => {
         const state = event.target.checked
@@ -36,8 +56,8 @@ const ResetCars = () => {
                         container
                         justifyContent="center"
                     >
-                        {result.map((car) => {
-                            if (result)
+                        {cars.map((car) => {
+                            if (cars) {
                                 return (
                                     <div key={"reset-container-" + car.toString()}>
                                         <Grid
@@ -58,6 +78,10 @@ const ResetCars = () => {
                                         </Grid>
                                     </div>
                                 )
+                            }
+                            return (
+                                <p>Error with loading car data from /api/cars/status</p>
+                            )
                         })}
                     </Grid>
                 </div>
@@ -67,8 +91,8 @@ const ResetCars = () => {
                     onClick={resetCars}
                     sx={{ mt: 2 }}
                 >Reset Cars</Button>
-            </Stack >
-        </div >
+            </Stack>
+        </div>
     )
 }
 
