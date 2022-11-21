@@ -22,8 +22,6 @@ const ResetCars = () => {
     const getCars = async (result) => {
         rawAPIData = await (await result).json()
 
-        console.log(rawAPIData)
-
         const data = rawAPIData.data;
         //console.log(rawAPIData)
         //console.log(data)
@@ -68,7 +66,6 @@ const ResetCars = () => {
     }
 
     const resetCars = () => {
-        console.log(carsSelected)
         //reset everything
         const temp_states_array = [];
         for (let i = 0; i < checkboxStates.length; i++) {
@@ -76,7 +73,6 @@ const ResetCars = () => {
         }
         setCheckboxStates(temp_states_array)
         setCarsSelected([])
-        console.log(carsSelected)
     }
 
     const label = { inputProps: { 'aria-label': 'Reset Cars Checkbox' } };
