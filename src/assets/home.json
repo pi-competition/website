@@ -22,7 +22,7 @@
         },
         {
             "title": "Framework",
-            "text": "This website is built using React, tailwindcss and vanilla css. It also uses the MUI library, a Material UI library that provides prebuilt React components such as toggles, used for the colour switching, and data representation like graphs and charts.",
+            "text": "This website is built using React, tailwindcss and vanilla css. It also uses the MUI library, a Material UI library that provides prebuilt React components such as buttons, which are used all over the site, and content display components like stacks and grids.",
             "subsection": "website"
         }
     ]

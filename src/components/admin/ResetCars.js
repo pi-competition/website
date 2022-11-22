@@ -5,12 +5,23 @@ import { Button, Stack, Grid } from '@mui/material';
 const ResetCars = () => {
     let rawAPIData;
     let result;
+    let baseURL;
     const [cars, setCars] = useState([]);
     const [carsSelected, setCarsSelected] = useState([]);
     const [checkboxStates, setCheckboxStates] = useState([])
 
+    //set base url on whether the website is on staging or not
+    const currentURL = window.location.href
+    const currentURLArray = currentURL.split(".")
+    if (currentURLArray[0] === "https://pi-comp") {
+        baseURL = "https://papi-api.ben-services.eu.org/api/"
+    } else {
+        baseURL = "https://papi-api-stg.ben-services.eu.org/api/"
+    }
+
     const getCars = async (result) => {
-        const url = "https://papi-api.ben-services.eu.org/api/cars/status"
+        //get car data from api
+        const url = baseURL + "cars/status"
         const fetchOptions = {
             method: "GET"
         }
@@ -24,11 +35,7 @@ const ResetCars = () => {
             rawAPIData = await (await result).json()
         } catch (err) {
             console.error(err)
-            return (
-                <div>
-                    <p>An error occured. Please refresh the page and try again</p>
-                </div>
-            )
+            console.log(url)
         }
 
         const data = rawAPIData.data;
@@ -57,6 +64,7 @@ const ResetCars = () => {
         if (isNaN(value)) { console.error("value is NaN") }
 
         const temp_states_array = [];
+        //update the checkbox tracking array
         for (let i = 0; i < checkboxStates.length; i++) {
             if (i === value) {
                 temp_states_array.push(state)
@@ -76,7 +84,34 @@ const ResetCars = () => {
         }
     }
 
-    const resetCars = () => {
+    const postCarData = async (data) => {
+        const url = baseURL + "cars/reset-bulk"
+        const fetchOptions = {
+            method: "POST",
+            mode: "cors",
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(data)
+        }
+        //post request
+        const response = await fetch(url, fetchOptions)
+        return response.status
+    }
+
+    const resetCars = async () => {
+        //post request
+        const data = {
+            ids: carsSelected
+        }
+        postCarData(data)
+            .then((data) => console.log(data))
+            .catch((err) => {
+                console.log("error")
+                console.error(err)
+            })
         //reset everything
         const temp_states_array = [];
         for (let i = 0; i < checkboxStates.length; i++) {
