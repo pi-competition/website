@@ -5,6 +5,7 @@ import SendIcon from "@mui/icons-material/Send"
 import CloseIcon from "@mui/icons-material/Close"
 
 import config from "../../config.json"
+import { color } from '@mui/system';
 
 const ResetCars = () => {
     let rawAPIData;
@@ -17,6 +18,7 @@ const ResetCars = () => {
     const [loading, setLoading] = useState(true);
     const [collapseOpen, setCollapseOpen] = useState(false);
     const [resetCarsPostSuccess, setResetCarsPostSuccess] = useState(true);
+    const [alertError, setAlertError] = useState("There was an error when reseting the cars");
 
     //set base url on whether the website is on staging or not
     const currentURL = window.location.href
@@ -58,8 +60,6 @@ const ResetCars = () => {
         }
 
         const data = rawAPIData.data;
-        //console.log(rawAPIData)
-        //console.log(data)
         const temp_checkbox_state_array = [];
         data.forEach((carData) => {
             if (carData.state === "online") {
@@ -67,7 +67,6 @@ const ResetCars = () => {
                 temp_checkbox_state_array.push(false)
             }
         })
-        //console.log(carsArray)
         setCheckboxStates(temp_checkbox_state_array)
         setCars(carsArray)
         setLoading(false)
@@ -119,7 +118,7 @@ const ResetCars = () => {
         }
         //post request
         const response = await fetch(url, fetchOptions)
-        return response.status
+        return response
     }
 
     const resetCars = async () => {
@@ -131,9 +130,14 @@ const ResetCars = () => {
             ids: carsSelected
         }
         postCarData(data)
-            .then((data) => {
-                if (data === 204) {
+            .then(async (data) => {
+                if (data.status === 204) {
                     setCollapseOpen(true)
+                } else {
+                    setResetCarsPostSuccess(false)
+                    setCollapseOpen(true)
+                    setAlertError((await data.json()).error)
+                    getCars()
                 }
             })
             .catch((err) => {
@@ -193,7 +197,6 @@ const ResetCars = () => {
                         "&.MuiLoadingButton-loading": { backgroundColor: "#be5602" },
                     }}
                     loading={loading}
-                    loadingIndicator="Please Reload The Page"
                     variant="contained"
                 >Reset Cars</LoadingButton>
 
@@ -202,6 +205,7 @@ const ResetCars = () => {
                     addEndListener={() => {
                         setTimeout(() => {
                             setCollapseOpen(false)
+                            setResetCarsPostSuccess(true)
                         }, alert_duration);
                     }}
                     className="reset-cars-collapse"
@@ -225,7 +229,7 @@ const ResetCars = () => {
                         sx={{ mb: 2 }}
                     >
                         <AlertTitle>{resetCarsPostSuccess ? "Success" : "Error"}</AlertTitle>
-                        {resetCarsPostSuccess ? "The cars have been reset successfully!" : "An error occured when atempting to reset the cars!"}
+                        {resetCarsPostSuccess ? "The cars have been reset successfully!" : alertError}
                     </Alert>
                 </Collapse>
             </Stack>
