@@ -5,7 +5,6 @@ import SendIcon from "@mui/icons-material/Send"
 import CloseIcon from "@mui/icons-material/Close"
 
 import config from "../../config.json"
-import { color } from '@mui/system';
 
 const ResetCars = () => {
     let rawAPIData;
