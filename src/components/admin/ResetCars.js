@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import Checkbox from '@mui/material/Checkbox';
-import { Button, Stack, Grid } from '@mui/material';
+import { Checkbox, Stack, Grid, Alert, AlertTitle, Collapse, IconButton } from '@mui/material';
+import LoadingButton from "@mui/lab/LoadingButton"
+import SendIcon from "@mui/icons-material/Send"
+import CloseIcon from "@mui/icons-material/Close"
+
+import config from "../../config.json"
 
 const ResetCars = () => {
     let rawAPIData;
     let result;
     let baseURL;
+    const alert_duration = config.reset_cars_alert_duration
     const [cars, setCars] = useState([]);
     const [carsSelected, setCarsSelected] = useState([]);
     const [checkboxStates, setCheckboxStates] = useState([])
+    const [loading, setLoading] = useState(true);
+    const [collapseOpen, setCollapseOpen] = useState(false);
+    const [resetCarsPostSuccess, setResetCarsPostSuccess] = useState(true);
 
     //set base url on whether the website is on staging or not
     const currentURL = window.location.href
@@ -19,6 +27,8 @@ const ResetCars = () => {
         baseURL = "https://papi-api-stg.ben-services.eu.org/api/"
     }
 
+    //baseURL = "https://papi-api.ben-services.eu.org/api/"//comment out for prod
+
     const getCars = async (result) => {
         //get car data from api
         const url = baseURL + "cars/status"
@@ -28,11 +38,20 @@ const ResetCars = () => {
 
         const carsArray = [];
 
-        result = fetch(url, fetchOptions)
+        result = await fetch(url, fetchOptions)
             .catch((err) => console.error(err))
 
+        if (result.status !== 200) {
+            console.log(result.status)
+            return (
+                <div>
+                    <p>Error loading results, please reload page.</p>
+                </div>
+            )
+        }
+
         try {
-            rawAPIData = await (await result).json()
+            rawAPIData = await result.json()
         } catch (err) {
             console.error(err)
             console.log(url)
@@ -51,6 +70,8 @@ const ResetCars = () => {
         //console.log(carsArray)
         setCheckboxStates(temp_checkbox_state_array)
         setCars(carsArray)
+        setLoading(false)
+        return "success"
     }
 
     useEffect(() => {
@@ -102,15 +123,23 @@ const ResetCars = () => {
     }
 
     const resetCars = async () => {
+        if (carsSelected.length === 0) {
+            return
+        }
         //post request
         const data = {
             ids: carsSelected
         }
         postCarData(data)
-            .then((data) => console.log(data))
+            .then((data) => {
+                if (data === 204) {
+                    setCollapseOpen(true)
+                }
+            })
             .catch((err) => {
-                console.log("error")
                 console.error(err)
+                setResetCarsPostSuccess(false)
+                setCollapseOpen(true)
             })
         //reset everything
         const temp_states_array = [];
@@ -156,15 +185,61 @@ const ResetCars = () => {
                         })}
                     </Grid>
                 </div>
-                <Button
-                    variant="contained"
+                <LoadingButton
                     className='reset-cars-button'
+                    endIcon={<SendIcon />}
                     onClick={resetCars}
-                    sx={{ mt: 2 }}
-                >Reset Cars</Button>
+                    sx={{
+                        "&.MuiLoadingButton-loading": { backgroundColor: "#be5602" },
+                    }}
+                    loading={loading}
+                    loadingIndicator="Please Reload The Page"
+                    variant="contained"
+                >Reset Cars</LoadingButton>
+
+                <Collapse
+                    in={collapseOpen}
+                    addEndListener={() => {
+                        setTimeout(() => {
+                            setCollapseOpen(false)
+                        }, alert_duration);
+                    }}
+                    className="reset-cars-collapse"
+                >
+                    <Alert
+                        className='reset-cars-alert'
+                        variant="filled"
+                        severity={resetCarsPostSuccess ? "success" : "error"}
+                        action={
+                            <IconButton
+                                aria-label="close"
+                                color="inherit"
+                                size="small"
+                                onClick={() => {
+                                    setCollapseOpen(false);
+                                }}
+                            >
+                                <CloseIcon fontSize="inherit" />
+                            </IconButton>
+                        }
+                        sx={{ mb: 2 }}
+                    >
+                        <AlertTitle>{resetCarsPostSuccess ? "Success" : "Error"}</AlertTitle>
+                        {resetCarsPostSuccess ? "The cars have been reset successfully!" : "An error occured when atempting to reset the cars!"}
+                    </Alert>
+                </Collapse>
             </Stack>
         </div>
     )
 }
 
 export default ResetCars
+
+/*
+<Button
+    variant="contained"
+    className='reset-cars-button'
+    onClick={resetCars}
+    sx={{ mt: 2 }}
+>Reset Cars</Button>
+*/

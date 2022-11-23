@@ -39,6 +39,16 @@
     align-self: center;
 }
 
+.MuiLoadingButton-root > .MuiLoadingButton-loading {
+    color: #ffffff;
+    
+}
+
+.reset-cars-alert {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 #username-input,
 #password-input {
   background-color: var(--secondary-background);
