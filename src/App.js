@@ -9,8 +9,10 @@ import Footer from "./components/Footer"
 import Admin from "./components/Admin"
 
 const App = () => {
+
   return (
     <div style={{ height: '100vh' }} className="the-parent">
+      {console.log("Ldfhiuasdhgui")}
       <div className='main-section'>
         <Routes>
           <Route path="/" element={<PageHandler />}>

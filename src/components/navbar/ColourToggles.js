@@ -5,14 +5,21 @@ import { ThemeContext } from '../../contexts/themeContext'
 
 const ColourToggles = () => {
     return (
+
         <div className='colour-mode-buttons'>
+
             <ThemeContext.Consumer>
                 {({ changeTheme }) => (
                     <ToggleButton changeTheme={changeTheme} />
                 )}
             </ThemeContext.Consumer>
+
         </div>
     )
 }
 
 export default ColourToggles
+
+/* bens shit code
+* !window.location.href.includes("/admin") ? changeTheme : () => { console.log("DO NOT CHANGE THEME ON ADMIN PAEGE!!!!!!!!!!!!!!!!") }
+*/

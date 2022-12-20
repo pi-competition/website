@@ -8,14 +8,32 @@ import ColourToggles from './navbar/ColourToggles'
 
 const NavigationBar = () => {
 
+
+
     return (
         <nav className='nav-container'>
-            <h1 className='text-2xl' id='team-name'>Team IAN</h1>
+            <h1 className='text-2xl' id='team-name'>Team PANIC</h1>
 
             <div className='nav-buttons'>
                 <ButtonGroup variant="text">
-                    <Link to="/"><Button id="home-button">Home</Button></Link>
-                    <Link to="/about"><Button id="about-button">About</Button></Link>
+                    {
+                        window.location.pathname === "/admin" ? (
+                            <div>
+                                <Button id="home-button" onClick={() => {
+                                    window.location.pathname = "/"
+                                    window.location.reload()
+                                }}>Home</Button>
+                                <Button id="about-button">About</Button>
+
+                            </div>
+                        ) : (
+                            <div>
+                                <Link to="/"><Button id="home-button">Home</Button></Link>
+                                <Link to="/about"><Button id="about-button">About</Button></Link>
+                            </div>
+
+                        )
+                    }
                 </ButtonGroup>
             </div>
             <ColourToggles />

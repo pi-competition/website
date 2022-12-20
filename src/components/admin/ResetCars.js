@@ -10,14 +10,17 @@ const ResetCars = () => {
     let rawAPIData;
     let result;
     let baseURL;
-    const alert_duration = config.reset_cars_alert_duration
+    const ALERT_DURATION = config.reset_cars_alert_duration
     const [cars, setCars] = useState([]);
+    const [carData, setCarData] = useState();
     const [carsSelected, setCarsSelected] = useState([]);
     const [checkboxStates, setCheckboxStates] = useState([])
     const [loading, setLoading] = useState(true);
     const [collapseOpen, setCollapseOpen] = useState(false);
     const [resetCarsPostSuccess, setResetCarsPostSuccess] = useState(true);
     const [alertError, setAlertError] = useState("There was an error when reseting the cars");
+    const [alertTitle, setAlertTitle] = useState("Error");
+    const [bodyClassList, setBodyClassList] = useState(document.body.classList)
 
     //set base url on whether the website is on staging or not
     const currentURL = window.location.href
@@ -43,7 +46,6 @@ const ResetCars = () => {
             .catch((err) => console.error(err))
 
         if (result.status !== 200) {
-            console.log(result.status)
             return (
                 <div>
                     <p>Error loading results, please reload page.</p>
@@ -61,13 +63,12 @@ const ResetCars = () => {
         const data = rawAPIData.data;
         const temp_checkbox_state_array = [];
         data.forEach((carData) => {
-            if (carData.state === "online") {
-                carsArray.push(carData.id)
-                temp_checkbox_state_array.push(false)
-            }
+            carsArray.push(carData.id)
+            temp_checkbox_state_array.push(false)
         })
         setCheckboxStates(temp_checkbox_state_array)
         setCars(carsArray)
+        setCarData(data)
         setLoading(false)
         return "success"
     }
@@ -110,7 +111,8 @@ const ResetCars = () => {
             mode: "cors",
             credentials: 'same-origin',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'admin'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: JSON.stringify(data)
@@ -131,11 +133,15 @@ const ResetCars = () => {
         postCarData(data)
             .then(async (data) => {
                 if (data.status === 204) {
+                    setResetCarsPostSuccess(true)
                     setCollapseOpen(true)
                 } else {
+                    const parsed = await data.json()
+                    console.log(parsed)
                     setResetCarsPostSuccess(false)
                     setCollapseOpen(true)
-                    setAlertError((await data.json()).error)
+                    setAlertTitle(parsed.message)
+                    if (parsed.error) { setAlertError(parsed.error) }
                     getCars()
                 }
             })
@@ -152,6 +158,19 @@ const ResetCars = () => {
         setCheckboxStates(temp_states_array)
         setCarsSelected([])
     }
+
+    var bodyVar = document.documentElement || document.body;
+    var observer = new MutationObserver(() => {
+        setBodyClassList(document.body.classList)
+        console.log(document.body.classList)
+    })
+
+    //console.log(bodyVar)
+
+    observer.observe(bodyVar, {
+        attributes: true,
+        classList: true
+    })
 
     const label = { inputProps: { 'aria-label': 'Reset Cars Checkbox' } };
 
@@ -181,6 +200,13 @@ const ResetCars = () => {
                                             name={car.toString()}
                                             onChange={handleCheck}
                                             checked={checkboxStates[car]}
+                                            disabled={(carData[car]).state === "online" ? false : true} //carData[car].state !== "online" ? false : true
+                                            sx={{
+                                                color: document.body.classList.length === 0 ? "#ffffff" : "#000000",
+                                                "&.Mui-disabled": {
+                                                    color: "#7d6d99"
+                                                }
+                                            }}
                                         />
                                     </Grid>
                                 </div>
@@ -204,8 +230,7 @@ const ResetCars = () => {
                     addEndListener={() => {
                         setTimeout(() => {
                             setCollapseOpen(false)
-                            setResetCarsPostSuccess(true)
-                        }, alert_duration);
+                        }, ALERT_DURATION);
                     }}
                     className="reset-cars-collapse"
                 >
@@ -227,7 +252,7 @@ const ResetCars = () => {
                         }
                         sx={{ mb: 2 }}
                     >
-                        <AlertTitle>{resetCarsPostSuccess ? "Success" : "Error"}</AlertTitle>
+                        <AlertTitle>{resetCarsPostSuccess ? "Success" : alertTitle}</AlertTitle>
                         {resetCarsPostSuccess ? "The cars have been reset successfully!" : alertError}
                     </Alert>
                 </Collapse>

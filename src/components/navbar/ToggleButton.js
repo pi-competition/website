@@ -19,6 +19,7 @@ const ToggleButton = ({ changeTheme }) => {
                     setDarkMode(!darkMode);
                 }}
                 color="inherit"
+                disabled={window.location.href.includes("/admin") ? true : false}
             >
                 {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>

@@ -6,7 +6,7 @@ import ResetCars from './admin/ResetCars';
 import "../admin.css"
 
 const Admin = () => {
-    const [token, setToken] = useState(".");
+    const [token, setToken] = useState("");
 
     if (!token) {
         return <Login setToken={setToken} />
