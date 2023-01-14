@@ -1,11 +1,11 @@
 import { Stack, Alert, AlertTitle, Collapse, IconButton, Button, TextField } from '@mui/material';
 import CloseIcon from "@mui/icons-material/Close"
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import config from "../../config.json"
 
 const Login = ({ setToken }) => {
     let baseURL;
-    const ALERT_DURATION = config.reset_cars_alert_duration
+    const ALERT_DURATION = config.loginPageAlertDuration
     const [userField, setUserField] = useState("");
     const [passField, setPassField] = useState("");
     const [collapseOpen, setCollapseOpen] = useState(false);

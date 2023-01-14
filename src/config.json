@@ -1,3 +1,5 @@
 {
-    "reset_cars_alert_duration": 100000
+    "resetCarsAlertDuration": 4000,
+    "loginPageAlertDuration": 5000,
+    "requirePasswordForAdmin": false
 }

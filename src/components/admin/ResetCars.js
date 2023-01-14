@@ -6,11 +6,11 @@ import CloseIcon from "@mui/icons-material/Close"
 
 import config from "../../config.json"
 
-const ResetCars = () => {
+const ResetCars = ({ carsFunc }) => {
     let rawAPIData;
     let result;
     let baseURL;
-    const ALERT_DURATION = config.reset_cars_alert_duration
+    const ALERT_DURATION = config.resetCarsAlertDuration
     const [cars, setCars] = useState([]);
     const [carData, setCarData] = useState();
     const [carsSelected, setCarsSelected] = useState([]);
@@ -20,7 +20,7 @@ const ResetCars = () => {
     const [resetCarsPostSuccess, setResetCarsPostSuccess] = useState(true);
     const [alertError, setAlertError] = useState("There was an error when reseting the cars");
     const [alertTitle, setAlertTitle] = useState("Error");
-    const [bodyClassList, setBodyClassList] = useState(document.body.classList)
+    const [errorMessage, setErrorMessage] = useState("")
 
     //set base url on whether the website is on staging or not
     const currentURL = window.location.href
@@ -46,11 +46,8 @@ const ResetCars = () => {
             .catch((err) => console.error(err))
 
         if (result.status !== 200) {
-            return (
-                <div>
-                    <p>Error loading results, please reload page.</p>
-                </div>
-            )
+            setErrorMessage("Error loading results, please reload page.")
+            return
         }
 
         try {
@@ -69,6 +66,7 @@ const ResetCars = () => {
         setCheckboxStates(temp_checkbox_state_array)
         setCars(carsArray)
         setCarData(data)
+        carsFunc(data)
         setLoading(false)
         return "success"
     }
@@ -159,106 +157,101 @@ const ResetCars = () => {
         setCarsSelected([])
     }
 
-    var bodyVar = document.documentElement || document.body;
-    var observer = new MutationObserver(() => {
-        setBodyClassList(document.body.classList)
-        console.log(document.body.classList)
-    })
-
-    //console.log(bodyVar)
-
-    observer.observe(bodyVar, {
-        attributes: true,
-        classList: true
-    })
-
     const label = { inputProps: { 'aria-label': 'Reset Cars Checkbox' } };
 
-    return (
-        <div className="reset-cars">
-            <Stack spacing={2}>
-                <div className='reset-checkboxes'>
-                    <Grid
-                        container
-                        justifyContent="center"
-                    >
-                        {cars && cars.map((car) => {
-                            return (
-                                <div key={"reset-container-" + car.toString()}>
-                                    <Grid
-                                        item
-                                        xs
-                                        className='grid-item'
-                                        ml={5}
-                                        mr={5}
-                                    >
-                                        <p>Car {car.toString()}</p>
-                                        <Checkbox
-                                            {...label}
-                                            id={"checkbox-" + car.toString()}
-                                            color='primary'
-                                            name={car.toString()}
-                                            onChange={handleCheck}
-                                            checked={checkboxStates[car]}
-                                            disabled={(carData[car]).state === "online" ? false : true} //carData[car].state !== "online" ? false : true
-                                            sx={{
-                                                color: document.body.classList.length === 0 ? "#ffffff" : "#000000",
-                                                "&.Mui-disabled": {
-                                                    color: "#7d6d99"
-                                                }
-                                            }}
-                                        />
-                                    </Grid>
-                                </div>
-                            )
-                        })}
-                    </Grid>
-                </div>
-                <LoadingButton
-                    className='reset-cars-button'
-                    endIcon={<SendIcon />}
-                    onClick={resetCars}
-                    sx={{
-                        "&.MuiLoadingButton-loading": { backgroundColor: "#be5602" },
-                    }}
-                    loading={loading}
-                    variant="contained"
-                >Reset Cars</LoadingButton>
+    if (errorMessage === "") {
+        return (
+            <div className="reset-cars">
+                <Stack spacing={2}>
+                    <div className='reset-checkboxes'>
+                        <Grid
+                            container
+                            justifyContent="center"
+                        >
+                            {cars && cars.map((car) => {
+                                return (
+                                    <div key={"reset-container-" + car.toString()}>
+                                        <Grid
+                                            item
+                                            xs
+                                            className='grid-item-reset-cars'
+                                            ml={5}
+                                            mr={5}
+                                        >
+                                            <p>Car {car.toString()}</p>
+                                            <Checkbox
+                                                {...label}
+                                                id={"checkbox-" + car.toString()}
+                                                color='primary'
+                                                name={car.toString()}
+                                                onChange={handleCheck}
+                                                checked={checkboxStates[car]}
+                                                disabled={(carData[car]).state === "online" ? false : true} //disable the checkbox if the car is not online
+                                                sx={{
+                                                    color: "#ffffff",
+                                                    "&.Mui-disabled": {
+                                                        color: "#808080"
+                                                    }
+                                                }}
+                                            />
+                                        </Grid>
+                                    </div>
+                                )
+                            })}
+                        </Grid>
+                    </div>
+                    <LoadingButton
+                        className='reset-cars-button'
+                        endIcon={<SendIcon />}
+                        onClick={resetCars}
+                        sx={{
+                            "&.MuiLoadingButton-loading": { backgroundColor: "#be5602" },
+                        }}
+                        loading={loading}
+                        variant="contained"
+                    >Reset Cars</LoadingButton>
 
-                <Collapse
-                    in={collapseOpen}
-                    addEndListener={() => {
-                        setTimeout(() => {
-                            setCollapseOpen(false)
-                        }, ALERT_DURATION);
-                    }}
-                    className="reset-cars-collapse"
-                >
-                    <Alert
-                        className='reset-cars-alert'
-                        variant="filled"
-                        severity={resetCarsPostSuccess ? "success" : "error"}
-                        action={
-                            <IconButton
-                                aria-label="close"
-                                color="inherit"
-                                size="small"
-                                onClick={() => {
-                                    setCollapseOpen(false);
-                                }}
-                            >
-                                <CloseIcon fontSize="inherit" />
-                            </IconButton>
-                        }
-                        sx={{ mb: 2 }}
+                    <Collapse
+                        in={collapseOpen}
+                        addEndListener={() => {
+                            setTimeout(() => {
+                                setCollapseOpen(false)
+                            }, ALERT_DURATION);
+                        }}
+                        className="reset-cars-collapse"
                     >
-                        <AlertTitle>{resetCarsPostSuccess ? "Success" : alertTitle}</AlertTitle>
-                        {resetCarsPostSuccess ? "The cars have been reset successfully!" : alertError}
-                    </Alert>
-                </Collapse>
-            </Stack>
-        </div>
-    )
+                        <Alert
+                            className='reset-cars-alert'
+                            variant="filled"
+                            severity={resetCarsPostSuccess ? "success" : "error"}
+                            action={
+                                <IconButton
+                                    aria-label="close"
+                                    color="inherit"
+                                    size="small"
+                                    onClick={() => {
+                                        setCollapseOpen(false);
+                                    }}
+                                >
+                                    <CloseIcon fontSize="inherit" />
+                                </IconButton>
+                            }
+                            sx={{ mb: 2 }}
+                        >
+                            <AlertTitle>{resetCarsPostSuccess ? "Success" : alertTitle}</AlertTitle>
+                            {resetCarsPostSuccess ? "The cars have been reset successfully." : alertError}
+                        </Alert>
+                    </Collapse>
+                </Stack>
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <p>{errorMessage}</p>
+            </div>
+        )
+    }
 }
 
 export default ResetCars

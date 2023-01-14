@@ -12,8 +12,6 @@
     color: var(--text);
 }
 
-
-
 .checkbox-group {
     width: 5%;
     display: flex;
@@ -46,6 +44,17 @@
   margin-left: 20%;
   margin-right: 20%;
 }
+/*status continer*/
+
+.car-status-container{
+    padding: 1rem;
+    background-color: var(--container-colour);
+    border-radius: 5px;
+    margin: 10px;
+    width: 200px;
+    border-width: thin;
+}
+
 
 #username-input,
 #password-input {

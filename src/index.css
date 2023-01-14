@@ -102,7 +102,7 @@ a:active {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
-  padding-left: 3.95%;/* add padding to the toggles to make the page buttons centered */
+  padding-left: 6%;/* add padding to the toggles to make the page buttons centered */
   padding-top: 0.5%;
   padding-bottom: 0.5%;
 }

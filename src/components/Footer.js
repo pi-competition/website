@@ -2,6 +2,7 @@ import Stack from '@mui/material/Stack'
 import React from 'react'
 import GitHubIcon from '@mui/icons-material/GitHub';
 import CopyrightIcon from '@mui/icons-material/Copyright';
+import content_config from "../assets/general_content.json"
 
 const Footer = () => {
     return (
@@ -19,7 +20,7 @@ const Footer = () => {
                     <CopyrightIcon
                         fontSize='small'
                     />
-                    TeamIAN 2022
+                    Team{content_config.team_name} 2022
                 </p>
             </Stack>
         </div>
