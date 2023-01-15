@@ -13,14 +13,14 @@ import bgSvgLight from "./assets/bgSvgLight.svg"
 const App = () => {
     const [darkMode, setDarkMode] = useState(true)
 
-    const switchTheme = () => {
-        setDarkMode(!darkMode)
+    const switchTheme = (bool) => {
+        setDarkMode(bool)
     }
 
     return (
         <div
             className="the-parent"
-            style={{ backgroundImage: `url(${darkMode === true ? bgSvgDark : bgSvgLight})` }}
+            style={{ backgroundImage: `url(${darkMode ? bgSvgDark : bgSvgLight})` }}
         >
             <div className='main-section'>
                 <Routes>
