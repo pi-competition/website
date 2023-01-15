@@ -13,8 +13,8 @@ import bgSvgLight from "./assets/bgSvgLight.svg"
 const App = () => {
     const [darkMode, setDarkMode] = useState(true)
 
-    const switchTheme = (bool) => {
-        setDarkMode(bool)
+    const switchTheme = () => {
+        setDarkMode(!darkMode)
     }
 
     return (

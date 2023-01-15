@@ -10,6 +10,7 @@ const ToggleButton = ({ changeTheme, giveTheme }) => {
     useEffect(() => {
         changeTheme(darkMode ? themes.dark : themes.light);
         // eslint-disable-next-line
+        giveTheme(darkMode)
     }, [darkMode])
 
     return (
@@ -17,7 +18,6 @@ const ToggleButton = ({ changeTheme, giveTheme }) => {
             <IconButton
                 onClick={() => {
                     setDarkMode(!darkMode);
-                    giveTheme(darkMode)
                 }}
                 color="inherit"
                 disabled={window.location.pathname === "/admin" ? true : false}
