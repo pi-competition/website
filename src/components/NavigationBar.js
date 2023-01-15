@@ -7,7 +7,7 @@ import Button from "@mui/material/Button"
 import ButtonGroup from "@mui/material/ButtonGroup"
 import ColourToggles from './navbar/ColourToggles'
 
-const NavigationBar = () => {
+const NavigationBar = ({ giveTheme }) => {
     const [rerenderVar, setRerenderVar] = useState(false)//a useState to force the page to rerender and change the state of the appearence mode button
 
     return (
@@ -35,7 +35,7 @@ const NavigationBar = () => {
                     }
                 </ButtonGroup>
             </div>
-            <ColourToggles />
+            <ColourToggles giveTheme={giveTheme} />
         </nav>
     )
 }

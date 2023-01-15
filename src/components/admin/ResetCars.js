@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Checkbox, Stack, Grid, Alert, AlertTitle, Collapse, IconButton } from '@mui/material';
+import { Alert, AlertTitle, Checkbox, Collapse, Grid, IconButton, Stack } from '@mui/material';
 import LoadingButton from "@mui/lab/LoadingButton"
 import SendIcon from "@mui/icons-material/Send"
 import CloseIcon from "@mui/icons-material/Close"
@@ -116,8 +116,7 @@ const ResetCars = ({ carsFunc }) => {
             body: JSON.stringify(data)
         }
         //post request
-        const response = await fetch(url, fetchOptions)
-        return response
+        return await fetch(url, fetchOptions)
     }
 
     const resetCars = async () => {
@@ -140,7 +139,7 @@ const ResetCars = ({ carsFunc }) => {
                     setCollapseOpen(true)
                     setAlertTitle(parsed.message)
                     if (parsed.error) { setAlertError(parsed.error) }
-                    getCars()
+                    await getCars()
                 }
             })
             .catch((err) => {
@@ -186,7 +185,7 @@ const ResetCars = ({ carsFunc }) => {
                                                 name={car.toString()}
                                                 onChange={handleCheck}
                                                 checked={checkboxStates[car]}
-                                                disabled={(carData[car]).state === "online" ? false : true} //disable the checkbox if the car is not online
+                                                disabled={(carData[car]).state !== "online"} //disable the checkbox if the car is not online
                                                 sx={{
                                                     color: "#ffffff",
                                                     "&.Mui-disabled": {

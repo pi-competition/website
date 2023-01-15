@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton'
 import Brightness4Icon from "@mui/icons-material/Brightness4"
 import Brightness7Icon from "@mui/icons-material/Brightness7"
 
-const ToggleButton = ({ changeTheme }) => {
+const ToggleButton = ({ changeTheme, giveTheme }) => {
     const [darkMode, setDarkMode] = useState(true)
 
     useEffect(() => {
@@ -17,6 +17,7 @@ const ToggleButton = ({ changeTheme }) => {
             <IconButton
                 onClick={() => {
                     setDarkMode(!darkMode);
+                    giveTheme(darkMode)
                 }}
                 color="inherit"
                 disabled={window.location.pathname === "/admin" ? true : false}

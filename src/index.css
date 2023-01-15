@@ -38,13 +38,12 @@ body {
   font-style: normal;
   background-color: var(--background-colour);
   color: var(--text);
-}
-
-body {
+  /*scroll stuff*/
   -ms-overflow-style: none; /** For IE */
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 ::-webkit-scrollbar {display:none;}
 @-moz-document url-prefix() {
   html,
@@ -81,7 +80,7 @@ a:active {
 }
 
 .main-section {
-  min-height: 93vh;
+  min-height: 100vh;
 }
 
 
@@ -110,9 +109,7 @@ a:active {
 .footer { /* div for the footer in Footer */
   bottom: 0;
   width: 100%;
-  height: 7vh;
-  padding: 5px;
-  background-color: var(--background-colour);
+  padding: 1%;
   color: var(--text);
 }
 
@@ -143,7 +140,8 @@ a:active {
 }
 
 #about-us-title,
-#home-title {
+#home-title,
+#admin-title{
   margin-top: 1rem;
 }
 
@@ -155,5 +153,13 @@ a:active {
 #home-subheading{
   margin-left: 10%;
   margin-right: 10%;
+}
+
+#visual { 
+  position: absolute; 
+  top:0;
+  left:0; 
+  height:100%; 
+  width:100% 
 }
 

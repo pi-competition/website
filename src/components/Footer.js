@@ -20,7 +20,7 @@ const Footer = () => {
                     <CopyrightIcon
                         fontSize='small'
                     />
-                    Team{content_config.team_name} 2022
+                    Team {content_config.team_name} 2023
                 </p>
             </Stack>
         </div>

@@ -4,7 +4,7 @@ import { ThemeContext, themes } from '../contexts/themeContext';
 export default function ThemeContextWrapper(props) {
     const [theme, setTheme] = useState(themes.dark);
 
-    function changeTheme(theme) {
+    const changeTheme = (theme) => {
         setTheme(theme);
     }
 

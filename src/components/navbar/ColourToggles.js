@@ -3,14 +3,14 @@ import React from 'react'
 import { ThemeContext } from '../../contexts/themeContext'
 
 
-const ColourToggles = () => {
+const ColourToggles = ({ giveTheme }) => {
     return (
 
         <div className='colour-mode-buttons'>
 
             <ThemeContext.Consumer>
                 {({ changeTheme }) => (
-                    <ToggleButton changeTheme={changeTheme} />
+                    <ToggleButton changeTheme={changeTheme} giveTheme={giveTheme} />
                 )}
             </ThemeContext.Consumer>
 

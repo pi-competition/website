@@ -6,7 +6,6 @@ import config from "../config.json"
 
 import "../admin.css"
 import CarsStatus from './admin/CarsStatus';
-import CarStatusContainer from './admin/CarStatusContainer';
 
 const Admin = () => {
     let initToken;
@@ -28,11 +27,12 @@ const Admin = () => {
     return (
         <div className='admin-div'>
             <Stack spacing={2}>
+                <p className='text-4xl bold flex justify-center' id="admin-title">Admin</p>
                 <Divider sx={dividerStyleText} className="admin-divider" m="1rem" >Car Information</Divider>
                 {carData && <CarsStatus carsData={carData} />}
                 <Divider sx={dividerStyleText} className="admin-divider" m="1rem" >Reset Cars</Divider>
                 <ResetCars carsFunc={setCars} />
-                <Divider sx={dividerStyleNoText} className="admin-divider" m="1rem" ></Divider>
+                <Divider sx={dividerStyleNoText} className="admin-divider" m="1rem" />
             </Stack>
         </div>
     )
