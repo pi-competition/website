@@ -3,52 +3,109 @@ import { Link } from "react-router-dom"
 import "../index.css"
 import generalContent from "../assets/general_content.json"
 
-import Button from "@mui/material/Button"
-import ButtonGroup from "@mui/material/ButtonGroup"
+import { Button, ButtonGroup, AppBar, Container, Toolbar, Typography } from "@mui/material"
 import ColourToggles from './navbar/ColourToggles'
 
 const NavigationBar = ({ giveTheme }) => {
     const [rerenderVar, setRerenderVar] = useState(false)//a useState to force the page to rerender and change the state of the appearence mode button
 
     return (
-        <nav className='nav-container'>
-            <h1 className='text-2xl' id='team-name'>Team {generalContent.team_name}</h1>
+        <AppBar
+            className='nav-container'
+            position='static'
+        >
+            <Container
+                maxWidth="xl"
+            >
+                <Toolbar
+                    disableGutters
+                    variant='regular'
+                >
+                    <Typography
+                        variant="h5"
+                        noWrap
+                        component="a"
+                        href="/"
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 500,
+                            letterSpacing: '.01rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
 
-            <div className='nav-buttons'>
-                <ButtonGroup variant="text">
-                    {
+                        Team
+                    </Typography>
+                    <Typography
+                        variant="h5"
+                        noWrap
+                        component="a"
+                        href="/"
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 500,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
 
-                        <div>
-                            <Link to="/"><Button id="home-button" onClick={() => {
-                                setRerenderVar(!rerenderVar)
-                            }}>
-                                Home
-                            </Button></Link>
-                            <Link to="/about"><Button id="about-button" onClick={() => {
-                                setRerenderVar(!rerenderVar)
-                            }}>
-                                About
-                            </Button></Link>
-                        </div>
+                        {generalContent.team_name}
+                    </Typography>
 
+                    <div className='nav-buttons'>
+                        <ButtonGroup>
+                            <Link
+                                to="/"
+                            >
+                                <Button
+                                    id="home-button"
+                                    onClick={() => {
+                                        setRerenderVar(!rerenderVar)
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
 
-                    }
-                </ButtonGroup>
-            </div>
-            <ColourToggles giveTheme={giveTheme} />
-        </nav>
+                                        Home
+                                    </Typography>
+                                </Button>
+                            </Link>
+
+                            <Link
+                                to="/about"
+                            >
+                                <Button
+                                    id="about-button"
+                                    onClick={() => {
+                                        setRerenderVar(!rerenderVar)
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
+
+                                        About
+                                    </Typography>
+                                </Button>
+                            </Link>
+                        </ButtonGroup>
+                    </div>
+                    <ColourToggles giveTheme={giveTheme} />
+                </Toolbar>
+            </Container>
+        </AppBar>
     )
 }
 
 export default NavigationBar
-
-/*
-<button
-        onClick={() => { window.open("https://github.com/pi-competition", "_blank", "noopener,noreferrer") }}
-    >
-        <TbBrandGithub
-            id="github-icon"
-            size={"30px"}
-        />
-</button> 
-*/

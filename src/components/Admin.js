@@ -10,7 +10,7 @@ import CarsStatus from './admin/CarsStatus';
 const Admin = () => {
     let initToken;
     if (config.requirePasswordForAdmin) initToken = ""
-    else initToken = "."
+    else initToken = "admin"
     const [token, setToken] = useState(initToken);
     const [carData, setCarData] = useState();
 
@@ -31,7 +31,7 @@ const Admin = () => {
                 <Divider sx={dividerStyleText} className="admin-divider" m="1rem" >Car Information</Divider>
                 {carData && <CarsStatus carsData={carData} />}
                 <Divider sx={dividerStyleText} className="admin-divider" m="1rem" >Reset Cars</Divider>
-                <ResetCars carsFunc={setCars} />
+                <ResetCars carsFunc={setCars} auth={token} />
                 <Divider sx={dividerStyleNoText} className="admin-divider" m="1rem" />
             </Stack>
         </div>

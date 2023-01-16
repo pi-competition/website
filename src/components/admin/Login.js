@@ -50,7 +50,7 @@ const Login = ({ setToken }) => {
                 setCollapseOpen(true)
             })
         if (response.status === 204) {
-            setToken(username)
+            setToken(password)
         } else if (response.status === 401 || response.status === 403) {
             const response_json = await response.json()
             setLoginErrorTitle(response_json.message)

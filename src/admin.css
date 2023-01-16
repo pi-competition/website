@@ -1,5 +1,6 @@
 .admin-input-stack {
-    width: 20%;
+    max-width: 60vw;
+    min-width: 13vw;
     margin-top: 27vh;
 }
 
@@ -31,7 +32,7 @@
 
 .reset-cars-button {
     height: 10%;
-    width: 20%;
+    min-width: 20%;
     align-self: center;
 }
 

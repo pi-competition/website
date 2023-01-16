@@ -6,7 +6,7 @@ import CloseIcon from "@mui/icons-material/Close"
 
 import config from "../../config.json"
 
-const ResetCars = ({ carsFunc }) => {
+const ResetCars = ({ carsFunc, auth }) => {
     let rawAPIData;
     let result;
     let baseURL;
@@ -73,7 +73,10 @@ const ResetCars = ({ carsFunc }) => {
 
     useEffect(() => {
         getCars(result)
+        // eslint-disable-next-line
     }, [])
+
+
 
     const handleCheck = (event) => {
         const state = event.target.checked
@@ -110,7 +113,7 @@ const ResetCars = ({ carsFunc }) => {
             credentials: 'same-origin',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'admin'
+                'Authorization': auth
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: JSON.stringify(data)

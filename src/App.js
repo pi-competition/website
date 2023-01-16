@@ -9,6 +9,10 @@ import Footer from "./components/Footer"
 import Admin from "./components/Admin"
 import bgSvgDark from "./assets/bgSvgDark.svg"
 import bgSvgLight from "./assets/bgSvgLight.svg"
+import bgPngDark from "./assets/bgPngDark.png"
+import bgPngLight from "./assets/bgPngLight.png"
+import config from "./config.json"
+
 
 const App = () => {
     const [darkMode, setDarkMode] = useState(true)
@@ -17,10 +21,16 @@ const App = () => {
         setDarkMode(bool)
     }
 
+    let bgString;
+    if (config.bgType === "svg") bgString = `url(${darkMode ? bgSvgDark : bgSvgLight})`
+    else if (config.bgType === "png") bgString = `url(${darkMode ? bgPngDark : bgPngLight})`
+    else bgString = "none"
+
     return (
         <div
             className="the-parent"
-            style={{ backgroundImage: `url(${darkMode ? bgSvgDark : bgSvgLight})` }}
+            style={{ backgroundImage: bgString }}
+
         >
             <div className='main-section'>
                 <Routes>
