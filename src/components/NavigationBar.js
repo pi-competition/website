@@ -152,9 +152,7 @@ const NavigationBar = ({ giveTheme }) => {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <ColourToggles giveTheme={giveTheme} />
-                        </Tooltip>
+                        <ColourToggles giveTheme={giveTheme} />
                     </Box>
                 </Toolbar>
             </Container>
