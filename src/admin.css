@@ -1,0 +1,64 @@
+.admin-input-stack {
+    max-width: 60vw;
+    min-width: 13vw;
+    margin-top: 27vh;
+}
+
+/* dodgy css to get the mui login to recolor */
+.MuiTextField-root > label {
+    color: var(--text);
+}
+
+.MuiTextField-root > .MuiFormLabel-root.Mui-focused {
+    color: var(--text);
+}
+
+.checkbox-group {
+    width: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.reset-cars {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reset-checkboxes {
+    display: flex !important;
+    justify-content: center;
+}
+
+.reset-cars-button {
+    height: 10%;
+    min-width: 20%;
+    align-self: center;
+}
+
+.MuiLoadingButton-root > .MuiLoadingButton-loading {
+    color: #ffffff;
+    
+}
+
+.reset-cars-alert {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+/*status continer*/
+
+.car-status-container{
+    padding: 1rem;
+    background-color: var(--container-colour);
+    border-radius: 5px;
+    margin: 10px;
+    width: 200px;
+    border-width: thin;
+}
+
+
+#username-input,
+#password-input {
+  background-color: var(--secondary-background);
+  color: var(--text);
+}

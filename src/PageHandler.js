@@ -3,13 +3,11 @@ import { Outlet } from 'react-router-dom'
 import NavigationBar from "./components/NavigationBar"
 
 
-const PageHandler = () => {
+const PageHandler = ({ giveTheme }) => {
     return (
         <div className="page-handler">
-            <div >
-                <NavigationBar />
-                <Outlet />
-            </div>
+            <NavigationBar giveTheme={giveTheme} />
+            <Outlet />
         </div>
 
     )

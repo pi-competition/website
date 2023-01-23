@@ -1,22 +1,9 @@
 {
     "sections": [
         {
-            "title": "Website",
-            "text": "subheading"
-        },
-        {
-            "title": "Hosting",
-            "text": "This website is currently hosted on Cloudflare Pages, it is using a custom domain from nic.eu.org.",
-            "subsection": "website"
-        },
-        {
-            "title": "Framework",
-            "text": "This website is built using React, tailwindcss and vanilla css. It also uses the MUI library, a Material UI library that provides prebuilt React components such as toggles, used for the colour switching, and data representation like graphs and charts.",
-            "subsection": "website"
-        },
-        {
-            "title": "Engineering",
-            "text": "subheading"
+            "title": "Team PANIC",
+            "text": "Our team name, PANIC, stands for ...",
+            "subsection": "team name"
         },
         {
             "title": "Cars",
@@ -27,6 +14,21 @@
             "title": "Road",
             "text": "The road is (probably going to be) made from triple ply cardboard to keep it strong whilst also being light and portable.",
             "subsection": "engineering"
+        },
+        {
+            "title": "Hosting",
+            "text": "This website is currently hosted on Cloudflare Pages, it is using a custom domain from nic.eu.org.",
+            "subsection": "website"
+        },
+        {
+            "title": "Framework",
+            "text": "This website is built using React and vanilla css with a tiny bit of tailwindcss. It also uses the MUI library, a Material UI library that provides prebuilt React components such as buttons, which are used all over the site, and content display components like stacks and grids.",
+            "subsection": "website"
+        },
+        {
+            "title": "API",
+            "text": "API stuff",
+            "subsection": "backend"
         }
     ]
 }

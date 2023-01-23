@@ -1,37 +1,290 @@
-import React from 'react'
-import { Link } from "react-router-dom"
-import "../index.css"
-
-import Button from "@mui/material/Button"
-import ButtonGroup from "@mui/material/ButtonGroup"
+import React, { useState } from "react"
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
 import ColourToggles from './navbar/ColourToggles'
+import generalContent from "../assets/general_content.json"
+import ButtonGroup from '@mui/material/ButtonGroup';
+import { Link } from 'react-router-dom';
 
-const NavigationBar = () => {
+const pages = ["Home", "About"];
+
+const NavigationBar = ({ giveTheme }) => {
+    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [reRenderVar, setReRenderVar] = useState(null);
+
+    const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+    };
+
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
 
     return (
-        <nav className='nav-container'>
-            <h1 className='text-2xl' id='team-name'>Team Name</h1>
+        <AppBar position="static">
+            <Container maxWidth="xl">
+                <Toolbar disableGutters>
 
-            <div className='nav-buttons'>
-                <ButtonGroup variant="text">
-                    <Link to="/"><Button id="home-button">Home</Button></Link>
-                    <Link to="/about"><Button id="about-button">About</Button></Link>
-                </ButtonGroup>
-            </div>
-            <ColourToggles />
-        </nav>
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="a"
+                        href="/"
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        Team {generalContent.team_name}
+                    </Typography>
+
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                        <IconButton
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            onClick={handleOpenNavMenu}
+                            color="inherit"
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Menu
+                            id="menu-appbar"
+                            anchorEl={anchorElNav}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                            }}
+                            open={Boolean(anchorElNav)}
+                            onClose={handleCloseNavMenu}
+                            sx={{
+                                display: { xs: 'block', md: 'none' },
+                            }}
+                        >
+                            <Link
+                                to="/"
+                            >
+                                <MenuItem
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    <Typography textAlign="center">Home</Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link
+                                to="/about"
+                            >
+                                <MenuItem
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    <Typography textAlign="center">About</Typography>
+                                </MenuItem>
+                            </Link>
+
+                        </Menu>
+                    </Box>
+                    <Typography
+                        variant="h5"
+                        noWrap
+                        component="a"
+                        href=""
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'flex', md: 'none' },
+                            flexGrow: 1,
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        Team {generalContent.team_name}
+                    </Typography>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                        <ButtonGroup>
+                            <Link
+                                to="/"
+                            >
+                                <Button
+                                    id="home-button"
+                                    onClick={() => {
+                                        setReRenderVar(!reRenderVar)
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
+
+                                        Home
+                                    </Typography>
+                                </Button>
+                            </Link>
+
+                            <Link
+                                to="/about"
+                            >
+                                <Button
+                                    id="about-button"
+                                    onClick={() => {
+                                        setReRenderVar(!reRenderVar)
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
+
+                                        About
+                                    </Typography>
+                                </Button>
+                            </Link>
+                        </ButtonGroup>
+                    </Box>
+
+                    <Box sx={{ flexGrow: 0 }}>
+                        <ColourToggles giveTheme={giveTheme} />
+                    </Box>
+                </Toolbar>
+            </Container>
+        </AppBar>
+    );
+}
+export default NavigationBar;
+
+/*
+import React, { useState } from 'react'
+import { Link } from "react-router-dom"
+import "../index.css"
+import generalContent from "../assets/general_content.json"
+
+import { Button, ButtonGroup, AppBar, Container, Toolbar, Typography } from "@mui/material"
+import ColourToggles from './navbar/ColourToggles'
+
+const NavigationBar = ({ giveTheme }) => {
+    const [rerenderVar, setRerenderVar] = useState(false)//a useState to force the page to rerender and change the state of the appearence mode button
+
+    return (
+        <AppBar
+            className='nav-container'
+            position='static'
+        >
+            <Container
+                maxWidth="xl"
+            >
+                <Toolbar
+                    disableGutters
+                    variant='regular'
+                >
+                    <Typography
+                        variant="h5"
+                        noWrap
+                        component="a"
+                        href="/"
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 500,
+                            letterSpacing: '.01rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+
+                        Team
+                    </Typography>
+                    <Typography
+                        variant="h5"
+                        noWrap
+                        component="a"
+                        href="/"
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 500,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+
+                        {generalContent.team_name}
+                    </Typography>
+
+                    <div className='nav-buttons'>
+                        <ButtonGroup>
+                            <Link
+                                to="/"
+                            >
+                                <Button
+                                    id="home-button"
+                                    onClick={() => {
+                                        setRerenderVar(!rerenderVar)
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
+
+                                        Home
+                                    </Typography>
+                                </Button>
+                            </Link>
+
+                            <Link
+                                to="/about"
+                            >
+                                <Button
+                                    id="about-button"
+                                    onClick={() => {
+                                        setRerenderVar(!rerenderVar)
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
+
+                                        About
+                                    </Typography>
+                                </Button>
+                            </Link>
+                        </ButtonGroup>
+                    </div>
+                    <ColourToggles giveTheme={giveTheme} />
+                </Toolbar>
+            </Container>
+        </AppBar>
     )
 }
 
 export default NavigationBar
-
-/*
-<button
-        onClick={() => { window.open("https://github.com/pi-competition", "_blank", "noopener,noreferrer") }}
-    >
-        <TbBrandGithub
-            id="github-icon"
-            size={"30px"}
-        />
-</button> 
 */
