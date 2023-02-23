@@ -1,4 +1,6 @@
 import React from 'react'
+import { Button } from "@mui/material"
+import { Link } from 'react-router-dom'
 
 const CarStatusContainer = ({ car }) => {
     const parseUptime = (milliseconds) => {//convert uptime from milliseconds to minutes:seconds
@@ -41,6 +43,7 @@ const CarStatusContainer = ({ car }) => {
                     <p>Uptime: N/A</p>
                 </div>
             }
+            <Link to={`/admin/car/${car.id}`} ><Button variant='outlined' sx={{ marginTop: "0.5rem" }}>More Detail</Button></Link>
 
         </div>
     )

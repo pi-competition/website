@@ -8,7 +8,6 @@ import config from "../../config.json"
 
 const ResetCars = ({ carsFunc, auth }) => {
     let rawAPIData;
-    let result;
     let baseURL;
     const ALERT_DURATION = config.resetCarsAlertDuration
     const [cars, setCars] = useState([]);
@@ -33,7 +32,7 @@ const ResetCars = ({ carsFunc, auth }) => {
 
     //baseURL = "https://papi-api.ben-services.eu.org/api/"//comment out for prod
 
-    const getCars = async (result) => {
+    const getCars = async () => {
         //get car data from api
         const url = baseURL + "cars/status"
         const fetchOptions = {
@@ -42,7 +41,7 @@ const ResetCars = ({ carsFunc, auth }) => {
 
         const carsArray = [];
 
-        result = await fetch(url, fetchOptions)
+        let result = await fetch(url, fetchOptions)
             .catch((err) => console.error(err))
 
         if (result.status !== 200) {
@@ -72,9 +71,9 @@ const ResetCars = ({ carsFunc, auth }) => {
     }
 
     useEffect(() => {
-        getCars(result)
+        getCars()
         // eslint-disable-next-line
-    }, [])
+    }, [])//!DO NOT REMOVE THIS DEPENDANCY ARRAY OR EVERYTHING BREAKS
 
 
 
