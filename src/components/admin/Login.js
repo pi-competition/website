@@ -23,6 +23,8 @@ const Login = ({ setToken }) => {
         baseURL = "https://papi-api-stg.ben-services.eu.org/api/"
     }
 
+    baseURL = "https://papi-api.ben-services.eu.org/api/"
+
     const login = async () => {
         const username = userField
         const password = passField
