@@ -30,7 +30,7 @@ const ResetCars = ({ carsFunc, auth }) => {
         baseURL = "https://papi-api-stg.ben-services.eu.org/api/"
     }
 
-    //baseURL = "https://papi-api.ben-services.eu.org/api/"//comment out for prod
+    baseURL = "https://papi-api.ben-services.eu.org/api/"//comment out for prod
 
     const getCars = async () => {
         //get car data from api
