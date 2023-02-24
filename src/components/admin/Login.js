@@ -17,13 +17,13 @@ const Login = ({ setToken }) => {
 
     const currentURL = window.location.href
     const currentURLArray = currentURL.split(".")
-    if (currentURLArray[0] === "https://pi-comp") {
-        baseURL = "https://papi-api.ben-services.eu.org/api/"
-    } else {
+    if (currentURLArray[0] === "https://staging") {
         baseURL = "https://papi-api-stg.ben-services.eu.org/api/"
+    } else {
+        baseURL = "https://papi-api.ben-services.eu.org/api/"
     }
 
-    baseURL = "https://papi-api.ben-services.eu.org/api/"
+    //baseURL = "https://papi-api.ben-services.eu.org/api/"
 
     const login = async () => {
         const username = userField

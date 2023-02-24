@@ -24,13 +24,13 @@ const ResetCars = ({ carsFunc, auth }) => {
     //set base url on whether the website is on staging or not
     const currentURL = window.location.href
     const currentURLArray = currentURL.split(".")
-    if (currentURLArray[0] === "https://pi-comp") {
-        baseURL = "https://papi-api.ben-services.eu.org/api/"
-    } else {
+    if (currentURLArray[0] === "https://staging") {
         baseURL = "https://papi-api-stg.ben-services.eu.org/api/"
+    } else {
+        baseURL = "https://papi-api.ben-services.eu.org/api/"
     }
 
-    baseURL = "https://papi-api.ben-services.eu.org/api/"//comment out for prod
+    //baseURL = "https://papi-api.ben-services.eu.org/api/"
 
     const getCars = async () => {
         //get car data from api
