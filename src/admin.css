@@ -1,6 +1,6 @@
 .admin-input-stack {
     max-width: 60vw;
-    min-width: 13vw;
+    min-width: 20vw;
     margin-top: 27vh;
 }
 
@@ -42,8 +42,8 @@
 }
 
 .reset-cars-alert {
-  margin-left: 20%;
-  margin-right: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 /*status continer*/
 
@@ -51,11 +51,10 @@
     padding: 1rem;
     background-color: var(--container-colour);
     border-radius: 5px;
-    margin: 10px;
+    margin: 1rem;
     width: 200px;
     border-width: thin;
 }
-
 
 #username-input,
 #password-input {

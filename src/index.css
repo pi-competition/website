@@ -8,18 +8,15 @@
 }
 
 :root {
-  --pi-red: rgb(194, 30, 74);
-  --pi-green: rgb(104, 191, 75);
-
   --light-bg: rgb(255, 255, 255);
   --light-bg2: rgb(230, 230, 230);
 
-  --dark-bg: rgb(24, 26, 27);
+  --dark-bg: rgb(8, 20, 33);
   --dark-bg2: rgb(38, 41, 43);
 
   --background-colour: var(--dark-bg);
   --secondary-background: var(--dark-bg2);
-  --nav-bar-colour: rgb(21, 101, 192);
+  
 
   --container-colour: var(--secondary-background);
 
@@ -81,10 +78,6 @@ a:active {
 
 .main-section {
   min-height: 100vh;
-}
-
-.nav-buttons {
-  
 }
 
 .colour-mode-buttons {
