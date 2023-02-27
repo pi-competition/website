@@ -25,6 +25,7 @@ const Login = ({ setToken }) => {
 
     //baseURL = "https://papi-api.ben-services.eu.org/api/"
 
+
     const login = async () => {
         const username = userField
         const password = passField
@@ -63,7 +64,9 @@ const Login = ({ setToken }) => {
             setLoginErrorMessage("Ben moment")
             setCollapseOpen(true)
         }
-        return response
+        localStorage.setItem("admin-token", password)
+        localStorage.setItem("admin-time", new Date().toLocaleString())
+        return
     }
 
     return (

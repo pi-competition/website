@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import content from "../assets/home.json"
 import HomeContentContainer from './home/HomeContentContainer'
 
@@ -18,6 +18,38 @@ const Home = () => {
             return stringArray.join(" ")
         }
     }
+
+    useEffect(() => {
+        const startDate = new Date().getTime() / 1000;
+        // Do your operations
+        const endDate = new Date('2023/03/20').getTime() / 1000
+        let seconds = Math.floor((endDate - startDate))
+        let days = 0
+        let hours = 0
+        let minutes = 0
+        while (true) {
+            if (seconds < 86400) {
+                break
+            }
+            seconds = seconds - 86400
+            days++
+        }
+        while (true) {
+            if (seconds < 3600) {
+                break
+            }
+            seconds = seconds - 3600
+            hours++
+        }
+        while (true) {
+            if (seconds < 60) {
+                break
+            }
+            seconds = seconds - 60
+            minutes++
+        }
+        setTime([days, hours, minutes, seconds])
+    }, [])
 
     //timer
     setInterval(() => {

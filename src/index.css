@@ -8,16 +8,25 @@
 }
 
 :root {
-  --light-bg: rgb(255, 255, 255);
+  --light-bg: rgba(28, 169, 201, 0.15);
   --light-bg2: rgb(230, 230, 230);
+  --light-shadow: rgba(28, 169, 201, 0.2);
+  --light-grad1: rgba(1, 1, 1, 0.1);
+  --light-grad2: rgba(1, 1, 1, 0.05);
 
   --dark-bg: rgb(8, 20, 33);
   --dark-bg2: rgb(38, 41, 43);
+  --dark-shadow: black;
+  --dark-grad1: rgba(255, 255, 255, 0.1);
+  --dark-grad2: rgba(255, 255, 255, 0.05);
 
   --background-colour: var(--dark-bg);
   --secondary-background: var(--dark-bg2);
+  --shadow: var(--dark-shadow);
+  --grad1: var(--dark-grad1);
+  --grad2: var(--dark-grad2);
   
-
+  
   --container-colour: var(--secondary-background);
 
   --text: white;
@@ -66,6 +75,9 @@ a:active {
   --secondary-background: var(--light-bg2);
   --container-colour: var(--secondary-background);
   --text: black;
+  --shadow: var(--light-shadow);
+  --grad1: var(--light-grad1);
+  --grad2: var(--light-grad2);
 }
 
 .dark-content {
@@ -73,6 +85,9 @@ a:active {
   --secondary-background: var(--dark-bg2);
   --container-colour: var(--secondary-background);
   --text: white;
+  --shadow: var(--dark-shadow);
+  --grad1: var(--dark-grad1);
+  --grad2: var(--dark-grad2);
   
 }
 
@@ -98,7 +113,10 @@ a:active {
 
 .about-container,
 .home-container {
-  background-color: var(--container-colour);
+  /*background-color: var(--container-colour);*/
+  background: linear-gradient(to bottom right, var(--grad1), var(--grad2));
+  box-shadow: 1px 1px 2px var(--shadow), 0 0 15px var(--shadow), 0 0 5px var(--shadow);
+  filter: blur(20);
   border-radius: 5px;
   margin: 1rem;
   margin-left: 10%;
