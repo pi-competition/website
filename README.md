@@ -1,5 +1,6 @@
-# Website for TEAM NAME for the 2023 PA Consulting Raspberry Pi competition
+# 🌐 Team PANIC's website for PA consulting raspberry pi competition
+[View Website](teampanic.eu.org)
 
-code stored on github, deployed via cloudflare pages
+## ☁️ Hosting
+The website is hosted on cloudflare pages.
 
-see URL for more information
