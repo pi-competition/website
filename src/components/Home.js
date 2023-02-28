@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import content from "../assets/home.json"
 import HomeContentContainer from './home/HomeContentContainer'
+import config from "../config.json"
 
 const Home = () => {
     const [time, setTime] = useState([0, 0, 0, 0]);
@@ -18,6 +19,7 @@ const Home = () => {
             return stringArray.join(" ")
         }
     }
+
 
     useEffect(() => {
         const startDate = new Date().getTime() / 1000;
@@ -51,38 +53,40 @@ const Home = () => {
         setTime([days, hours, minutes, seconds])
     }, [])
 
-    //timer
-    setInterval(() => {
-        const startDate = new Date().getTime() / 1000;
-        // Do your operations
-        const endDate = new Date('2023/03/20').getTime() / 1000
-        let seconds = Math.floor((endDate - startDate))
-        let days = 0
-        let hours = 0
-        let minutes = 0
-        while (true) {
-            if (seconds < 86400) {
-                break
+    if (config.showCountdown) {
+        //timer
+        setInterval(() => {
+            const startDate = new Date().getTime() / 1000;
+            // Do your operations
+            const endDate = new Date('2023/03/20').getTime() / 1000
+            let seconds = Math.floor((endDate - startDate))
+            let days = 0
+            let hours = 0
+            let minutes = 0
+            while (true) {
+                if (seconds < 86400) {
+                    break
+                }
+                seconds = seconds - 86400
+                days++
             }
-            seconds = seconds - 86400
-            days++
-        }
-        while (true) {
-            if (seconds < 3600) {
-                break
+            while (true) {
+                if (seconds < 3600) {
+                    break
+                }
+                seconds = seconds - 3600
+                hours++
             }
-            seconds = seconds - 3600
-            hours++
-        }
-        while (true) {
-            if (seconds < 60) {
-                break
+            while (true) {
+                if (seconds < 60) {
+                    break
+                }
+                seconds = seconds - 60
+                minutes++
             }
-            seconds = seconds - 60
-            minutes++
-        }
-        setTime([days, hours, minutes, seconds])
-    }, 1000)
+            setTime([days, hours, minutes, seconds])
+        }, 1000)
+    }
 
 
 
@@ -90,10 +94,12 @@ const Home = () => {
         <div className='home'>
             <p className='text-4xl bold flex justify-center' id="home-title">Home</p>
             <br />
-            <div className='home-container'>
-                <h1 className="text-4xl bold flex justify-center">{time[0].toString() + " Days " + time[1].toString() + " Hours " + time[2].toString() + " Minutes " + time[3].toString() + " Seconds"}</h1>
-                <h1 className="text-3xl bold flex justify-center">Until Deadline/Failure</h1>
-            </div>
+            {config.showCountdown &&
+                <div className='home-container'>
+                    <h1 className="text-4xl bold flex justify-center">{time[0].toString() + " Days " + time[1].toString() + " Hours " + time[2].toString() + " Minutes " + time[3].toString() + " Seconds"}</h1>
+                    <h1 className="text-3xl bold flex justify-center">Until Deadline/Failure</h1>
+                </div>
+            }
             {
                 content["sections"].map((section) => {
                     if (sectionCounter === 0) {

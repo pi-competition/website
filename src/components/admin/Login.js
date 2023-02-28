@@ -11,6 +11,7 @@ const Login = ({ setToken }) => {
     const [collapseOpen, setCollapseOpen] = useState(false);
     const [loginErrorMessage, setLoginErrorMessage] = useState("");
     const [loginErrorTitle, setLoginErrorTitle] = useState("");
+    const [buttonState, setButtonState] = useState(false);
 
     //const [user, setUser] = useState("");
     //const [pass, setPass] = useState("");
@@ -27,6 +28,7 @@ const Login = ({ setToken }) => {
 
 
     const login = async () => {
+        setButtonState(true)
         const username = userField
         const password = passField
         if (!username || !password) {
@@ -65,8 +67,15 @@ const Login = ({ setToken }) => {
             setCollapseOpen(true)
         }
         localStorage.setItem("admin-token", password)
-        localStorage.setItem("admin-time", new Date().toLocaleString())
+        localStorage.setItem("admin-unix", new Date().getTime() / 1000)
         return
+    }
+
+    const handleEnterPress = (e) => {
+        if (e.keyCode === 13 && e.shiftKey === false) {
+            e.preventDefault();
+            login()
+        }
     }
 
     return (
@@ -93,6 +102,7 @@ const Login = ({ setToken }) => {
                     type="password"
                     variant='filled'
                     value={passField}
+                    onKeyUp={handleEnterPress}
                     onChange={(newValue) => {
                         setPassField(newValue.target.value)
                     }}
@@ -101,6 +111,7 @@ const Login = ({ setToken }) => {
                     id="enter-login-button"
                     variant="contained"
                     onClick={login}
+                    disabled={buttonState}
                 >
                     Enter
                 </Button>

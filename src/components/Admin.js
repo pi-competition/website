@@ -2,9 +2,9 @@ import { Divider, Stack } from '@mui/material';
 import React, { useState, useEffect } from 'react'
 import Login from './admin/Login';
 import ResetCars from './admin/ResetCars';
-
 import "../admin.css"
 import CarsStatus from './admin/CarsStatus';
+import config from "../config.json"
 
 const Admin = () => {
     let baseURL;
@@ -22,15 +22,11 @@ const Admin = () => {
     //checking if they are logged in already
     useEffect(() => {
         const savedToken = localStorage.getItem("admin-token")
-        console.log(savedToken)
-        const savedTime = localStorage.getItem("admin-time")
+        let savedUnix = localStorage.getItem("admin-unix")
         if (savedToken !== null) {
-            let currentTime = new Date().getTime() / 1000
-            let savedTimeUnix = new Date(savedTime.substring(0, 10)).getTime() / 1000
-            console.log("1")
-            console.log(Math.floor(currentTime - savedTimeUnix))
-            if (currentTime - savedTimeUnix > 604800) {
-                console.log("2")
+            setToken("temp")
+            let currentTime = Math.floor(new Date().getTime() / 1000)
+            if (currentTime - savedUnix > config.adminLoginPersistDuration) {
                 localStorage.removeItem("admin-token")
                 localStorage.removeItem("admin-time")
             }
@@ -51,12 +47,13 @@ const Admin = () => {
             //post request
             fetch(url, fetchOptions).then((result) => {
                 if (result.status === 204) {
-                    console.log("3")
                     setToken(savedToken)
+                } else {
+                    setToken("")
                 }
             })
                 .catch(() => {
-                    console.log("Very bad error verifying the saved password")
+                    console.log("Very bad error occured while verifying the saved password")
                 })
 
         }

@@ -122,6 +122,11 @@ a:active {
   margin-left: 10%;
   margin-right: 10%;
   padding: 1rem;
+  /* uncomment to make the about and home sections centered
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  */
 }
 
 .github-icon{

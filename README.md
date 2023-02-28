@@ -1,4 +1,4 @@
-# 🌐 Team PANIC's website for PA consulting raspberry pi competition
+# 🌐 Website for PA Consulting Raspberry PI Competition
 [View Website](teampanic.eu.org)
 
 ## ☁️ Hosting

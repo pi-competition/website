@@ -22,12 +22,17 @@
         },
         {
             "title": "Framework",
-            "text": "This website is built using React and vanilla css with a tiny bit of tailwindcss. It also uses the MUI library, a Material UI library that provides prebuilt React components such as buttons, which are used all over the site, and content display components like stacks and grids.",
+            "text": "This website is built using React and vanilla css with a tiny bit of tailwindcss. It also uses the MUI which provided prebuilt react components.",
             "subsection": "website"
         },
         {
-            "title": "API",
-            "text": "API stuff",
+            "title": "Hosting",
+            "text": "The API is hosted on cloudflare workers.",
+            "subsection": "backend"
+        },
+        {
+            "title": "Langaugage",
+            "text": "The API is written in typescript.",
             "subsection": "backend"
         }
     ]

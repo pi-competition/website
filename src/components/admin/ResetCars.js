@@ -136,7 +136,6 @@ const ResetCars = ({ carsFunc, auth }) => {
                     setCollapseOpen(true)
                 } else {
                     const parsed = await data.json()
-                    console.log(parsed)
                     setResetCarsPostSuccess(false)
                     setCollapseOpen(true)
                     setAlertTitle(parsed.message)
