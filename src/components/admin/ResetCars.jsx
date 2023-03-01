@@ -139,7 +139,7 @@ const ResetCars = ({ carsFunc, auth }) => {
                     setResetCarsPostSuccess(false)
                     setCollapseOpen(true)
                     setAlertTitle(parsed.message)
-                    if (parsed.error) { setAlertError(parsed.error) }
+                    if (parsed.error) setAlertError(parsed.error)
                     await getCars()
                 }
             })
