@@ -2,7 +2,7 @@
     "sections": [
         {
             "title": "Team PANIC",
-            "text": "Our team name, PANIC, stands for ... Automated Network of Induction Charging",
+            "text": "Our team name, PANIC, stands for Pathfinding Automated Network with Induction Charging",
             "subsection": "team name"
         },
         {
@@ -14,6 +14,12 @@
             "title": "Road",
             "text": "The road is (probably going to be) made from triple ply cardboard to keep it strong whilst also being light and portable.",
             "subsection": "engineering"
+        },
+        {
+            "title": "System Diagram",
+            "text": "image",
+            "src": "https://media.discordapp.net/attachments/1043510032618238082/1079903726086660146/image.png",
+            "subsection": "System Overview"
         },
         {
             "title": "Hosting",

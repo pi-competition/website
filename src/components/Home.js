@@ -127,7 +127,7 @@ const Home = () => {
                             previous_section = section;
                             sectionCounter++;
                             return (
-                                <div key={section.title + "-subsection"
+                                <div key={section.title + "-" + section.subsection + "subsection"
                                 } >
                                     <p className='text-2xl bold flex ' id="home-subheading" >{formatSubheading(section.subsection)}</p>
                                     <div>
