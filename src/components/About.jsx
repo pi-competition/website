@@ -1,11 +1,11 @@
 import React from 'react'
-import _ from "lodash"
+import { shuffle } from "random-generator.js"
 import content from "../assets/about.json"
 import AboutContentContainer from './about/AboutContentContainer'
 
 const About = () => {
 
-    const random_people = _.shuffle(content["people"])
+    const random_people = shuffle(content.people)
 
     return (
         <div className='about'>

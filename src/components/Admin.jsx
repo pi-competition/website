@@ -4,7 +4,7 @@ import Login from './admin/Login';
 import ResetCars from './admin/ResetCars';
 import "../admin.css"
 import CarsStatus from './admin/CarsStatus';
-import config from "../config.json"
+import config from "../config/config.json"
 
 const Admin = () => {
     let baseURL;
@@ -22,7 +22,9 @@ const Admin = () => {
     //checking if they are logged in already
     useEffect(() => {
         const savedToken = localStorage.getItem("admin-token")
-        let savedUnix = localStorage.getItem("admin-unix")
+        let savedUnix = Math.floor(localStorage.getItem("admin-unix"))
+        //console.log(savedUnix)
+        //console.log(config.adminLoginPersistDuration)
         if (savedToken !== null) {
             setToken("temp")
             let currentTime = Math.floor(new Date().getTime() / 1000)

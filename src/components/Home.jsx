@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import content from "../assets/home.json"
 import HomeContentContainer from './home/HomeContentContainer'
-import config from "../config.json"
+import config from "../config/config.json"
 
 const Home = () => {
     const [time, setTime] = useState([0, 0, 0, 0]);
@@ -55,8 +55,9 @@ const Home = () => {
 
     if (config.showCountdown) {
         //timer
+        let startDate = new Date().getTime() / 1000;
         setInterval(() => {
-            const startDate = new Date().getTime() / 1000;
+            startDate = startDate + 1000;
             // Do your operations
             const endDate = new Date('2023/03/20').getTime() / 1000
             let seconds = Math.floor((endDate - startDate))

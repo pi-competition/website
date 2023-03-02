@@ -4,7 +4,7 @@ import LoadingButton from "@mui/lab/LoadingButton"
 import SendIcon from "@mui/icons-material/Send"
 import CloseIcon from "@mui/icons-material/Close"
 
-import config from "../../config.json"
+import config from "../../config/config.json"
 
 const ResetCars = ({ carsFunc, auth }) => {
     let rawAPIData;

@@ -1,7 +1,7 @@
 import { Stack, Alert, AlertTitle, Collapse, IconButton, Button, TextField } from '@mui/material';
 import CloseIcon from "@mui/icons-material/Close"
 import React, { useState } from 'react'
-import config from "../../config.json"
+import config from "../../config/config.json"
 
 const Login = ({ setToken }) => {
     let baseURL;
@@ -66,7 +66,7 @@ const Login = ({ setToken }) => {
             handleLoginError("Service Unavailable", "An error occured on the server. Please try again later.")
         }
         localStorage.setItem("admin-token", password)
-        localStorage.setItem("admin-unix", new Date().getTime() / 1000)
+        localStorage.setItem("admin-unix", Math.floor(new Date().getTime() / 1000))
         return
     }
 
