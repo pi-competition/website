@@ -1,15 +1,17 @@
 import { Divider, Stack } from '@mui/material';
 import React, { useState, useEffect } from 'react'
-import Login from './admin/Login';
 import ResetCars from './admin/ResetCars';
 import "../admin.css"
 import CarsStatus from './admin/CarsStatus';
 import config from "../config/config.json"
+import { Navigate, redirect } from 'react-router-dom';
 
 const Admin = () => {
     let baseURL;
     const [token, setToken] = useState("");
     const [carData, setCarData] = useState();
+    const [loading, setLoading] = useState(true);
+    const [returnValue, setReturnValue] = useState();
 
     const currentURL = window.location.href
     const currentURLArray = currentURL.split(".")
@@ -23,14 +25,16 @@ const Admin = () => {
     useEffect(() => {
         const savedToken = localStorage.getItem("admin-token")
         let savedUnix = Math.floor(localStorage.getItem("admin-unix"))
-        //console.log(savedUnix)
-        //console.log(config.adminLoginPersistDuration)
+        console.log(savedUnix)
+        console.log(config.adminLoginPersistDuration)
         if (savedToken !== null) {
             setToken("temp")
             let currentTime = Math.floor(new Date().getTime() / 1000)
+            console.log("diff" + (currentTime - savedUnix))
             if (currentTime - savedUnix > config.adminLoginPersistDuration) {
                 localStorage.removeItem("admin-token")
                 localStorage.removeItem("admin-time")
+                return redirect("/admin/login")
             }
 
             const data = {
@@ -50,19 +54,24 @@ const Admin = () => {
             fetch(url, fetchOptions).then((result) => {
                 if (result.status === 204) {
                     setToken(savedToken)
+                    setLoading(false)
+                    setReturnValue(true)
                 } else {
-                    setToken("")
+                    localStorage.removeItem("admin-token")
+                    localStorage.removeItem("admin-time")
                 }
             })
                 .catch(() => {
                     console.log("Very bad error occured while verifying the saved password")
                 })
 
+        } else {
+            setReturnValue(false)
         }
     }, [])
 
-    if (token === "") {
-        return <Login setToken={setToken} />
+    if (returnValue === false && !token) {
+        return (<Navigate replace to="/admin/login" />)
     }
 
     const setCars = (carData) => {
@@ -71,18 +80,24 @@ const Admin = () => {
 
     const dividerStyleText = { "&::before, &::after": { borderColor: "#1565c0", }, }
     const dividerStyleNoText = { bgcolor: "#1565c0" }
-    return (
-        <div className='admin-div'>
-            <Stack spacing={2}>
-                <p className='text-4xl bold flex justify-center' id="admin-title">Admin</p>
-                <Divider sx={dividerStyleText} className="admin-divider" m="1rem" >Car Information</Divider>
-                {carData && <CarsStatus carsData={carData} />}
-                <Divider sx={dividerStyleText} className="admin-divider" m="1rem" >Reset Cars</Divider>
-                <ResetCars carsFunc={setCars} auth={token} />
-                <Divider sx={dividerStyleNoText} className="admin-divider" m="1rem" />
-            </Stack>
-        </div>
-    )
+    if (loading) {
+        return (
+            <div></div>
+        )
+    } else {
+        return (
+            <div className='admin-div'>
+                <Stack spacing={2}>
+                    <p className='text-4xl bold flex justify-center' id="admin-title">Admin</p>
+                    <Divider sx={dividerStyleText} className="admin-divider" m="1rem" >Car Information</Divider>
+                    {carData && <CarsStatus carsData={carData} />}
+                    <Divider sx={dividerStyleText} className="admin-divider" m="1rem" >Reset Cars</Divider>
+                    <ResetCars carsFunc={setCars} auth={token} />
+                    <Divider sx={dividerStyleNoText} className="admin-divider" m="1rem" />
+                </Stack>
+            </div>
+        )
+    }
 }
 
 export default Admin
