@@ -4,5 +4,6 @@
     "requirePasswordForAdmin": true,
     "bgType": "none",
     "adminLoginPersistDuration": 1800,
-    "showCountdown": true
+    "showCountdown": true,
+    "manageDrivingAlertDuration": 4000
 }

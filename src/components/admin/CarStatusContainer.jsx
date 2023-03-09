@@ -1,18 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from "@mui/material"
 import { Link } from 'react-router-dom'
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 
 const CarStatusContainer = ({ car }) => {
+    const [uptime, setUptime] = useState([0, 0])
+    let rawUptime = car.uptime
     const parseUptime = (milliseconds) => {//convert uptime from milliseconds to minutes:seconds
-        const minutes = Math.floor(milliseconds / 60000);
-        const seconds = ((milliseconds % 60000) / 1000).toFixed(0);
-        return (
-            seconds === 60 ?
-                (minutes + 1) + ":00" :
-                minutes + ":" + (seconds < 10 ? "0" : "") + seconds
-        );
+        let seconds = Math.floor(milliseconds / 1000)
+        let minutes = 0
+        while (true) {
+            if (seconds < 60) {
+                break
+            }
+            seconds = seconds - 60
+            minutes++
+        }
+        setUptime([minutes, seconds])
     }
+
+
+    setInterval(() => {
+        rawUptime = rawUptime + 1000
+        parseUptime(rawUptime)
+    }, 1000)
 
     const parseState = (state) => {
         return state[0].toUpperCase() + state.substring(1)
@@ -36,7 +47,7 @@ const CarStatusContainer = ({ car }) => {
             {car.state !== "offline" ?
                 <div>
                     <p>Battery: {parseBattery(car.battery)}%</p>
-                    <p>Uptime: {parseUptime(car.uptime)} min</p>
+                    <p>Uptime: {uptime} min</p>
                 </div>
                 :
                 <div>

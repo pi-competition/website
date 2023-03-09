@@ -1,11 +1,12 @@
-import { Divider, Stack } from '@mui/material';
+import { Divider, Stack, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react'
 import ResetCars from './admin/ResetCars';
 import "../admin.css"
 import CarsStatus from './admin/CarsStatus';
 import config from "../config/config.json"
-import { Navigate, redirect } from 'react-router-dom';
-import { FOCUSABLE_SELECTOR } from '@testing-library/user-event/dist/utils';
+import { Navigate } from 'react-router-dom';
+import ManageDriving from './admin/ManageDriving';
+import RegenImage from './admin/RegenImage';
 
 const Admin = () => {
     let baseURL;
@@ -25,11 +26,9 @@ const Admin = () => {
     //checking if they are logged in already
     useEffect(() => {
         setTimeout(() => {
-            console.log("checking")
             const savedToken = localStorage.getItem("admin-token")
             let savedUnix = Math.floor(localStorage.getItem("admin-unix"))
             if (savedToken !== null) {
-                console.log("checking2")
                 let currentTime = Math.floor(new Date().getTime() / 1000)
                 if (currentTime - savedUnix > config.adminLoginPersistDuration) {
                     localStorage.removeItem("admin-token")
@@ -66,18 +65,16 @@ const Admin = () => {
                     })
 
             } else {
-                console.log("checking3")
                 setReturnValue(false)
                 setToken("")
             }
-        }, 1000)
+        }, 500)
     }, [])
 
 
 
     if (returnValue === false && !token) {
         console.log(returnValue === false)
-        console.log("redirecting")
         setTimeout(() => {
         }, 300)
         return (<Navigate replace to="/admin/login" />)
@@ -97,11 +94,15 @@ const Admin = () => {
         return (
             <div className='admin-div'>
                 <Stack spacing={2}>
-                    <p className='text-4xl bold flex justify-center' id="admin-title">Admin</p>
-                    <Divider sx={dividerStyleText} className="admin-divider" m="1rem" >Car Information</Divider>
+                    <p className='text-6xl bold flex justify-center' id="admin-title">Admin</p>
+                    <Divider sx={dividerStyleText} className="admin-divider" m="1rem" ><Typography variant="h5">Car Information</Typography></Divider>
                     {carData && <CarsStatus carsData={carData} />}
-                    <Divider sx={dividerStyleText} className="admin-divider" m="1rem" >Reset Cars</Divider>
+                    <Divider sx={dividerStyleText} className="admin-divider" m="1rem" ><Typography variant="h5">Reboot Cars</Typography></Divider>
                     <ResetCars carsFunc={setCars} auth={token} />
+                    <Divider sx={dividerStyleText} className="admin-divider" m="1rem" ><Typography variant="h5">Manage Driving</Typography></Divider>
+                    <ManageDriving auth={token} />
+                    <Divider sx={dividerStyleText} className="admin-divider" m="1rem" ><Typography variant="h5">Refresh Image</Typography></Divider>
+                    <RegenImage auth={token} />
                     <Divider sx={dividerStyleNoText} className="admin-divider" m="1rem" />
                 </Stack>
             </div>
