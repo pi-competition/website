@@ -2,23 +2,39 @@
     "people": [
         {
             "name": "Owen",
-            "text": "Designed and built the website and app."
+            "text": "Designed and built the website and app.",
+            "projects": [
+                "website"
+            ]
         },
         {
             "name": "Ben",
-            "text": "Designed and built the backend for the website and app. Helped with programming the electronics."
+            "text": "Designed and built the backend for the website and app. Helped with programming the electronics.",
+            "projects": [
+                "radar",
+                "API worker"
+            ]
         },
         {
             "name": "Abbas",
-            "text": "Designed, built and programmed the electronics."
+            "text": "Designed, built and programmed the electronics.",
+            "projects": [
+                "controller firmware",
+                "car firmware",
+                "the electronics"
+            ]
         },
         {
             "name": "Charlie",
-            "text": "Idea, 3D modelling, presentation and technical road design"
+            "text": "Idea, 3D modelling, presentation and technical road design",
+            "projects": [
+                "the electronics"
+            ]
         },
         {
             "name": "Sean",
-            "text": "Logistics, car design and electronics"
+            "text": "Logistics, car design and electronics",
+            "projects": []
         }
     ]
 }

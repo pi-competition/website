@@ -2,32 +2,50 @@
     "sections": [
         {
             "title": "Team PANIC",
-            "text": "Our team name, PANIC, stands for ...",
+            "type": "text",
+            "text": "Our team name, PANIC, stands for Pathfinding Automated Network with Induction Charging",
             "subsection": "team name"
         },
         {
             "title": "Cars",
+            "type": "text",
             "text": "The cars are cheap remote controlled *insert car name* that we modifed to use as a demonstration.",
             "subsection": "engineering"
         },
         {
             "title": "Road",
+            "type": "text",
             "text": "The road is (probably going to be) made from triple ply cardboard to keep it strong whilst also being light and portable.",
             "subsection": "engineering"
         },
         {
+            "title": "System Diagram",
+            "type": "image",
+            "src": "https://media.discordapp.net/attachments/1043510032618238082/1079903726086660146/image.png",
+            "subsection": "System Overview"
+        },
+        {
             "title": "Hosting",
+            "type": "text",
             "text": "This website is currently hosted on Cloudflare Pages, it is using a custom domain from nic.eu.org.",
             "subsection": "website"
         },
         {
             "title": "Framework",
-            "text": "This website is built using React and vanilla css with a tiny bit of tailwindcss. It also uses the MUI library, a Material UI library that provides prebuilt React components such as buttons, which are used all over the site, and content display components like stacks and grids.",
+            "type": "text",
+            "text": "This website is built using React and vanilla css with a tiny bit of tailwindcss. It also uses the MUI which provided prebuilt react components.",
             "subsection": "website"
         },
         {
-            "title": "API",
-            "text": "API stuff",
+            "title": "Hosting",
+            "type": "text",
+            "text": "The API is hosted on cloudflare workers.",
+            "subsection": "backend"
+        },
+        {
+            "title": "Langaugage",
+            "type": "text",
+            "text": "The API is written in typescript.",
             "subsection": "backend"
         }
     ]

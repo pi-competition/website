@@ -1,6 +1,0 @@
-{
-    "resetCarsAlertDuration": 4000,
-    "loginPageAlertDuration": 5000,
-    "requirePasswordForAdmin": true,
-    "bgType": "none"
-}

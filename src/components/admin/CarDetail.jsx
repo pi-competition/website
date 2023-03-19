@@ -1,7 +1,7 @@
 import { Alert, AlertTitle, Collapse } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 
-import config from "../../config.json"
+import config from "../../config/config.json"
 
 const CarDetail = () => {
     let baseURL;

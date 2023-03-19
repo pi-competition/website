@@ -10,7 +10,6 @@ const CarsStatus = ({ carsData }) => {
                 justifyContent="center"
             >
                 {carsData.map((carData) => {
-                    console.log(carData)
                     return (
                         <div key={"car-container-" + carData.id}>
                             <Grid
