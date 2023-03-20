@@ -7,7 +7,7 @@
         },
         {
             "title": "Cars",
-            "text": "The car is built in a custom designed 3d printed shell, with a wireless charging coil, two motors and a lot of electronics",
+            "text": "The car is built in a custom designed 3d printed shell. It drives using two motors controlled from a Raspberry Pi HAT, and uses a TP4056 charge controller to take power input from a Qi coil, charging a Lithium Ion battery.",
             "subsection": "engineering"
         },
         {
@@ -27,7 +27,7 @@
         },
         {
             "title": "API",
-            "text": "The application progtramming interface is a com[pelx abnd efficient commun8ication method for facilitatinagj gthe communiocation between the webswitenthe abnd the contyrol server and the car. it allows them to use the RESTFUl specification for expected and standardised communication ",
+            "text": "The application progtramming interface is a compelx and efficient comminication method for facilitating the comminication between the website, the control server and the car. It allows them to use the RESTful specification for expected and standardised communication.",
             "subsection": "backend"
         }
     ]
