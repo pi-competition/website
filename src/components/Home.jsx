@@ -103,6 +103,7 @@ const Home = () => {
             }
             {
                 content["sections"].map((section) => {
+                    if (section.type === "disabled") return <div key={section.title}></div>
                     if (sectionCounter === 0) {
                         previous_section = section;
                         sectionCounter++;
