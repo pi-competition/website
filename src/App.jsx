@@ -7,12 +7,14 @@ import About from './components/About'
 import NotFound from './components/NotFound'
 import Footer from "./components/Footer"
 import Admin from "./components/Admin"
-import config from "./config.json"
+import config from "./config/config.json"
 import CarDetail from './components/admin/CarDetail'
 import bgSvgDark from "./assets/bgSvgDark.svg"
 import bgSvgLight from "./assets/bgSvgLight.svg"
 import bgPngDark from "./assets/bgPngDark.png"
 import bgPngLight from "./assets/bgPngLight.png"
+import Login from './components/admin/Login'
+import Map from './components/Map'
 
 
 const App = () => {
@@ -39,7 +41,9 @@ const App = () => {
                         <Route index element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/admin" element={<Admin />} />
+                        <Route path="/admin/login" element={<Login />} />
                         <Route path="/admin/car/*" element={<CarDetail />} />
+                        <Route path="/map" element={<Map />} />
                         <Route path="*" element={<NotFound />} />
                     </Route>
                 </Routes>

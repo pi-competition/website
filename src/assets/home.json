@@ -3,31 +3,49 @@
         {
             "title": "Team PANIC",
             "text": "Our team name, PANIC, stands for Pathfinding Automobile Network of Induction Charging.",
+            "type": "text",
             "subsection": "team name"
         },
         {
             "title": "Cars",
             "text": "The car is built in a custom designed 3d printed shell. It drives using two motors controlled from a Raspberry Pi HAT, and uses a TP4056 charge controller to take power input from a Qi coil, charging a Lithium Ion battery.",
+            "type": "text",
             "subsection": "engineering"
         },
         {
             "title": "Road",
             "text": "The road can be created anywhere, with just a few strips of colored tape and some printed Aruco tags",
+            "type": "text",
             "subsection": "engineering"
         },
         {
+            "title": "System Diagram",
+            "type": "disabled",
+            "src": "https://cdn.discordapp.com/attachments/1043510032618238082/1087365305870852136/hg5i5la6Q4.png",
+            "subsection": "System Overview"
+        },
+        {
             "title": "Hosting",
+            "type": "text",
             "text": "This website is currently hosted on Cloudflare Pages, it is using a custom domain from nic.eu.org.",
             "subsection": "website"
         },
         {
             "title": "Framework",
-            "text": "This website is built using React and vanilla css with a tiny bit of tailwindcss. It also uses the MUI library, a Material UI library that provides prebuilt React components such as buttons, which are used all over the site, and content display components like stacks and grids.",
+            "type": "text",
+            "text": "This website is built using React and vanilla css with a tiny bit of tailwindcss. It also uses the MUI which provided prebuilt react components.",
             "subsection": "website"
         },
         {
             "title": "API",
+            "type": "text",
             "text": "The application progtramming interface is a compelx and efficient comminication method for facilitating the comminication between the website, the control server and the car. It allows them to use the RESTful specification for expected and standardised communication.",
+            "subsection": "backend"
+        },
+        {
+            "title": "Langaugage",
+            "type": "text",
+            "text": "The API is written in typescript.",
             "subsection": "backend"
         }
     ]

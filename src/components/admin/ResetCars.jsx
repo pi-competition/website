@@ -4,11 +4,11 @@ import LoadingButton from "@mui/lab/LoadingButton"
 import SendIcon from "@mui/icons-material/Send"
 import CloseIcon from "@mui/icons-material/Close"
 
-import config from "../../config.json"
+import config from "../../config/config.json"
 
 const ResetCars = ({ carsFunc, auth }) => {
     let rawAPIData;
-    let baseURL;
+    const baseURL = config.apiURL
     const ALERT_DURATION = config.resetCarsAlertDuration
     const [cars, setCars] = useState([]);
     const [carData, setCarData] = useState();
@@ -21,16 +21,7 @@ const ResetCars = ({ carsFunc, auth }) => {
     const [alertTitle, setAlertTitle] = useState("Error");
     const [errorMessage, setErrorMessage] = useState("")
 
-    //set base url on whether the website is on staging or not
-    const currentURL = window.location.href
-    const currentURLArray = currentURL.split(".")
-    if (currentURLArray[0] === "https://pi-comp") {
-        baseURL = "https://papi-api.ben-services.eu.org/api/"
-    } else {
-        baseURL = "https://papi-api-stg.ben-services.eu.org/api/"
-    }
-
-    baseURL = "https://papi-api.ben-services.eu.org/api/"//comment out for prod
+    //baseURL = "https://papi-api.ben-services.eu.org/api/"
 
     const getCars = async () => {
         //get car data from api
@@ -136,11 +127,10 @@ const ResetCars = ({ carsFunc, auth }) => {
                     setCollapseOpen(true)
                 } else {
                     const parsed = await data.json()
-                    console.log(parsed)
                     setResetCarsPostSuccess(false)
                     setCollapseOpen(true)
                     setAlertTitle(parsed.message)
-                    if (parsed.error) { setAlertError(parsed.error) }
+                    if (parsed.error) setAlertError(parsed.error)
                     await getCars()
                 }
             })

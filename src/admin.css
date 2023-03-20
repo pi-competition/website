@@ -1,7 +1,21 @@
-.admin-input-stack {
+.admin-input-stack{
     max-width: 60vw;
     min-width: 20vw;
-    margin-top: 27vh;
+}
+
+.admin-input-stack > .admin-login-label {
+    text-align: center;
+}
+
+.login-border {
+    background: linear-gradient(to bottom right, var(--grad1), var(--grad2));
+    box-shadow: 1px 1px 2px var(--shadow), 0 0 15px var(--shadow), 0 0 5px var(--shadow);
+    filter: blur(20);
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 2rem;
+    height: 19rem;
+    translate: 0% 75%;
 }
 
 /* dodgy css to get the mui login to recolor */
@@ -55,6 +69,22 @@
     width: 200px;
     border-width: thin;
 }
+
+.manage-driving-div {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+}
+
+.regen-image-div {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+}
+
+.manage-driving-button {
+
+}   
 
 #username-input,
 #password-input {
