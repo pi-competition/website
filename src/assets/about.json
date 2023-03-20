@@ -2,23 +2,23 @@
     "people": [
         {
             "name": "Owen",
-            "text": "Designed and built the website and app."
+            "text": "Designed and built the website"
         },
         {
             "name": "Ben",
-            "text": "Designed and built the backend for the website and app. Helped with programming the electronics."
+            "text": "Designed and built the backend for the website and communication to the firmware"
         },
         {
             "name": "Abbas",
-            "text": "Designed, built and programmed the electronics."
+            "text": "Programmed the firmware for the car and controller"
         },
         {
             "name": "Charlie",
-            "text": "Idea, 3D modelling, presentation and technical road design"
+            "text": "Produced the idea & presentation, 3d models, and designed/built the hardware & electronics"
         },
         {
             "name": "Sean",
-            "text": "Logistics, car design and electronics"
+            "text": "Systems analysis, logistics, helped design hardware, firmware and software"
         }
     ]
 }
