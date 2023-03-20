@@ -5,7 +5,7 @@ import config from "../../config/config.json"
 import { Navigate } from 'react-router-dom';
 
 const Login = () => {
-    let baseURL;
+    const baseURL = config.apiURL
     const ALERT_DURATION = config.loginPageAlertDuration
     const [userField, setUserField] = useState("");
     const [passField, setPassField] = useState("");
@@ -17,15 +17,6 @@ const Login = () => {
 
     //const [user, setUser] = useState("");
     //const [pass, setPass] = useState("");
-
-    const currentURL = window.location.href
-    const currentURLArray = currentURL.split(".")
-    if (currentURLArray[0] === "https://staging") {
-        baseURL = "https://papi-api-stg.ben-services.eu.org/api/"
-    } else {
-        baseURL = "https://papi-api.ben-services.eu.org/api/"
-    }
-
     //baseURL = "https://papi-api.ben-services.eu.org/api/"
 
     const handleLoginError = (title, msg) => {

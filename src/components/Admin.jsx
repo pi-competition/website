@@ -8,20 +8,13 @@ import { Navigate } from 'react-router-dom';
 import ManageDriving from './admin/ManageDriving';
 import RegenImage from './admin/RegenImage';
 
+
 const Admin = () => {
-    let baseURL;
+    const baseURL = config.apiURL
     const [token, setToken] = useState("temp");
     const [carData, setCarData] = useState();
     const [loading, setLoading] = useState(true);
     const [returnValue, setReturnValue] = useState();
-
-    const currentURL = window.location.href
-    const currentURLArray = currentURL.split(".")
-    if (currentURLArray[0] === "https://staging") {
-        baseURL = "https://papi-api-stg.ben-services.eu.org/api/"
-    } else {
-        baseURL = "https://papi-api.ben-services.eu.org/api/"
-    }
 
     //checking if they are logged in already
     useEffect(() => {

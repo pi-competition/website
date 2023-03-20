@@ -18,7 +18,7 @@
     --dark-bg2: rgb(38, 41, 43);
     --dark-shadow: black;
     --dark-grad1: rgba(255, 255, 255, 0.1);
-    --dark-grad2: rgba(255, 255, 255, 0.05);
+    --dark-grad2: rgba(255, 255, 255, 0.1);;
 
     --background-colour: var(--dark-bg);
     --secondary-background: var(--dark-bg2);
@@ -166,3 +166,7 @@ a:active {
     width:100% 
 }
 
+.map-container {
+    display: flex;
+    justify-content: center;
+}

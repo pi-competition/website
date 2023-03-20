@@ -19,12 +19,6 @@ const CarStatusContainer = ({ car }) => {
         setUptime([minutes, seconds])
     }
 
-
-    setInterval(() => {
-        rawUptime = rawUptime + 1000
-        parseUptime(rawUptime)
-    }, 1000)
-
     const parseState = (state) => {
         return state[0].toUpperCase() + state.substring(1)
     }

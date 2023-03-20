@@ -4,6 +4,11 @@
     "requirePasswordForAdmin": true,
     "bgType": "none",
     "adminLoginPersistDuration": 1800,
-    "showCountdown": true,
-    "manageDrivingAlertDuration": 4000
+    "showCountdown": false,
+    "manageDrivingAlertDuration": 4000,
+    "apiURL": "papi-api-stg.ben-services.eu.org",
+    "mapDim": {
+        "x": 1700,
+        "y": 850
+    }
 }

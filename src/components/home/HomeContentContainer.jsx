@@ -17,7 +17,7 @@ const HomeContentContainer = ({ content }) => {
                 <p>{parse(content.text)}</p>
             </div>
         )
-    } else {
+    } else if (content.type === "disabled") {
         jsx = (
             <div className='home-container'>
                 <p>Error: Incorret type in home.json</p>
