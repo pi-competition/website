@@ -2,17 +2,17 @@
     "sections": [
         {
             "title": "Team PANIC",
-            "text": "Our team name, PANIC, stands for ...",
+            "text": "Our team name, PANIC, stands for Pathfinding Automobile Network of Induction Charging",
             "subsection": "team name"
         },
         {
             "title": "Cars",
-            "text": "The cars are cheap remote controlled *insert car name* that we modifed to use as a demonstration.",
+            "text": "The car is built in a custom designed 3d printed shell, with a wireless charging coil, two motors and a lot of electronics",
             "subsection": "engineering"
         },
         {
             "title": "Road",
-            "text": "The road is (probably going to be) made from triple ply cardboard to keep it strong whilst also being light and portable.",
+            "text": "The road can be created anywhere, with just a few strips of colored tape and some printed Aruco tags",
             "subsection": "engineering"
         },
         {
@@ -27,7 +27,7 @@
         },
         {
             "title": "API",
-            "text": "API stuff",
+            "text": "The application progtramming interface is a com[pelx abnd efficient commun8ication method for facilitatinagj gthe communiocation between the webswitenthe abnd the contyrol server and the car. it allows them to use the RESTFUl specification for expected and standardised communication ",
             "subsection": "backend"
         }
     ]
