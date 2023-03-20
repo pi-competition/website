@@ -4,6 +4,7 @@ import config from "../../config/config.json"
 import CloseIcon from "@mui/icons-material/Close"
 
 const ManageDriving = ({ auth }) => {
+    const config = config.apiURL
     const ALERT_DURATION = config.manageDrivingAlertDuration
     const [on, setOn] = useState(false);
     const [alertOpen, setAlertOpen] = useState(false);
@@ -20,7 +21,7 @@ const ManageDriving = ({ auth }) => {
 
     const handleButtonPress = () => {
         setOn(!on)
-        let route = window.location.href.startsWith("https://staging") || window.location.href.startsWith("http://localhost") ? "https://papi-api-stg.ben-services.eu.org/api/cars" : "https://papi-api.ben-services.eu.org/api/cars"
+        let route = config.apiURL + "/api/cars"
         if (on) {
             route = route + "/stop"
         } else {
@@ -54,8 +55,6 @@ const ManageDriving = ({ auth }) => {
                 onClick={handleButtonPress}
                 variant="contained"
                 color={on ? "error" : "success"}
-                sx={{
-                }}
                 className='manage-driving-button'
             >
                 {on ? "Stop Driving" : "Start Driving"}
@@ -69,7 +68,7 @@ const ManageDriving = ({ auth }) => {
                 }}
             >
                 <Alert
-                    severity={alertSeverity}
+                    severity={alertSeverity || "info"}
                     variant="filled"
                     action={
                         <IconButton

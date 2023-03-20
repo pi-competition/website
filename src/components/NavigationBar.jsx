@@ -116,6 +116,15 @@ const NavigationBar = ({ giveTheme }) => {
                                     <Typography textAlign="center">About</Typography>
                                 </MenuItem>
                             </Link>
+                            <Link
+                                to="/map"
+                            >
+                                <MenuItem
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    <Typography textAlign="center">Map</Typography>
+                                </MenuItem>
+                            </Link>
 
                         </Menu>
                     </Box>
@@ -181,6 +190,28 @@ const NavigationBar = ({ giveTheme }) => {
                                     >
 
                                         About
+                                    </Typography>
+                                </Button>
+                            </Link>
+                            <Link
+                                to="/map"
+                            >
+                                <Button
+                                    id="map-button"
+                                    onClick={() => {
+                                        setReRenderVar(!reRenderVar)
+                                    }}
+                                    variant="contained"
+                                    sx={{ backgroundColor: "#232ED1" }}
+                                    disableElevation
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
+
+                                        Map
                                     </Typography>
                                 </Button>
                             </Link>

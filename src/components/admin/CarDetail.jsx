@@ -4,22 +4,13 @@ import React, { useEffect, useState } from 'react'
 import config from "../../config/config.json"
 
 const CarDetail = () => {
-    let baseURL;
+    const baseURL = config.apiURL
     let rawAPIData
     const ALERT_DURATION = config.resetCarsAlertDuration
     const [collpaseOpen, setCollapseOpen] = useState(false)
     const [carData, setCarData] = useState()
     const [errorMessage, setErrorMessage] = useState("An error has occurred!")
     const [loading, setLoading] = useState(true)
-
-    //set base url on whether the website is on staging or not
-    const currentURL = window.location.href
-    const currentURLArray = currentURL.split(".")
-    if (currentURLArray[0] === "https://pi-comp") {
-        baseURL = "https://papi-api.ben-services.eu.org/api/"
-    } else {
-        baseURL = "https://papi-api-stg.ben-services.eu.org/api/"
-    }
 
     const carID = window.location.pathname.split("/").at(-1)
 

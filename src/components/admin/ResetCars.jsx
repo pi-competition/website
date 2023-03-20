@@ -8,7 +8,7 @@ import config from "../../config/config.json"
 
 const ResetCars = ({ carsFunc, auth }) => {
     let rawAPIData;
-    let baseURL;
+    const baseURL = config.apiURL
     const ALERT_DURATION = config.resetCarsAlertDuration
     const [cars, setCars] = useState([]);
     const [carData, setCarData] = useState();
@@ -20,15 +20,6 @@ const ResetCars = ({ carsFunc, auth }) => {
     const [alertError, setAlertError] = useState("There was an error when reseting the cars");
     const [alertTitle, setAlertTitle] = useState("Error");
     const [errorMessage, setErrorMessage] = useState("")
-
-    //set base url on whether the website is on staging or not
-    const currentURL = window.location.href
-    const currentURLArray = currentURL.split(".")
-    if (currentURLArray[0] === "https://staging") {
-        baseURL = "https://papi-api-stg.ben-services.eu.org/api/"
-    } else {
-        baseURL = "https://papi-api.ben-services.eu.org/api/"
-    }
 
     //baseURL = "https://papi-api.ben-services.eu.org/api/"
 
