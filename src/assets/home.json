@@ -2,20 +2,20 @@
     "sections": [
         {
             "title": "Team PANIC",
+            "text": "Our team name, PANIC, stands for Pathfinding Automobile Network of Induction Charging.",
             "type": "text",
-            "text": "Our team name, PANIC, stands for Pathfinding Automated Network with Induction Charging",
             "subsection": "team name"
         },
         {
             "title": "Cars",
+            "text": "The car is built in a custom designed 3d printed shell. It drives using two motors controlled from a Raspberry Pi HAT, and uses a TP4056 charge controller to take power input from a Qi coil, charging a Lithium Ion battery.",
             "type": "text",
-            "text": "The cars are cheap remote controlled *insert car name* that we modifed to use as a demonstration.",
             "subsection": "engineering"
         },
         {
             "title": "Road",
+            "text": "The road can be created anywhere, with just a few strips of colored tape and some printed Aruco tags",
             "type": "text",
-            "text": "The road is (probably going to be) made from triple ply cardboard to keep it strong whilst also being light and portable.",
             "subsection": "engineering"
         },
         {
@@ -37,9 +37,9 @@
             "subsection": "website"
         },
         {
-            "title": "Hosting",
+            "title": "API",
             "type": "text",
-            "text": "The API is hosted on cloudflare workers.",
+            "text": "The application progtramming interface is a compelx and efficient comminication method for facilitating the comminication between the website, the control server and the car. It allows them to use the RESTful specification for expected and standardised communication.",
             "subsection": "backend"
         },
         {
