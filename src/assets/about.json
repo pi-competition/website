@@ -2,38 +2,38 @@
     "people": [
         {
             "name": "Owen",
-            "text": "Designed and built the website"
+            "text": "Designed and built the website",
             "projects": [
                 "Website"
             ]
         },
         {
             "name": "Ben",
-            "text": "Designed and built the backend for the website and communication to the firmware"
+            "text": "Designed and built the backend for the website and communication to the firmware",
             "projects": [
-                "API"
+                "API",
                 "Backend"
             ]
         },
         {
             "name": "Abbas",
-            "text": "Programmed the firmware for the car and controller"
+            "text": "Programmed the firmware for the car and controller",
             "projects": [
-                "Car driving firmware (see <a href='https://youtu.be/bZe5J8SVCYQ'>this</a>)"
+                "Car driving firmware (see <a href='https://youtu.be/bZe5J8SVCYQ'>this</a>)",
                 "Controller firmware"
             ]
         },
         {
             "name": "Charlie",
-            "text": "Produced the idea & presentation, 3d models, and designed/built the hardware & electronics"
+            "text": "Produced the idea & presentation, 3d models, and designed/built the hardware & electronics",
             "projects": [
-                "Hardware"
+                "Hardware",
                 "Electronics"
             ]
         },
         {
             "name": "Sean",
-            "text": "Systems analysis, logistics, helped design hardware, firmware and software"
+            "text": "Systems analysis, logistics, helped design hardware, firmware and software",
             "projects": [
                 "A bit of everything"
             ]
