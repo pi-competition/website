@@ -15,7 +15,7 @@ const AboutContentContainer = ({ name, text, projects }) => {
                         wordArray.push(splitProject[word][0].toUpperCase() + splitProject[word].substring(1))
                     }
                     return (
-                        <li key={project.split(" ")[0] + "-key"}>• {wordArray.join(" ")}</li>
+                        <li key={project.split(" ")[0] + "-key"}>{parse(`• ${wordArray.join(" ")}`)}</li>
                     )
                 })
                 }
