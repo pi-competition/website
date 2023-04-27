@@ -1,8 +1,8 @@
 import sample_map_data from "../assets/sample_map_data.json"
 import { testStatus } from "./controlServer"
 
-const canvasWidth = 1600
-const canvasHeight = 800
+const canvasWidth = window.innerWidth * 0.8
+const canvasHeight = window.innerHeight * 0.8
 
 export function getMapLayoutData() {
     return new Promise((resolve, reject) => {

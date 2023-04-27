@@ -13,7 +13,7 @@ const MapBase = ({ pointData, lineData }) => {
             <Stage
                 width={config.mapDim.x}
                 height={config.mapDim.y}
-                style={{ backgroundColor: "black" }}
+                style={{ backgroundColor: "#081421" }}
             >
                 <Layer>
                     {lineData.map((node) => {
@@ -25,7 +25,7 @@ const MapBase = ({ pointData, lineData }) => {
                                         key={node.y + conn.x * Math.random()}
                                         points={[node.x, node.y, conn.x, conn.y]}
                                         strokeWidth={20}
-                                        stroke={node.intersection ? "green" : "white"}
+                                        stroke={!node.intersection ? "#155956" : "#679289"}
                                     />
                                 )
                             })
@@ -39,7 +39,7 @@ const MapBase = ({ pointData, lineData }) => {
                                 x={node.x}
                                 y={node.y}
                                 radius={10}
-                                fill="red"
+                                fill="#5bf4c6"
                                 key={node.y + node.x * Math.random()}
                             />
                         )

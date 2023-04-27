@@ -6,7 +6,7 @@
     "adminLoginPersistDuration": 1800,
     "showCountdown": false,
     "manageDrivingAlertDuration": 4000,
-    "apiURL": "papi-api-stg.ben-services.eu.org",
+    "apiURL": "http://ctrl.ben-services.eu.org",
     "mapDim": {
         "x": 1700,
         "y": 850

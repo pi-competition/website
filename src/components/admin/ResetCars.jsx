@@ -48,7 +48,7 @@ const ResetCars = ({ carsFunc, auth }) => {
         }
 
         const data = rawAPIData.data;
-        const temp_checkbox_state_array = [];
+        const temp_checkbox_state_array = []
         data.forEach((carData) => {
             carsArray.push(carData.id)
             temp_checkbox_state_array.push(false)
@@ -64,7 +64,7 @@ const ResetCars = ({ carsFunc, auth }) => {
     useEffect(() => {
         getCars()
         // eslint-disable-next-line
-    }, [])//!DO NOT REMOVE THIS DEPENDANCY ARRAY OR EVERYTHING BREAKS
+    }, [])//!DO NOT REMOVE THIS DEPENDANCY A    RRAY OR EVERYTHING BREAKS
 
 
 
