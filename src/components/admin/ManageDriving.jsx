@@ -1,10 +1,10 @@
 import { Alert, AlertTitle, Button, Collapse, IconButton } from '@mui/material'
 import React, { useState } from 'react'
-import config from "../../config/config.json"
+import configFile from "../../config/config.json"
 import CloseIcon from "@mui/icons-material/Close"
 
 const ManageDriving = ({ auth }) => {
-    const config = config.apiURL
+    const config = configFile.apiURL
     const ALERT_DURATION = config.manageDrivingAlertDuration
     const [on, setOn] = useState(false);
     const [alertOpen, setAlertOpen] = useState(false);

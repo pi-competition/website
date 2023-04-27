@@ -5,15 +5,39 @@ import config from "../config/config.json"
 
 const MapBase = ({ pointData, lineData }) => {
 
-    //make background image
-    const trackImage = new window.Image(1920, 950)
-    trackImage.src = image
+    const baseURL = config.apiURL
+
+    const sendClickLoc = (e) => {
+        const pointerPos = e.currentTarget.getPointerPosition()
+        const url = baseURL + "/api/cars/reset-bulk"
+        const fetchOptions = {
+            method: "POST",
+            mode: "cors",
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(pointerPos)
+        }
+        //post request
+        fetch(url, fetchOptions)
+            .then((result) => {
+                if (result.status !== 204) {
+                    console.log("something went wrong")
+                }
+            }).catch(() => {
+                console.log("something went wrong version 2")
+            })
+    }
+
     return (
         <div>
             <Stage
                 width={config.mapDim.x}
                 height={config.mapDim.y}
                 style={{ backgroundColor: "#081421" }}
+                onClick={(e) => sendClickLoc(e)}
             >
                 <Layer>
                     {lineData.map((node) => {

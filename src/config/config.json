@@ -3,10 +3,10 @@
     "loginPageAlertDuration": 5000,
     "requirePasswordForAdmin": true,
     "bgType": "none",
-    "adminLoginPersistDuration": 1800,
+    "adminLoginPersistDuration": 18000,
     "showCountdown": false,
     "manageDrivingAlertDuration": 4000,
-    "apiURL": "http://ctrl.ben-services.eu.org",
+    "apiURL": "https://ctrl.ben-services.eu.org",
     "mapDim": {
         "x": 1700,
         "y": 850

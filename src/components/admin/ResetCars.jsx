@@ -25,7 +25,7 @@ const ResetCars = ({ carsFunc, auth }) => {
 
     const getCars = async () => {
         //get car data from api
-        const url = baseURL + "cars/status"
+        const url = baseURL + "/api/cars/status"
         const fetchOptions = {
             method: "GET"
         }
@@ -46,13 +46,14 @@ const ResetCars = ({ carsFunc, auth }) => {
             console.error(err)
             console.log(url)
         }
-
+        console.log(rawAPIData.data)
         const data = rawAPIData.data;
         const temp_checkbox_state_array = []
         data.forEach((carData) => {
             carsArray.push(carData.id)
             temp_checkbox_state_array.push(false)
         })
+        console.log(carsArray)
         setCheckboxStates(temp_checkbox_state_array)
         setCars(carsArray)
         setCarData(data)
@@ -96,7 +97,7 @@ const ResetCars = ({ carsFunc, auth }) => {
     }
 
     const postCarData = async (data) => {
-        const url = baseURL + "cars/reset-bulk"
+        const url = baseURL + "/api/cars/reset-bulk"
         const fetchOptions = {
             method: "POST",
             mode: "cors",
@@ -177,7 +178,7 @@ const ResetCars = ({ carsFunc, auth }) => {
                                                 name={car.toString()}
                                                 onChange={handleCheck}
                                                 checked={checkboxStates[car]}
-                                                disabled={(carData[car]).state !== "online"} //disable the checkbox if the car is not online
+                                                disabled={(carData[car]).status !== "online"} //disable the checkbox if the car is not online
                                                 sx={{
                                                     color: "#ffffff",
                                                     "&.Mui-disabled": {

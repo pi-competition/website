@@ -32,7 +32,7 @@ const Admin = () => {
                 const data = {
                     "password": savedToken
                 }
-                const url = baseURL + "verify"
+                const url = baseURL + "/api/verify"
                 const fetchOptions = {
                     method: "POST",
                     mode: "cors",
