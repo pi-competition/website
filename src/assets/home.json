@@ -14,7 +14,7 @@
         },
         {
             "title": "Road",
-            "text": "The road can be created anywhere, with just a few strips of colored tape and some printed Aruco tags",
+            "text": "The road can be created anywhere, with just a few strips of colored tape which act as the nodes and some printed Aruco tags to define the boundaries of the track and allow the car to be tracked.",
             "type": "text",
             "subsection": "engineering"
         },
@@ -27,7 +27,7 @@
         {
             "title": "Hosting",
             "type": "text",
-            "text": "This website is currently hosted for free using cloudflare pages. The domain was free from nic.eu.org.",
+            "text": "This website is currently hosted for free using Cloudflare Pages which is a free service provided by Cloudflare for deploying and hosting frontend applications. The domain was free from nic.eu.org.",
             "subsection": "website"
         },
         {
