@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
@@ -13,10 +14,27 @@ import ColourToggles from './navbar/ColourToggles'
 import generalContent from "../assets/general_content.json"
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { Link } from 'react-router-dom';
+import configFile from "../config/config.json"
+import { Opacity } from "@mui/icons-material";
 
 const NavigationBar = ({ giveTheme }) => {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [reRenderVar, setReRenderVar] = useState(null);
+    const [online, setOnline] = useState(false)
+    const [statusNotiColour, setStatusNotiColour] = useState("purple")
+
+    useEffect(() => {
+        fetch(configFile.apiURL + "/api/ping")
+            .then((response) => {
+                if (response !== 200) {
+                    setOnline(false)
+                    setStatusNotiColour("orange")
+                } else {
+                    setOnline(true)
+                    setStatusNotiColour("green")
+                }
+            })
+    })
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -193,8 +211,8 @@ const NavigationBar = ({ giveTheme }) => {
                                     </Typography>
                                 </Button>
                             </Link>
-                            <Link
-                                to="/map"
+                            <a
+                                href={window.location.origin + "/map"}
                             >
                                 <Button
                                     id="map-button"
@@ -214,11 +232,77 @@ const NavigationBar = ({ giveTheme }) => {
                                         Map
                                     </Typography>
                                 </Button>
+                            </a>
+
+                            <Link
+                                to="/stats"
+                            >
+                                <Button
+                                    id="stats-button"
+                                    onClick={() => {
+                                        setReRenderVar(!reRenderVar)
+                                    }}
+                                    variant="contained"
+                                    sx={{ backgroundColor: "#232ED1" }}
+                                    disableElevation
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
+
+                                        Statistics
+                                    </Typography>
+                                </Button>
                             </Link>
+                            <Box
+                                sx={{
+                                    backgroundColor: statusNotiColour,
+                                    borderRadius: "5px",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    padding: "5px",
+                                    marginLeft: "1rem"
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontWeight: 100,
+                                    }}
+                                >
+
+                                    CONTROLLER: {online ? "ONLINE" : "OFFLINE"}
+                                </Typography>
+                            </Box>
                         </ButtonGroup>
                     </Box>
 
-                    <Box sx={{ flexGrow: 0 }}>
+                    <Box sx={{ flexGrow: 0, display: "flex", flexDirection: "row" }}>
+                        <a
+                            href="https://grafana-pi01.ben-services.eu.org/d-solo/tUwKjoiRz/new-dashboard"
+                            target="_blank"
+                        >
+                            <Button
+                                id="stats-button"
+                                onClick={() => {
+                                    setReRenderVar(!reRenderVar)
+                                }}
+                                variant="contained"
+                                sx={{ backgroundColor: "#232ED1" }}
+                                disableElevation
+                                startIcon={<OpenInNewIcon />}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontWeight: 100,
+                                    }}
+                                >
+
+                                    Grafana
+                                </Typography>
+                            </Button>
+                        </a>
                         <ColourToggles giveTheme={giveTheme} />
                     </Box>
                 </Toolbar>

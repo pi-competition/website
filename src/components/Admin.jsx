@@ -66,7 +66,7 @@ const Admin = () => {
 
 
 
-    if (returnValue === false && !token) {
+    if (returnValue === false && !token && config.requirePasswordForAdmin === true) {
         console.log(returnValue === false)
         setTimeout(() => {
         }, 300)

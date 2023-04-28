@@ -11,7 +11,7 @@ export function canvasDim(axis) {
 const canvasWidth = canvasDim("x")
 const canvasHeight = canvasDim("y")
 
-export function getMapLayoutData() {
+export function getMapLayoutData() {// if it can't get the current map data use the sample data
     return new Promise((resolve, reject) => {
         fetch("https://ctrl.ben-services.eu.org/ext/map/data").then((res) => {
             if (res.status !== 200) {
@@ -31,7 +31,7 @@ export function getMapLayoutData() {
 let xMax;
 let yMax;
 
-getMapLayoutData().then((res) => {
+getMapLayoutData().then((res) => {//find the maximum x and y values for this file
     const data = res
     //console.log(data)
     let max_y = 0;
@@ -44,7 +44,7 @@ getMapLayoutData().then((res) => {
     yMax = max_y
 })
 
-export function maxValues() {
+export function maxValues() {// function for finding max values in other files
     return new Promise((resolve, reject) => {
         getMapLayoutData().then((res) => {
             const data = res
@@ -60,7 +60,7 @@ export function maxValues() {
     })
 }
 
-export function parseMapData() {
+export function parseMapData() {// flips the map layout i think
     return new Promise((resolve, reject) => {
         getMapLayoutData().then((res) => {
             const coords = []
@@ -73,7 +73,7 @@ export function parseMapData() {
     })
 }
 
-export function parseLineData() {
+export function parseLineData() {// idk, don't remember writing this but don't touch it because it works
     return new Promise((resolve, reject) => {
         getMapLayoutData().then((res, err) => {
             const lines = []

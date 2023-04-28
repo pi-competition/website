@@ -1,7 +1,7 @@
 {
     "resetCarsAlertDuration": 4000,
     "loginPageAlertDuration": 5000,
-    "requirePasswordForAdmin": true,
+    "requirePasswordForAdmin": false,
     "bgType": "none",
     "adminLoginPersistDuration": 18000,
     "showCountdown": false,
