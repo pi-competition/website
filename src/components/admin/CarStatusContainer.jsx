@@ -28,8 +28,8 @@ const CarStatusContainer = ({ car }) => {
     }
 
     let borderColor;
-    if (car.state === "online") borderColor = "green"
-    else if (car.state === "offline") borderColor = "red"
+    if (car.status === "online") borderColor = "green"
+    else if (car.status === "offline") borderColor = "red"
     else borderColor = "orange"
     return (
         <div
@@ -37,7 +37,7 @@ const CarStatusContainer = ({ car }) => {
             style={{ borderColor: borderColor }}
         >
             <p>Car ID: {car.id}</p>
-            <p>Status: {parseState(car.state)}</p>
+            <p>Status: {parseState(car.status)}</p>
             {car.state !== "offline" ?
                 <div>
                     <p>Battery: {parseBattery(car.battery)}%</p>

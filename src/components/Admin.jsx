@@ -32,7 +32,7 @@ const Admin = () => {
                 const data = {
                     "password": savedToken
                 }
-                const url = baseURL + "verify"
+                const url = baseURL + "/api/verify"
                 const fetchOptions = {
                     method: "POST",
                     mode: "cors",
@@ -66,7 +66,7 @@ const Admin = () => {
 
 
 
-    if (returnValue === false && !token) {
+    if (returnValue === false && !token && config.requirePasswordForAdmin === true) {
         console.log(returnValue === false)
         setTimeout(() => {
         }, 300)

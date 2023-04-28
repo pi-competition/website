@@ -15,6 +15,7 @@ import bgPngDark from "./assets/bgPngDark.png"
 import bgPngLight from "./assets/bgPngLight.png"
 import Login from './components/admin/Login'
 import Map from './components/Map'
+import Statistics from "./components/Statistics"
 
 
 const App = () => {
@@ -44,6 +45,7 @@ const App = () => {
                         <Route path="/admin/login" element={<Login />} />
                         <Route path="/admin/car/*" element={<CarDetail />} />
                         <Route path="/map" element={<Map />} />
+                        <Route path="/stats" element={<Statistics />} />
                         <Route path="*" element={<NotFound />} />
                     </Route>
                 </Routes>

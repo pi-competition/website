@@ -27,26 +27,44 @@
         {
             "title": "Hosting",
             "type": "text",
-            "text": "This website is currently hosted on Cloudflare Pages, it is using a custom domain from nic.eu.org.",
+            "text": "This website is currently hosted for free using cloudflare pages. The domain was free from nic.eu.org.",
             "subsection": "website"
         },
         {
-            "title": "Framework",
+            "title": "How its built",
             "type": "text",
-            "text": "This website is built using React and vanilla css with a tiny bit of tailwindcss. It also uses the MUI which provided prebuilt react components.",
+            "text": "The website is built using React.js and MUI, a library which provides prebuilt React component to make the website look nice.",
+            "subsection": "website"
+        },
+        {
+            "title": "Purpose",
+            "type": "text",
+            "text": "The website is used for controlling the car and the server such as directing the cars to a specific location, rebooting the cars and starting or stopping the cars driving. The website also displays current statistics of the controller such as TPS and temperature.",
             "subsection": "website"
         },
         {
             "title": "API",
             "type": "text",
-            "text": "The application progtramming interface is a compelx and efficient comminication method for facilitating the comminication between the website, the control server and the car. It allows them to use the RESTful specification for expected and standardised communication.",
+            "text": "The application programming interface is a complex and efficient comminication method for facilitating the comminication between the website, the control server and the car. It allows them to use the RESTful specification for expected and standardised communication. The HTTP server is written using Flask, a python library for creating web servers",
             "subsection": "backend"
         },
         {
-            "title": "Langaugage",
+            "title": "Map Detection",
             "type": "text",
-            "text": "The API is written in typescript.",
-            "subsection": "backend"
+            "text": "abbas write your stuff here",
+            "subsection": "algorithms"
+        },
+        {
+            "title": "Pathfinding",
+            "type": "text",
+            "text": "abbas write your stuff here",
+            "subsection": "algorithms"
+        },
+        {
+            "title": "whatever else",
+            "type": "text",
+            "text": "abbas write your stuff here",
+            "subsection": "algorithms"
         }
     ]
 }
