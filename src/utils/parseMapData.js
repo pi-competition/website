@@ -60,13 +60,17 @@ export function maxValues() {// function for finding max values in other files
     })
 }
 
+export function unParseClickLocation({ x, y }) {
+    return { x: Math.floor(x / (canvasWidth / xMax)) - 50, y: Math.floor(y / (canvasHeight / yMax)) }
+}
+
 export function parseMapData() {// flips the map layout i think
     return new Promise((resolve, reject) => {
         getMapLayoutData().then((res) => {
             const coords = []
             const data = res
             data.forEach((node) => {
-                coords.push({ x: (node.x * (canvasWidth / xMax)), y: ((/*yMax + (200 - (yMax % 200))) - */node.y) * (canvasHeight / yMax)) })
+                coords.push({ x: (node.x * (canvasWidth / xMax)) + 50, y: ((/*yMax + (200 - (yMax % 200))) - */node.y) * (canvasHeight / yMax)) })
             })
             resolve(coords)
         })
@@ -81,12 +85,12 @@ export function parseLineData() {// idk, don't remember writing this but don't t
             data.forEach((node) => {
                 const newconns = []
                 node.conns.map((conn) => {
-                    conn.x = (conn.x * (canvasWidth / xMax))
+                    conn.x = (conn.x * (canvasWidth / xMax)) + 50
                     conn.y = (conn.y * (canvasHeight / yMax))
                     newconns.push({ x: conn.x, y: conn.y })
                 })
                 lines.push({
-                    x: (node.x * (canvasWidth / xMax)),
+                    x: (node.x * (canvasWidth / xMax)) + 50,
                     y: ((/*yMax + (200 - (yMax % 200))) - */node.y) * (canvasHeight / yMax)),
                     connections: node.conns,
                     intersection: node.is_intersection

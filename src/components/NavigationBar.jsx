@@ -26,9 +26,9 @@ const NavigationBar = ({ giveTheme }) => {
     useEffect(() => {
         fetch(configFile.apiURL + "/api/ping")
             .then((response) => {
-                if (response !== 200) {
+                if (response.status !== 200) {
                     setOnline(false)
-                    setStatusNotiColour("grey")
+                    setStatusNotiColour("red")
                 } else {
                     setOnline(true)
                     setStatusNotiColour("green")

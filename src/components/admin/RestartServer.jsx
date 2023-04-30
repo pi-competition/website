@@ -1,11 +1,12 @@
+// /api/sever/restart
+
 import { Alert, AlertTitle, Button, Collapse, IconButton } from '@mui/material'
 import React, { useState } from 'react'
 import configFile from "../../config/config.json"
 import CloseIcon from "@mui/icons-material/Close"
 
-const ManageDriving = ({ auth }) => {
+const RestartServer = ({ auth }) => {
     const ALERT_DURATION = configFile.manageDrivingAlertDuration
-    const [on, setOn] = useState(false);
     const [alertOpen, setAlertOpen] = useState(false);
     const [alertTitle, setAlertTitle] = useState("");
     const [alertMessage, setAlertMessage] = useState("");
@@ -19,13 +20,7 @@ const ManageDriving = ({ auth }) => {
     }
 
     const handleButtonPress = () => {
-        setOn(!on)
-        let route = configFile.apiURL + "/api/cars"
-        if (on) {
-            route = route + "/stop"
-        } else {
-            route = route + "/start"
-        }
+        let route = configFile.apiURL + "/api/server/restart"
         fetch(route, {
             method: "POST",
             headers: {
@@ -34,8 +29,7 @@ const ManageDriving = ({ auth }) => {
             }
         }).then((result) => {
             if (result.status === 204) {
-                setOn(!on)
-                handleAlertChange("Success", "Driving has been " + (on ? "stopped" : "started"), "success")
+                handleAlertChange("Success", "Server Restarted.", "success")
             } else {
                 console.log("Error")
                 handleAlertChange("Error", "Something went wrong", "error")
@@ -48,15 +42,15 @@ const ManageDriving = ({ auth }) => {
 
     return (
         <div
-            className='manage-driving-div'
+            className='restart-server-div'
         >
             <Button
                 onClick={handleButtonPress}
                 variant="contained"
-                color={on ? "error" : "success"}
-                className='manage-driving-button'
+                color="primary"
+                className='restart-server-button'
             >
-                {on ? "Stop Driving" : "Start Driving"}
+                Restart Server
             </Button>
             <Collapse
                 in={alertOpen}
@@ -93,4 +87,4 @@ const ManageDriving = ({ auth }) => {
     )
 }
 
-export default ManageDriving
+export default RestartServer
