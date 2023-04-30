@@ -28,7 +28,7 @@ const NavigationBar = ({ giveTheme }) => {
             .then((response) => {
                 if (response !== 200) {
                     setOnline(false)
-                    setStatusNotiColour("orange")
+                    setStatusNotiColour("grey")
                 } else {
                     setOnline(true)
                     setStatusNotiColour("green")
