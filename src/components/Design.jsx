@@ -1,10 +1,10 @@
 import React from 'react'
 import Typography from '@mui/material/Typography';
 import Gradient from 'rgt'
-import content from "../assets/about.json"
-import AboutContentContainer from './about/AboutContentContainer'
+import content from "../assets/design.json"
+import DesignContentContainer from './design/DesignContentContainer'
 
-const About = () => {
+const Design = () => {
     let sectionCounter = 0;
     let previous_section;
 
@@ -21,11 +21,11 @@ const About = () => {
     }
 
     return (
-        <div className='about'>
+        <div className='design'>
             <br />
             <Typography sx={{ fontWeight: 500, }} variant="h3" align="center" paragraph>
               <Gradient dir="left-to-right" from="#FF4500" to="#ffa500">
-              About
+              Design
               </Gradient>
             </Typography>
             <br />
@@ -38,9 +38,9 @@ const About = () => {
                         sectionCounter++;
                         return (
                             <div key={section.title + "-subsection"}>
-                                <p className='text-2xl bold flex ' id="about-subheading" >{formatSubheading(section.subsection)}</p>
+                                <p className='text-2xl bold flex ' id="design-subheading" >{formatSubheading(section.subsection)}</p>
                                 <div>
-                                    <AboutContentContainer content={section} />
+                                    <DesignContentContainer content={section} />
                                 </div>
                             </div>
 
@@ -51,7 +51,7 @@ const About = () => {
                             sectionCounter++;
                             return (
                                 <div key={section.title + "-innersection"}>
-                                    <AboutContentContainer content={section} />
+                                    <DesignContentContainer content={section} />
                                 </div>
                             )
                         } else {
@@ -60,9 +60,9 @@ const About = () => {
                             return (
                                 <div key={section.title + "-" + section.subsection + "subsection"
                                 } >
-                                    <p className='text-2xl bold flex ' id="about-subheading" >{formatSubheading(section.subsection)}</p>
+                                    <p className='text-2xl bold flex ' id="design-subheading" >{formatSubheading(section.subsection)}</p>
                                     <div>
-                                        <AboutContentContainer content={section} />
+                                        <DesignContentContainer content={section} />
                                     </div>
                                 </div>
                             )
@@ -74,4 +74,4 @@ const About = () => {
     )
 }
 
-export default About
+export default Design
