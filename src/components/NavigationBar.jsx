@@ -15,7 +15,6 @@ import generalContent from "../assets/general_content.json"
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { Link } from 'react-router-dom';
 import configFile from "../config/config.json"
-import { Opacity } from "@mui/icons-material";
 
 const NavigationBar = ({ giveTheme }) => {
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -126,12 +125,12 @@ const NavigationBar = ({ giveTheme }) => {
                                 </MenuItem>
                             </Link>
                             <Link
-                                to="/about"
+                                to="/team"
                             >
                                 <MenuItem
                                     onClick={handleCloseNavMenu}
                                 >
-                                    <Typography textAlign="center">About</Typography>
+                                    <Typography textAlign="center">Team</Typography>
                                 </MenuItem>
                             </Link>
                             <Link
@@ -190,7 +189,7 @@ const NavigationBar = ({ giveTheme }) => {
                             </Link>
 
                             <Link
-                                to="/about"
+                                to="/team"
                             >
                                 <Button
                                     id="about-button"
@@ -207,7 +206,7 @@ const NavigationBar = ({ giveTheme }) => {
                                         }}
                                     >
 
-                                        About
+                                        Team
                                     </Typography>
                                 </Button>
                             </Link>
@@ -282,6 +281,7 @@ const NavigationBar = ({ giveTheme }) => {
                         <a
                             href="https://grafana-pi01.ben-services.eu.org/d-solo/tUwKjoiRz/new-dashboard"
                             target="_blank"
+                            rel="noreferrer"
                         >
                             <Button
                                 id="stats-button"

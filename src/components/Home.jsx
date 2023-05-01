@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import Typography from '@mui/material/Typography';
+import Gradient from 'rgt'
 import content from "../assets/home.json"
 import HomeContentContainer from './home/HomeContentContainer'
 import config from "../config/config.json"
@@ -93,7 +95,13 @@ const Home = () => {
 
     return (
         <div className='home'>
-            <p className='text-4xl bold flex justify-center' id="home-title">Home</p>
+            <br />
+            <Typography sx={{ fontWeight: 500, }} variant="h3" align="center" paragraph>
+              <Gradient dir="left-to-right" from="#FF4500" to="#ffa500">
+              Home
+              </Gradient>
+            </Typography>
+            <br />
             <br />
             {config.showCountdown &&
                 <div className='home-container'>

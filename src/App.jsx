@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import PageHandler from './PageHandler'
 import Home from "./components/Home"
-import About from './components/About'
+import Team from './components/Team'
 import NotFound from './components/NotFound'
 import Footer from "./components/Footer"
 import Admin from "./components/Admin"
@@ -40,7 +40,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<PageHandler giveTheme={switchTheme} />}>
                         <Route index element={<Home />} />
-                        <Route path="/about" element={<About />} />
+                        <Route path="/team" element={<Team />} />
                         <Route path="/admin" element={<Admin />} />
                         <Route path="/admin/login" element={<Login />} />
                         <Route path="/admin/car/*" element={<CarDetail />} />
