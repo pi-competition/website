@@ -4,10 +4,8 @@ import { Link } from 'react-router-dom'
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 
 const CarStatusContainer = ({ car }) => {
-    const [uptime, setUptime] = useState([0, 0])
-    let rawUptime = car.uptime
-    const parseUptime = (milliseconds) => {//convert uptime from milliseconds to minutes:seconds
-        let seconds = Math.floor(milliseconds / 1000)
+    const parseUptime = (seconds) => {//convert uptime from milliseconds to minutes:seconds
+        seconds = Math.round(seconds)
         let minutes = 0
         while (true) {
             if (seconds < 60) {
@@ -16,7 +14,7 @@ const CarStatusContainer = ({ car }) => {
             seconds = seconds - 60
             minutes++
         }
-        setUptime([minutes, seconds])
+        return minutes + ":" + seconds
     }
 
     const parseState = (state) => {
@@ -40,12 +38,10 @@ const CarStatusContainer = ({ car }) => {
             <p>Status: {parseState(car.status)}</p>
             {car.state !== "offline" ?
                 <div>
-                    <p>Battery: {parseBattery(car.battery)}%</p>
-                    <p>Uptime: {uptime} min</p>
+                    <p>Uptime: {parseUptime(car.uptime)} min</p>
                 </div>
                 :
                 <div>
-                    <p>Battery: N/A</p>
                     <p>Uptime: N/A</p>
                 </div>
             }
