@@ -5,7 +5,7 @@ import { shuffle, string } from "random-generator.js"
 import content from "../assets/team.json"
 import TeamContentContainer from './team/TeamContentContainer'
 
-const About = () => {
+const Team = () => {
 
     const random_people = shuffle(content.people)
     console.log(string(6, { numbers: false }))
@@ -23,7 +23,7 @@ const About = () => {
             {
                 random_people.map((person) => {
                     return (
-                        <div key={"about-" + person.name}>
+                        <div key={"team-" + person.name}>
                             <TeamContentContainer name={person.name} text={person.text} projects={person.projects} />
                         </div>
                     )
@@ -33,4 +33,4 @@ const About = () => {
     )
 }
 
-export default About
+export default Team

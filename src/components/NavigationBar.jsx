@@ -78,7 +78,7 @@ const NavigationBar = ({ giveTheme }) => {
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
-                            letterSpacing: '.3rem',
+                            letterSpacing: '.1rem',
                             color: 'inherit',
                             textDecoration: 'none',
                         }}
@@ -122,6 +122,24 @@ const NavigationBar = ({ giveTheme }) => {
                                     onClick={handleCloseNavMenu}
                                 >
                                     <Typography textAlign="center">Home</Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link
+                                to="/about"
+                            >
+                                <MenuItem
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    <Typography textAlign="center">About</Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link
+                                to="/design"
+                            >
+                                <MenuItem
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    <Typography textAlign="center">Design</Typography>
                                 </MenuItem>
                             </Link>
                             <Link
@@ -187,12 +205,55 @@ const NavigationBar = ({ giveTheme }) => {
                                     </Typography>
                                 </Button>
                             </Link>
+                            <Link
+                                to="/about"
+                            >
+                                <Button
+                                    id="about-button"
+                                    onClick={() => {
+                                        setReRenderVar(!reRenderVar)
+                                    }}
+                                    variant="contained"
+                                    sx={{ backgroundColor: "#232ED1" }}
+                                    disableElevation
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
 
+                                        About
+                                    </Typography>
+                                </Button>
+                            </Link>
+                            <Link
+                                to="/design"
+                            >
+                                <Button
+                                    id="design-button"
+                                    onClick={() => {
+                                        setReRenderVar(!reRenderVar)
+                                    }}
+                                    variant="contained"
+                                    sx={{ backgroundColor: "#232ED1" }}
+                                    disableElevation
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
+
+                                        Design
+                                    </Typography>
+                                </Button>
+                            </Link>
                             <Link
                                 to="/team"
                             >
                                 <Button
-                                    id="about-button"
+                                    id="team-button"
                                     onClick={() => {
                                         setReRenderVar(!reRenderVar)
                                     }}

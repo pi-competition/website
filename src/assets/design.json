@@ -1,0 +1,16 @@
+{
+    "sections": [
+        {
+            "title": "Test title",
+            "text": "Test text",
+            "type": "text",
+            "subsection": "test subsection"
+        },
+        {
+            "title": "Test title 2",
+            "src": "https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image-840x525.jpg",
+            "type": "image",
+            "subsection": "test subsection 2"
+        }
+    ]
+}
