@@ -73,6 +73,12 @@
             "type": "text",
             "text": "Despite only one car in this example, collision avoidance was still a consideration in algorithm design. The node space was originally split over a number of Zones containing a specific number of nodes, such that two cars occupying neighbouring Zones would not physically collide. Cars then forecasted in how long they would require a Zone to be free, and the creation of subsequent routes would be penalized for requiring the car to wait. If waiting was required, cars then waited for approval from the controller before proceeding.\nHowever, since only one car was ever built, this didn't end up being used.",
             "subsection": "algorithms"
+        },
+        {
+            "title": "Guidance",
+            "type": "text",
+            "text": "The car knows where it is going (the immediate target) at all times, so when position data is recieved from the controller, which calculates a position and an angle based on the detected Aruco tag and a predefined corner, it can calculate the difference between the bearing between itself and the target, and its current heading, thereby deriving a correction. The next step depends on the absolute magnitude of the correction, which larger values requiring a spin-on-the-spot, and lower values being scaled to a curve while moving forwards.",
+            "subsection": "algorithms"
         }
     ]
 }
