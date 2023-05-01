@@ -59,7 +59,7 @@
             "type": "text",
             "text": "If the camera and website dashboard are working correctly, the car should know where it is, where it needs to go, and its orientation. It can use this information to establish an angle correction, and updates the speeds of the motors to match this. By making movements step-by-step, we avoid motion blur impacting our camera's ability to detect the car's tag. For a multi-car system, collisions are avoided by the controller, which splits up the nodes cars can visit into zones. Only one car can occupy a zone at once, so the controller instructs cars to stop and wait if the zone ahead is blocked.",
             "subsection": "algorithms"
-            ]
+            
         }
     ]
 }
