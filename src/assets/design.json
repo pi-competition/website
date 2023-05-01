@@ -1,16 +1,97 @@
 {
     "sections": [
         {
-            "title": "Test title",
-            "text": "Test text",
+            "text": "By running our own instance of the Stable diffusion AI, we created concept art of how real PANIC cars would look. This process was interesting and inspiring, and also created some really cool images...",
             "type": "text",
-            "subsection": "test subsection"
+            "subsection": "ai concept art"
         },
         {
-            "title": "Test title 2",
-            "src": "https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image-840x525.jpg",
+            "src": "https://i.postimg.cc/43XkLfwZ/ai1.png",
             "type": "image",
-            "subsection": "test subsection 2"
+            "subsection": "ai concept art"
+        },
+        {
+            "src": "https://i.postimg.cc/k5wrL0hS/ai2.png",
+            "type": "image",
+            "subsection": "ai concept art"
+        },
+        {
+            "src": "https://i.postimg.cc/Fzd2d7Fb/ai3.png",
+            "type": "image",
+            "subsection": "ai concept art"
+        },
+        {
+            "src": "https://i.postimg.cc/2SQN7bQ2/ai4.png",
+            "type": "image",
+            "subsection": "ai concept art"
+        },
+
+        {
+            "text": "Sketching our designs allowed us to brainstorm ideas and decide on the best layout for all the components in our prototype.",
+            "type": "text",
+            "subsection": "design sketches"
+        },
+        {
+            "src": "https://i.postimg.cc/TwHz3rxY/sketch1.jpg",
+            "type": "image",
+            "subsection": "design sketches"
+        },
+        {
+            "src": "https://i.postimg.cc/dQh1m6L6/sketch2.jpg",
+            "type": "image",
+            "subsection": "design sketches"
+        },
+        {
+            "src": "https://i.postimg.cc/MKRpgG0j/sketch3.jpg",
+            "type": "image",
+            "subsection": "design sketches"
+        },
+        {
+            "src": "https://i.postimg.cc/8kxCyvvS/sketch4.jpg",
+            "type": "image",
+            "subsection": "design sketches"
+        },
+
+        {
+            "text": "To create the actual body of the car, we used blender to model the design and contructed it using a 3d Printer.",
+            "type": "text",
+            "subsection": "3d printing"
+        },
+        {
+            "src": "https://i.postimg.cc/rwXL4CrD/blender.png",
+            "type": "image",
+            "subsection": "3d printing"
+        },
+        {
+            "src": "https://i.postimg.cc/RVnBqbNr/3d-print.gif",
+            "type": "image",
+            "subsection": "3d printing"
+        },
+
+        {
+            "text": "Once we'd hit upon a design we liked and made the outer shell, we began to fill it with the neccesary electronic components and a Raspberry Pi.",
+            "type": "text",
+            "subsection": "electronics"
+        },
+        {
+            "src": "https://i.postimg.cc/QttLDfRy/circuit1.jpg",
+            "type": "image",
+            "subsection": "electronics"
+        },
+        {
+            "src": "https://i.postimg.cc/cCpPQ06p/circuit2.png",
+            "type": "image",
+            "subsection": "electronics"
+        },
+        {
+            "src": "https://i.postimg.cc/mgsg4GVp/circuit3.jpg",
+            "type": "image",
+            "subsection": "electronics"
+        },
+        {
+            "src": "https://i.postimg.cc/DwPyyYMv/circuit4.jpg",
+            "type": "image",
+            "subsection": "electronics"
         }
     ]
 }

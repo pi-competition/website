@@ -28,7 +28,7 @@ const Home = () => {
         <Grid container spacing={4}>
             <Grid item xs={12} sm={6} md={4}>
                 <Card id="home-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} >
-                    <CardMedia component="img" image="https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image-840x525.jpg"/>
+                    <CardMedia component="img" image="https://i.postimg.cc/0QbZt7qm/about.png"/>
                     <CardContent id="home-card-content" sx={{ flexGrow: 1 }}>
                         <Typography gutterBottom variant="h5" component="h2">
                             About
@@ -45,7 +45,7 @@ const Home = () => {
 
             <Grid item xs={12} sm={6} md={4}>
                 <Card id="home-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} >
-                    <CardMedia component="img" image="https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image-840x525.jpg"/>
+                    <CardMedia component="img" image="https://i.postimg.cc/664YnVcx/design.png"/>
                     <CardContent id="home-card-content" sx={{ flexGrow: 1 }}>
                         <Typography gutterBottom variant="h5" component="h2">
                             Design
@@ -62,7 +62,7 @@ const Home = () => {
 
             <Grid item xs={12} sm={6} md={4}>
                 <Card id="home-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} >
-                    <CardMedia component="img" image="https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image-840x525.jpg"/>
+                    <CardMedia component="img" image="https://i.postimg.cc/prjCvxrL/team.jpg"/>
                     <CardContent id="home-card-content" sx={{ flexGrow: 1 }}>
                         <Typography gutterBottom variant="h5" component="h2">
                             Team
@@ -79,7 +79,7 @@ const Home = () => {
 
             <Grid item xs={12} sm={6} md={4}>
                 <Card id="home-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} >
-                    <CardMedia component="img" image="https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image-840x525.jpg"/>
+                    <CardMedia component="img" image="https://i.postimg.cc/kXrwcVY6/map.png"/>
                     <CardContent id="home-card-content" sx={{ flexGrow: 1 }}>
                         <Typography gutterBottom variant="h5" component="h2">
                             Map
@@ -96,7 +96,7 @@ const Home = () => {
 
             <Grid item xs={12} sm={6} md={4}>
                 <Card id="home-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} >
-                    <CardMedia component="img" image="https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image-840x525.jpg"/>
+                    <CardMedia component="img" image="https://i.postimg.cc/TwF0BhRs/stats.jpg"/>
                     <CardContent id="home-card-content" sx={{ flexGrow: 1 }}>
                         <Typography gutterBottom variant="h5" component="h2">
                             Statistics

@@ -2,68 +2,62 @@
     "sections": [
         {
             "title": "Team PANIC",
-            "text": "Our team name, PANIC, stands for Pathfinding Automobile Network of Induction Charging.",
+            "text": "Our team name, PANIC, stands for Pathfinding Automobile Network of Induction Charging. It also felt fitting, in case our li-ion batteries caught on fire.",
             "type": "text",
             "subsection": "team name"
         },
         {
             "title": "Cars",
-            "text": "The car is built in a custom designed 3d printed shell. It drives using two motors controlled from a Raspberry Pi HAT, and uses a TP4056 charge controller to take power input from a Qi coil, charging a Lithium Ion battery.",
+            "text": "The car is built in a custom designed 3d printed shell. It drives using two DC motors with gearboxes, controlled from a Raspberry Pi HAT, and uses a TP4056 charge controller to take power input from a Qi coil. The coil charges seperate Lithium Ion batteries for the Pi and the motors, to ensure we have enough power for both.",
             "type": "text",
             "subsection": "engineering"
         },
         {
             "title": "Road",
-            "text": "The road can be created anywhere, with just a few strips of colored tape which act as the nodes and some printed Aruco tags to define the boundaries of the track and allow the car to be tracked.",
+            "text": "The road can be created anywhere, with just a few strips of colored tape and some printed Aruco tags to act as nodes boundaries. Once the system is adjusted to work with the lighting and tape colors, the camera can identify the shape of the 'road' and track the car's movement along it.",
             "type": "text",
             "subsection": "engineering"
         },
         {
-            "title": "System Diagram",
-            "type": "disabled",
+            "title": "A Very Confusing Diagram",
+            "type": "image",
             "src": "https://cdn.discordapp.com/attachments/1043510032618238082/1087365305870852136/hg5i5la6Q4.png",
             "subsection": "System Overview"
         },
         {
             "title": "Hosting",
             "type": "text",
-            "text": "This website is currently hosted for free using Cloudflare Pages which is a free service provided by Cloudflare for deploying and hosting frontend applications. The domain was free from nic.eu.org.",
+            "text": "This website is currently hosted using Cloudflare Pages, which is a free service provided by Cloudflare for deploying and hosting frontend applications. The domain was registered for free with nic.eu.org, and uses Cloudflare's free DNS.",
             "subsection": "website"
         },
         {
             "title": "How its built",
             "type": "text",
-            "text": "The website is built using React.js and MUI, a library which provides prebuilt React component to make the website look nice.",
+            "text": "The website is built using React.js, a popular frontend framework used by companies like Facebook and Twitter, and MUI, a library which provides nice-looking React components.",
             "subsection": "website"
         },
         {
             "title": "Purpose",
             "type": "text",
-            "text": "The website is used for controlling the car and the server such as directing the cars to a specific location, rebooting the cars and starting or stopping the cars driving. The website also displays current statistics of the controller such as TPS and temperature.",
+            "text": "The website is used for controlling the car and the server, sending commands for actions like directing the car to a specific location or rebooting it. The website also displays statistics from the controller such as TPS and temperature.",
             "subsection": "website"
         },
         {
             "title": "API",
             "type": "text",
-            "text": "The application programming interface is a complex and efficient comminication method for facilitating the comminication between the website, the control server and the car. It allows them to use the RESTful specification for expected and standardised communication. The HTTP server is written using Flask, a python library for creating web servers",
+            "text": "The application programming interface is a complex and efficient comminication method for facilitating data transfer between the website, the control server and the car. It allows them to use the RESTful specification for expected and standardised communication. The HTTP server is written using Flask, a python library for creating web servers.",
             "subsection": "backend"
         },
         {
             "title": "Map Detection",
             "type": "text",
-            "text": "abbas write your stuff here",
+            "text": "ArUco tags are small patterns that can be processed by a single static camera to find their relative positions. We use the position information from four of them placed at the edge of the track to determine the digital boundary. Processing and color filters allow the track to determine roads/intersections, ensuring each node is detected once in the correct position, and background noise is ignored. This can take some tweaking if the lighting conditions produce a lot of shadows.",
             "subsection": "algorithms"
         },
         {
             "title": "Pathfinding",
             "type": "text",
-            "text": "abbas write your stuff here",
-            "subsection": "algorithms"
-        },
-        {
-            "title": "whatever else",
-            "type": "text",
-            "text": "abbas write your stuff here",
+            "text": "If the camera and website dashboard are working correctly, the car should know where it is, where it needs to go, and its orientation. It can use this information to establish an angle correction, and updates the speeds of the motors to match this. By making movements step-by-step, we avoid motion blur impacting our camera's ability to detect the car's tag. For a multi-car system, collisions are avoided by the controller, which splits up the nodes cars can visit into zones. Only one car can occupy a zone at once, so the controller instructs cars to stop and wait if the zone ahead is blocked.",
             "subsection": "algorithms"
         }
     ]

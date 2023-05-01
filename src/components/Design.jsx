@@ -21,7 +21,7 @@ const Design = () => {
     }
 
     return (
-        <div className='about'>
+        <div className='design'>
             <br />
             <Typography sx={{ fontWeight: 500, }} variant="h3" align="center" paragraph>
               <Gradient dir="left-to-right" from="#FF4500" to="#ffa500">
