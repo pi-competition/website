@@ -5,7 +5,7 @@ const AboutContentContainer = ({ name, text, projects }) => {
     return (
         <div className='about-container'>
             <h3 className='text-xl'>{name}</h3>
-            <p>Responsilibity: {parse(text)}</p>
+            <p>Contributions: {parse(text)}</p>
             <p>Projects:</p>
             <ul>
                 {projects.map((project, index) => {
