@@ -60,7 +60,11 @@ export function maxValues() {// function for finding max values in other files
     })
 }
 
-export function parseMapData() {// flips the map layout i think
+export function unParseClickLocation({ x, y }) {
+    return { x: Math.floor(x / (canvasWidth / xMax)), y: Math.floor(y / (canvasHeight / yMax)) }
+}
+
+export function parseMapData() {// scales the map to fit in the canvas
     return new Promise((resolve, reject) => {
         getMapLayoutData().then((res) => {
             const coords = []

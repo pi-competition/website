@@ -25,8 +25,9 @@ const NavigationBar = ({ giveTheme }) => {
     useEffect(() => {
         fetch(configFile.apiURL + "/api/ping")
             .then((response) => {
-                if (response !== 200) {
+                if (response.status !== 200) {
                     setOnline(false)
+
                     setStatusNotiColour("orangered")
                 } else {
                     setOnline(true)
@@ -158,6 +159,24 @@ const NavigationBar = ({ giveTheme }) => {
                                     onClick={handleCloseNavMenu}
                                 >
                                     <Typography textAlign="center">Map</Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link
+                                to="/stats"
+                            >
+                                <MenuItem
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    <Typography textAlign="center">Statistics</Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link
+                                to="/admin"
+                            >
+                                <MenuItem
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    <Typography textAlign="center">Admin</Typography>
                                 </MenuItem>
                             </Link>
 
@@ -316,6 +335,28 @@ const NavigationBar = ({ giveTheme }) => {
                                     </Typography>
                                 </Button>
                             </Link>
+                            <Link
+                                to="/admin"
+                            >
+                                <Button
+                                    id="stats-button"
+                                    onClick={() => {
+                                        setReRenderVar(!reRenderVar)
+                                    }}
+                                    variant="contained"
+                                    sx={{ backgroundColor: "#232ED1" }}
+                                    disableElevation
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
+
+                                        Admin
+                                    </Typography>
+                                </Button>
+                            </Link>
                             <Box
                                 sx={{
                                     backgroundColor: statusNotiColour,
@@ -340,7 +381,7 @@ const NavigationBar = ({ giveTheme }) => {
 
                     <Box sx={{ flexGrow: 0, display: "flex", flexDirection: "row" }}>
                         <a
-                            href="https://grafana-pi01.ben-services.eu.org/d-solo/tUwKjoiRz/new-dashboard"
+                            href="https://grafana-pi01.ben-services.eu.org/d/tUwKjoiRz/dev-stuff?orgId=1&search=open&query=folder:current"
                             target="_blank"
                             rel="noreferrer"
                         >
