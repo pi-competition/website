@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Stage, Layer, Circle, Line } from 'react-konva';
 import config from "../config/config.json"
 import { Typography } from '@mui/material';
+import { canvasDim, unParseClickLocation } from '../utils/parseMapData';
 
 const MapBase = ({ pointData, lineData }) => {
 
@@ -11,7 +12,7 @@ const MapBase = ({ pointData, lineData }) => {
 
     const sendClickLoc = (e) => {
         const pointerPos = e.currentTarget.getPointerPosition()
-        setPointerPos(pointerPos)
+        setPointerPos(unParseClickLocation(pointerPos))
         const url = baseURL + "/api/cars/set-destination"
         const fetchOptions = {
             method: "POST",
@@ -50,8 +51,8 @@ const MapBase = ({ pointData, lineData }) => {
                 }}
             >
                 <Stage
-                    width={config.mapDim.x}
-                    height={config.mapDim.y}
+                    width={window.innerWidth}
+                    height={window.innerHeight}
                     style={{ backgroundColor: "#081421", borderColor: "yellow" }}
                     onClick={(e) => sendClickLoc(e)}
                 >

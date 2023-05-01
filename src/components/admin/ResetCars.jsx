@@ -69,9 +69,8 @@ const ResetCars = ({ carsFunc, auth }) => {
 
 
 
-    const handleCheck = (event) => {
+    const handleCheck = (event, value) => {
         const state = event.target.checked
-        const value = parseInt(event.target.name)
 
         if (isNaN(value)) { console.error("value is NaN") }
 
@@ -151,7 +150,7 @@ const ResetCars = ({ carsFunc, auth }) => {
 
     const label = { inputProps: { 'aria-label': 'Reset Cars Checkbox' } };
 
-    if (errorMessage === "") {
+    if (errorMessage === "" && carData !== undefined) {
         return (
             <div className="reset-cars">
                 <Stack spacing={2}>
@@ -160,7 +159,7 @@ const ResetCars = ({ carsFunc, auth }) => {
                             container
                             justifyContent="center"
                         >
-                            {cars && cars.map((car) => {
+                            {cars && cars.map((car, index) => {
                                 return (
                                     <div key={"reset-container-" + car.toString()}>
                                         <Grid
@@ -175,10 +174,10 @@ const ResetCars = ({ carsFunc, auth }) => {
                                                 {...label}
                                                 id={"checkbox-" + car.toString()}
                                                 color='primary'
-                                                name={car.toString()}
-                                                onChange={handleCheck}
-                                                checked={checkboxStates[car]}
-                                                disabled={(carData[car]).status !== "online"} //disable the checkbox if the car is not online
+                                                name={index.toString()}
+                                                onChange={(e) => { handleCheck(e, car) }}
+                                                checked={checkboxStates[index]}
+                                                disabled={(carData[index]).status !== "online"} //disable the checkbox if the car is not online
                                                 sx={{
                                                     color: "#ffffff",
                                                     "&.Mui-disabled": {

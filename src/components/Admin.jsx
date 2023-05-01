@@ -5,8 +5,8 @@ import "../admin.css"
 import CarsStatus from './admin/CarsStatus';
 import config from "../config/config.json"
 import { Navigate } from 'react-router-dom';
-import ManageDriving from './admin/ManageDriving';
-import RegenImage from './admin/RegenImage';
+import RestartServer from './admin/RestartServer';
+import RegenImage from './admin/RegenMap';
 
 
 const Admin = () => {
@@ -81,7 +81,7 @@ const Admin = () => {
     const dividerStyleNoText = { bgcolor: "#1565c0" }
     if (loading) {
         return (
-            <div></div>
+            <div>Saved password is wrong. Re-enter it <a href="/admin/login">here</a></div>
         )
     } else {
         return (
@@ -92,8 +92,8 @@ const Admin = () => {
                     {carData && <CarsStatus carsData={carData} />}
                     <Divider sx={dividerStyleText} className="admin-divider" m="1rem" ><Typography variant="h5">Reboot Cars</Typography></Divider>
                     <ResetCars carsFunc={setCars} auth={token} />
-                    <Divider sx={dividerStyleText} className="admin-divider" m="1rem" ><Typography variant="h5">Manage Driving</Typography></Divider>
-                    <ManageDriving auth={token} />
+                    <Divider sx={dividerStyleText} className="admin-divider" m="1rem" ><Typography variant="h5">Restart Server</Typography></Divider>
+                    <RestartServer auth={token} />
                     <Divider sx={dividerStyleText} className="admin-divider" m="1rem" ><Typography variant="h5">Refresh Image</Typography></Divider>
                     <RegenImage auth={token} />
                     <Divider sx={dividerStyleNoText} className="admin-divider" m="1rem" />

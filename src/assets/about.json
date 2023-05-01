@@ -24,14 +24,6 @@
             ]
         },
         {
-            "name": "Charlie",
-            "text": "Produced the idea & presentation, 3d models, and designed/built the hardware & electronics",
-            "projects": [
-                "Hardware",
-                "Electronics"
-            ]
-        },
-        {
             "name": "Sean",
             "text": "Systems analysis, logistics, helped design hardware, firmware and software",
             "projects": [
