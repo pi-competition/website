@@ -395,10 +395,7 @@ const NavigationBar = ({ giveTheme, online }) => {
                                 </Typography>
                             </Button>
                         </a>
-                            ) : (<></>)
-                        }
 
-                        
                         <ColourToggles giveTheme={giveTheme} />
                     </Box>
                 </Toolbar>
