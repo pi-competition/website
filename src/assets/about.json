@@ -22,13 +22,13 @@
             "title": "Architecture",
             "type": "image",
             "src": "/architecture.png",
-            "subsection": "System Overview"
+            "subsection": "system overview"
         },
         {
             "title": "",
             "type": "text",
             "text": "Our system is made up of a number of components, each with their own purpose. The website is used for controlling the car and the server such as directing the cars to a specific location. The website also displays current statistics of the controller and cars such as ticks per second and temperature. The API is a complex and efficient communication method for facilitating data transfer between the website, the control server and the car. The architecture is designed to be modular, allowing for easy expansion and modification.",
-            "subsection": "System Overview"
+            "subsection": "system overview"
         },
         {
             "title": "How its built",

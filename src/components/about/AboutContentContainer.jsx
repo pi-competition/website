@@ -20,7 +20,6 @@ const AboutContentContainer = ({ content }) => {
                 >
                     View Image
                 </Button>
-                
             </div>
         )
     } else if (content.type === "text") {

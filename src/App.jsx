@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
+import configFile from "./config/config.json"
 import PageHandler from './PageHandler'
 import Home from "./components/Home"
 import About from './components/About'
@@ -22,6 +23,18 @@ import Statistics from "./components/Statistics"
 
 const App = () => {
     const [darkMode, setDarkMode] = useState(true)
+    const [online, setOnline] = useState(false)
+
+    useEffect(() => {
+        fetch(configFile.apiURL + "/api/ping")
+            .then((response) => {
+                if (response.status !== 200) {
+                    setOnline(false)
+                } else {
+                    setOnline(true)
+                }
+            })
+    })
 
     const switchTheme = (bool) => {
         setDarkMode(bool)
@@ -40,7 +53,7 @@ const App = () => {
         >
             <div className='main-section'>
                 <Routes>
-                    <Route path="/" element={<PageHandler giveTheme={switchTheme} />}>
+                    <Route path="/" element={<PageHandler giveTheme={switchTheme} online={online} />}>
                         <Route index element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/design" element={<Design />} />
@@ -49,7 +62,7 @@ const App = () => {
                         <Route path="/admin/login" element={<Login />} />
                         <Route path="/admin/car/*" element={<CarDetail />} />
                         <Route path="/map" element={<Map />} />
-                        <Route path="/stats" element={<Statistics />} />
+                        <Route path="/stats" element={<Statistics online={online} />} />
                         <Route path="*" element={<NotFound />} />
                     </Route>
                 </Routes>

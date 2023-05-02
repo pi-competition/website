@@ -1,30 +1,38 @@
 import React from 'react'
 import parse from "html-react-parser"
+import Grid from "@mui/material/Grid"
 
 const DesignContentContainer = ({ content }) => {
-    let jsx;
-    if (content.type === "image") {
-        jsx = (
-            <div className="design-container">
-                <h3 className="text-xl">{content.title}</h3>
-                <img src={content.src} alt={content.title} className="design-container-image"></img>
-            </div>
-        )
-    } else if (content.type === "text") {
-        jsx = (
-            <div className='design-container'>
-                <h3 className='text-xl'>{content.title}</h3>
-                <p>{parse(content.text)}</p>
-            </div>
-        )
-    } else if (content.type === "disabled") {
-        jsx = (
-            <div className='design-container'>
-                <p>Error: Incorrect type in design.json</p>
-            </div>)
-
-    }
-    return jsx
+    const containerWidth = window.innerWidth * 0.8
+    return (
+        <div className='design-container' style={{
+            width: `${containerWidth}px`
+        }}>
+            <p
+                style={{
+                    marginBottom: "1rem",
+                }}
+                className="text-lg"
+            >{parse(content.description)}</p>
+            <Grid container >
+                {
+                    content.images.map((image) => {
+                        return (
+                            <Grid item sx={{
+                                margin: "auto",
+                                marginBottom: "1rem"
+                            }} >
+                                <img src={image} style={{
+                                    maxWidth: "600px",
+                                    maxHeight: "600px",
+                                }} />
+                            </Grid>
+                        )
+                    })
+                }
+            </Grid>
+        </div>
+    )
 }
 
 export default DesignContentContainer

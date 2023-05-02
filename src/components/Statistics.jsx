@@ -1,13 +1,21 @@
+import { Typography } from '@mui/material'
 import React from 'react'
 import { Button, Typography } from '@mui/material'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
-const Statistics = () => {
+const Statistics = ({ online }) => {
     return (
+
         <div style={{
             display: "flex",
-            flexDirection: "column"
+            flexDirection: "column",
+            alignItems: "center"
         }}>
+            {!online ? <div style={{
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+                width: (window.innerWidth * 0.8) + "px"
+            }}>The controller software is not running so the live statistics cannot be viewed. If the top left box says 'no data' the PI is on but the software is not running.</div> : <div></div>}
             <div style={{
                 display: "flex",
                 flexDirection: "row"
@@ -37,6 +45,7 @@ const Statistics = () => {
         </div>
         
     )
+
 }
 
 export default Statistics
