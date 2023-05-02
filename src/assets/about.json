@@ -51,7 +51,7 @@
         {
             "title": "RADAR",
             "type": "text",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            "text": "Radar is an inhouse tool for discovering devices on a local network. It scans the network for devices that respond to ICMP echo requests (ping). With this data, it attempts to identify devices by their MAC address. It is used by the controller to connect to cars even if their IP addresses change due to being on a new network.",
             "subsection": "backend"
         },
         {
