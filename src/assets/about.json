@@ -57,13 +57,13 @@
         {
             "title": "Controller Firmware",
             "type": "text",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            "text": "The controller firmware runs on the controller Pi, and is written in Python. It handles image processing using OpenCV, communication and location event loops, and acts as a proxy between the website and car to allow it to add data about nodes and other locations. It uses bidirectional HTTP to communicate with the car firmware, to tell it where to move to, where it is, and whether it's permitted to move at all, and runs the API.",
             "subsection": "backend"
         },
         {
             "title": "Car Firmware",
             "type": "text",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            "text": "The car firmware runs on the Pi 3 powering the car, and is written in Python. It handles calculating corrections, issuing commands to the motor, and acting upon information recieved from the controller Pi. It runs a HTTP server (using Flask) to allow for communication between itself and the controller.",
             "subsection": "backend"
         },
         {
