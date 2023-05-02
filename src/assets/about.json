@@ -1,34 +1,94 @@
 {
-    "people": [
+    "sections": [
         {
-            "name": "Owen",
-            "text": "Designed and built the website",
-            "projects": [
-                "Website"
-            ]
+            "title": "Team PANIC",
+            "text": "Our team name, PANIC, stands for Pathfinding Automobile Network of Induction Charging. It also felt fitting, in case our li-ion batteries caught on fire.",
+            "type": "text",
+            "subsection": "team name"
         },
         {
-            "name": "Ben",
-            "text": "Designed and built the backend for the website and communication to the firmware",
-            "projects": [
-                "API",
-                "Backend"
-            ]
+            "title": "Cars",
+            "text": "The car is built in a custom designed 3d printed shell. It drives using two DC motors with gearboxes, controlled from a Raspberry Pi HAT, and uses a TP4056 charge controller to take power input from a Qi coil. The coil charges seperate Lithium Ion batteries for the Pi (using a Pi Sugar HAT) and the motors, to ensure we have enough power for both.",
+            "type": "text",
+            "subsection": "engineering"
         },
         {
-            "name": "Abbas",
-            "text": "Programmed the firmware for the car and controller",
-            "projects": [
-                "Car driving firmware",
-                "Controller firmware"
-            ]
+            "title": "Road",
+            "text": "The road can be created anywhere, with just a few strips of colored tape which act as the nodes, some other distinct colour to signify intersections of multiple paths, and some Aruco tags to define the boundaries of the track, and allow the car to be tracked.",
+            "type": "text",
+            "subsection": "engineering"
         },
         {
-            "name": "Sean",
-            "text": "Systems analysis, logistics, helped design hardware, firmware and software",
-            "projects": [
-                "A bit of everything"
-            ]
+            "title": "A Very Confusing Diagram",
+            "type": "image",
+            "src": "https://cdn.discordapp.com/attachments/1043510032618238082/1087365305870852136/hg5i5la6Q4.png",
+            "subsection": "System Overview"
+        },
+        {
+            "title": "Hosting",
+            "type": "text",
+            "text": "This website is currently hosted using Cloudflare Pages, which is a free service provided by Cloudflare for deploying and hosting frontend applications. The domain was registered for free with nic.eu.org, and uses Cloudflare's free DNS.",
+            "subsection": "website"
+        },
+        {
+            "title": "How its built",
+            "type": "text",
+            "text": "The website is built using React.js, a popular frontend framework used by companies like Facebook and Twitter, and MUI (Material UI), a library which provides prebuilt standardized React components to make the website look nice, and act more consistent.",
+            "subsection": "website"
+        },
+        {
+            "title": "Purpose",
+            "type": "text",
+            "text": "The website is used for controlling the car and the server such as directing the cars to a specific location. The website also displays current statistics of the controller and cars such as ticks per second and temperature.",
+            "subsection": "website"
+        },
+        {
+            "title": "API",
+            "type": "text",
+            "text": "The application programming interface is a complex and efficient communication method for facilitating data transfer between the website, the control server and the car. It allows use of the RESTful specification for consistent and standardised communication. The HTTP servers are written using Flask, a Python library for creating HTTP servers",
+            "subsection": "backend"
+        },
+        {
+            "title": "RADAR",
+            "type": "text",
+            "text": "Radar is an inhouse tool for discovering devices on a local network. It scans the network for devices that respond to ICMP echo requests (ping). With this data, it attempts to identify devices by their MAC address. It is used by the controller to connect to cars even if their IP addresses change due to being on a new network.",
+            "subsection": "backend"
+        },
+        {
+            "title": "Controller Firmware",
+            "type": "text",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            "subsection": "backend"
+        },
+        {
+            "title": "Car Firmware",
+            "type": "text",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            "subsection": "backend"
+        },
+        {
+            "title": "Map Detection",
+            "type": "text",
+            "text": "Map detection is based off parsing image data from a camera (converted to HSV format), using the OpenCV library for many image processing steps. It requires one frame containing four Aruco tags to create a boundary for operating track area. These tags are used to define a warp matrix to distort future frames to only consider the operating area.\nFrom this area, colours are then sampled to create two images, one with the road-dots (nodes) and another with the intersections. The road-dots have a blob-detector run on them to discretise the positions, then are linked up by considering each point in turn and connecting it to reasonable neighbours, creating a number of connected dots known as path series. The nodes at the end of the path series are then projected further until they collide with a non-zero intersection value, at which point an intersection-node is created and linked up. The final stage is linking up all the nodes into one bidirectional graph (here using NetworkX for some trivial algorithmic processes) which can then be used to pathfind and locate cars upon.",
+            "subsection": "algorithms"
+        },
+        {
+            "title": "Pathfinding",
+            "type": "text",
+            "text": "Pathfinding is achieved using a bidirectional Djikstra implementation, irrespective of specific internode distances since they cannot by design be overly far from each other. This creates a logical series of nodes which the car should visit to achieve a destination while staying on track, and the car is then positioned using a spacially aware slightly optimistic algorithm to make sharp turns or strange placements smoother. If the car ever deviates, a new path is calculated to ensure the car knows where it is going at all times.",
+            "subsection": "algorithms"
+        },
+        {
+            "title": "Collision avoidance",
+            "type": "text",
+            "text": "Despite only one car in this example, collision avoidance was still a consideration in algorithm design. The node space was originally split over a number of Zones containing a specific number of nodes, such that two cars occupying neighbouring Zones would not physically collide. Cars then forecasted in how long they would require a Zone to be free, and the creation of subsequent routes would be penalized for requiring the car to wait. If waiting was required, cars then waited for approval from the controller before proceeding.\nHowever, since only one car was ever built, this didn't end up being used.",
+            "subsection": "algorithms"
+        },
+        {
+            "title": "Guidance",
+            "type": "text",
+            "text": "The car knows where it is going (the immediate target) at all times, so when position data is recieved from the controller, which calculates a position and an angle based on the detected Aruco tag and a predefined corner, it can calculate the difference between the bearing between itself and the target, and its current heading, thereby deriving a correction. The next step depends on the absolute magnitude of the correction, which larger values requiring a spin-on-the-spot, and lower values being scaled to a curve while moving forwards.",
+            "subsection": "algorithms"
         }
     ]
 }

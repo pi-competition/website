@@ -15,7 +15,6 @@ import generalContent from "../assets/general_content.json"
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { Link } from 'react-router-dom';
 import configFile from "../config/config.json"
-import { Opacity } from "@mui/icons-material";
 
 const NavigationBar = ({ giveTheme }) => {
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -28,7 +27,8 @@ const NavigationBar = ({ giveTheme }) => {
             .then((response) => {
                 if (response.status !== 200) {
                     setOnline(false)
-                    setStatusNotiColour("red")
+
+                    setStatusNotiColour("orangered")
                 } else {
                     setOnline(true)
                     setStatusNotiColour("green")
@@ -79,7 +79,7 @@ const NavigationBar = ({ giveTheme }) => {
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
-                            letterSpacing: '.3rem',
+                            letterSpacing: '.1rem',
                             color: 'inherit',
                             textDecoration: 'none',
                         }}
@@ -132,6 +132,24 @@ const NavigationBar = ({ giveTheme }) => {
                                     onClick={handleCloseNavMenu}
                                 >
                                     <Typography textAlign="center">About</Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link
+                                to="/design"
+                            >
+                                <MenuItem
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    <Typography textAlign="center">Design</Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link
+                                to="/team"
+                            >
+                                <MenuItem
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    <Typography textAlign="center">Team</Typography>
                                 </MenuItem>
                             </Link>
                             <Link
@@ -206,7 +224,6 @@ const NavigationBar = ({ giveTheme }) => {
                                     </Typography>
                                 </Button>
                             </Link>
-
                             <Link
                                 to="/about"
                             >
@@ -226,6 +243,50 @@ const NavigationBar = ({ giveTheme }) => {
                                     >
 
                                         About
+                                    </Typography>
+                                </Button>
+                            </Link>
+                            <Link
+                                to="/design"
+                            >
+                                <Button
+                                    id="design-button"
+                                    onClick={() => {
+                                        setReRenderVar(!reRenderVar)
+                                    }}
+                                    variant="contained"
+                                    sx={{ backgroundColor: "#232ED1" }}
+                                    disableElevation
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
+
+                                        Design
+                                    </Typography>
+                                </Button>
+                            </Link>
+                            <Link
+                                to="/team"
+                            >
+                                <Button
+                                    id="team-button"
+                                    onClick={() => {
+                                        setReRenderVar(!reRenderVar)
+                                    }}
+                                    variant="contained"
+                                    sx={{ backgroundColor: "#232ED1" }}
+                                    disableElevation
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 100,
+                                        }}
+                                    >
+
+                                        Team
                                     </Typography>
                                 </Button>
                             </Link>
@@ -322,6 +383,7 @@ const NavigationBar = ({ giveTheme }) => {
                         <a
                             href="https://grafana-pi01.ben-services.eu.org/d/tUwKjoiRz/dev-stuff?orgId=1&search=open&query=folder:current"
                             target="_blank"
+                            rel="noreferrer"
                         >
                             <Button
                                 id="stats-button"

@@ -81,10 +81,10 @@ const NavigationBar = ({ giveTheme }) => {
                             </Link>
 
                             <Link
-                                to="/about"
+                                to="/team"
                             >
                                 <Button
-                                    id="about-button"
+                                    id="team-button"
                                     onClick={() => {
                                         setRerenderVar(!rerenderVar)
                                     }}
@@ -95,7 +95,7 @@ const NavigationBar = ({ giveTheme }) => {
                                         }}
                                     >
 
-                                        About
+                                        Team
                                     </Typography>
                                 </Button>
                             </Link>

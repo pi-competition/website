@@ -1,0 +1,44 @@
+{
+    "people": [
+        {
+            "name": "Owen",
+            "text": "Designed and built the website and data schemas, and helped with API integration",
+            "projects": [
+                "Website",
+                "API"
+            ]
+        },
+        {
+            "name": "Ben",
+            "text": "Designed and built the backend for the website and communication to the firmware, and developed Radar",
+            "projects": [
+                "API",
+                "Radar"
+            ]
+        },
+        {
+            "name": "Abbas",
+            "text": "Designed and built the firmware for the car and controller, and performed firmware/API integration",
+            "projects": [
+                "Car driving firmware",
+                "Controller firmware",
+                "API"
+            ]
+        },
+        {
+            "name": "Charlie",
+            "text": "Produced the presentation and marketing, 3d models, and built the hardware & electronics",
+            "projects": [
+                "Hardware",
+                "Electronics"
+            ]
+        },
+        {
+            "name": "Sean",
+            "text": "Systems analysis, logistics, helped design hardware, firmware and software, and branding",
+            "projects": [
+                "A bit of everything"
+            ]
+        }
+    ]
+}

@@ -1,161 +1,120 @@
-import React, { useState, useEffect } from 'react'
-import content from "../assets/home.json"
-import HomeContentContainer from './home/HomeContentContainer'
-import config from "../config/config.json"
+import React from 'react'
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Gradient from 'rgt'
+
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 
 const Home = () => {
-    const [time, setTime] = useState([0, 0, 0, 0]);
-    let sectionCounter = 0;
-    let previous_section;
-
-    const formatSubheading = (string) => {
-        if (string.split(" ").length === 1) {
-            return string.toLowerCase().charAt(0).toUpperCase() + string.toLowerCase().slice(1)
-        } else {
-            const stringArray = string.split(" ")
-            for (let i = 0; i < stringArray.length; i++) {
-                stringArray[i] = stringArray[i].toLowerCase().charAt(0).toUpperCase() + stringArray[i].toLowerCase().slice(1)
-            }
-            return stringArray.join(" ")
-        }
-    }
-
-
-    useEffect(() => {
-        const startDate = new Date().getTime() / 1000;
-        // Do your operations
-        const endDate = new Date('2023/03/20').getTime() / 1000
-        let seconds = Math.floor((endDate - startDate))
-        let days = 0
-        let hours = 0
-        let minutes = 0
-        while (true) {
-            if (seconds < 86400) {
-                break
-            }
-            seconds = seconds - 86400
-            days++
-        }
-        while (true) {
-            if (seconds < 3600) {
-                break
-            }
-            seconds = seconds - 3600
-            hours++
-        }
-        while (true) {
-            if (seconds < 60) {
-                break
-            }
-            seconds = seconds - 60
-            minutes++
-        }
-        setTime([days, hours, minutes, seconds])
-    }, [])
-
-    if (config.showCountdown) {
-        //timer
-        let startDate = new Date().getTime() / 1000;
-        setInterval(() => {
-            startDate = startDate + 1000;
-            // Do your operations
-            const endDate = new Date('2023/03/20').getTime() / 1000
-            let seconds = Math.floor((endDate - startDate))
-            let days = 0
-            let hours = 0
-            let minutes = 0
-            while (true) {
-                if (seconds < 86400) {
-                    break
-                }
-                seconds = seconds - 86400
-                days++
-            }
-            while (true) {
-                if (seconds < 3600) {
-                    break
-                }
-                seconds = seconds - 3600
-                hours++
-            }
-            while (true) {
-                if (seconds < 60) {
-                    break
-                }
-                seconds = seconds - 60
-                minutes++
-            }
-            setTime([days, hours, minutes, seconds])
-        }, 1000)
-    }
-
-
 
     return (
-        <div className='home'>
-            <p className='text-4xl bold flex justify-center' id="home-title">Home</p>
-            <br />
-            {config.showCountdown &&
-                <div className='home-container'>
-                    <h1 className="text-4xl bold flex justify-center">{time[0].toString() + " Days " + time[1].toString() + " Hours " + time[2].toString() + " Minutes " + time[3].toString() + " Seconds"}</h1>
-                    <h1 className="text-3xl bold flex justify-center">Until Deadline/Failure</h1>
-                </div>
-            }
-            {
-                content["sections"].map((section) => {
-                    if (section.type === "disabled") return <div key={section.title}></div>
-                    if (sectionCounter === 0) {
-                        previous_section = section;
-                        sectionCounter++;
-                        return (
-                            <div key={section.title + "-subsection"}>
-                                <p className='text-2xl bold flex ' id="home-subheading" >{formatSubheading(section.subsection)}</p>
-                                <div>
-                                    <HomeContentContainer content={section} />
-                                </div>
-                            </div>
+        <>
+        <br />
+        <Typography sx={{ fontWeight: 500, }} variant="h3" align="center" paragraph>
+            <Gradient dir="left-to-right" from="#FF4500" to="#ffa500">
+                Home
+            </Gradient>
+        </Typography>
+        <h1 className="text-2xl bold flex justify-center">
+            Welcome to Team PANIC's website.
+        </h1>
 
-                        )
-                    } else {
-                        if (previous_section.subsection === section.subsection) {
-                            previous_section = section;
-                            sectionCounter++;
-                            return (
-                                <div key={section.title + "-innersection"}>
-                                    <HomeContentContainer content={section} />
-                                </div>
-                            )
-                        } else {
-                            previous_section = section;
-                            sectionCounter++;
-                            return (
-                                <div key={section.title + "-" + section.subsection + "subsection"
-                                } >
-                                    <p className='text-2xl bold flex ' id="home-subheading" >{formatSubheading(section.subsection)}</p>
-                                    <div>
-                                        <HomeContentContainer content={section} />
-                                    </div>
-                                </div>
-                            )
-                        }
-                    }
-                })
-            }
-        </div>
+        <Container sx={{ py: 8 }} maxWidth="md">
+        <Grid container spacing={4}>
+            <Grid item xs={12} sm={6} md={4}>
+                <Card id="home-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} >
+                    <CardMedia component="img" image="https://i.postimg.cc/0QbZt7qm/about.png"/>
+                    <CardContent id="home-card-content" sx={{ flexGrow: 1 }}>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            About
+                        </Typography>
+                        <Typography>
+                            An explanation of our project.
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Button size="small" id="home-page-button" variant="contained" href="/about">View</Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={4}>
+                <Card id="home-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} >
+                    <CardMedia component="img" image="https://i.postimg.cc/664YnVcx/design.png"/>
+                    <CardContent id="home-card-content" sx={{ flexGrow: 1 }}>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            Design
+                        </Typography>
+                        <Typography>
+                            Materials from the design process.
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                    <Button size="small" id="home-page-button" variant="contained" href="/design">View</Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={4}>
+                <Card id="home-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} >
+                    <CardMedia component="img" image="https://i.postimg.cc/prjCvxrL/team.jpg"/>
+                    <CardContent id="home-card-content" sx={{ flexGrow: 1 }}>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            Team
+                        </Typography>
+                        <Typography>
+                            Information about our team members and their roles.
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                    <Button size="small" id="home-page-button" variant="contained" href="/team">View</Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={4}>
+                <Card id="home-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} >
+                    <CardMedia component="img" image="https://i.postimg.cc/kXrwcVY6/map.png"/>
+                    <CardContent id="home-card-content" sx={{ flexGrow: 1 }}>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            Map
+                        </Typography>
+                        <Typography>
+                            The layout of the track, as detected by the camera.
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                    <Button size="small" id="home-page-button" variant="contained" href="/map">View</Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={4}>
+                <Card id="home-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} >
+                    <CardMedia component="img" image="https://i.postimg.cc/TwF0BhRs/stats.jpg"/>
+                    <CardContent id="home-card-content" sx={{ flexGrow: 1 }}>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            Statistics
+                        </Typography>
+                        <Typography>
+                            Live statistics being sent from the car.
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                    <Button size="small" id="home-page-button" variant="contained" href="/stats">View</Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+        </Grid>
+        </Container>
+        </>
+
     )
 }
 
 export default Home
-/*
-if (section.text !== "subheading") {
-        return (
-            <div key={section.title + "-innersection"}>
-                <HomeContentContainer content={section} />
-            </div>
-        )
-    } else {
-        return (
-            <p className='text-2xl bold flex ' id="home-subheading" key={section.title + "-subheading"}>{section.title}</p>
-        )
-    }
-*/
