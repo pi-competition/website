@@ -19,18 +19,16 @@
             "subsection": "engineering"
         },
         {
-            "title": "A Comprehensive system diagram",
+            "title": "Architecture",
             "type": "image",
-            "src": "https://cdn.discordapp.com/attachments/1043510032618238082/1102966200692125776/image.png",
-            "width": 600,
-            "height": 550,
+            "src": "/architecture.png",
             "subsection": "system overview"
         },
         {
-            "title": "Hosting",
+            "title": "",
             "type": "text",
-            "text": "This website is currently hosted using Cloudflare Pages, which is a free service provided by Cloudflare for deploying and hosting frontend applications. The domain was registered for free with nic.eu.org, and uses Cloudflare's free DNS.",
-            "subsection": "website"
+            "text": "Our system is made up of a number of components, each with their own purpose. The website is used for controlling the car and the server such as directing the cars to a specific location. The website also displays current statistics of the controller and cars such as ticks per second and temperature. The API is a complex and efficient communication method for facilitating data transfer between the website, the control server and the car. The architecture is designed to be modular, allowing for easy expansion and modification.",
+            "subsection": "system overview"
         },
         {
             "title": "How its built",

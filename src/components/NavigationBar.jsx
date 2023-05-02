@@ -368,7 +368,7 @@ const NavigationBar = ({ giveTheme, online }) => {
                             </Box>
                         </ButtonGroup>
                     </Box>
-
+                    
                     <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' }, flexDirection: "row" }}>
                         <a
                             href="https://grafana-pi01.ben-services.eu.org/d/tUwKjoiRz/dev-stuff?orgId=1&search=open&query=folder:current"
@@ -395,6 +395,10 @@ const NavigationBar = ({ giveTheme, online }) => {
                                 </Typography>
                             </Button>
                         </a>
+                            ) : (<></>)
+                        }
+
+                        
                         <ColourToggles giveTheme={giveTheme} />
                     </Box>
                 </Toolbar>
