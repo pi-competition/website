@@ -380,7 +380,9 @@ const NavigationBar = ({ giveTheme }) => {
                     </Box>
 
                     <Box sx={{ flexGrow: 0, display: "flex", flexDirection: "row" }}>
-                        <a
+                        {
+                            window.innerWidth > 1200 ? (
+                                <a
                             href="https://grafana-pi01.ben-services.eu.org/d/tUwKjoiRz/dev-stuff?orgId=1&search=open&query=folder:current"
                             target="_blank"
                             rel="noreferrer"
@@ -405,6 +407,10 @@ const NavigationBar = ({ giveTheme }) => {
                                 </Typography>
                             </Button>
                         </a>
+                            ) : (<></>)
+                        }
+
+                        
                         <ColourToggles giveTheme={giveTheme} />
                     </Box>
                 </Toolbar>
