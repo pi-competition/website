@@ -3,8 +3,11 @@ import parse from "html-react-parser"
 import Grid from "@mui/material/Grid"
 
 const DesignContentContainer = ({ content }) => {
+    const containerWidth = window.innerWidth * 0.8
     return (
-        <div className='design-container'>
+        <div className='design-container' style={{
+            width: `${containerWidth}px`
+        }}>
             <p
                 style={{
                     marginBottom: "1rem",

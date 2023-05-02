@@ -13,7 +13,8 @@ const Statistics = ({ online }) => {
             {!online ? <div style={{
                 fontWeight: "bold",
                 fontSize: "1.5rem",
-            }}>The controller software is not running so the live statistics cannot be viewed.</div> : <div></div>}
+                width: (window.innerWidth * 0.8) + "px"
+            }}>The controller software is not running so the live statistics cannot be viewed. If the top left box says 'no data' the PI is on but the software is not running.</div> : <div></div>}
             <div style={{
                 display: "flex",
                 flexDirection: "row"
