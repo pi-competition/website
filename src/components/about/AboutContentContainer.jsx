@@ -9,11 +9,11 @@ const AboutContentContainer = ({ content }) => {
         jsx = (
             <div className="about-container">
                 <h3 className="text-xl">{content.title}</h3>
-                <img src={content.src} alt={content.title} className="about-container-image"></img>
+                <img src={content.src} alt={content.title} width={window.innerWidth * content.widthFactor} height={window.innerHeight * content.heightFactor} className="about-container-image"></img>
                 <Button
                     variant="contained"
-                    startIcon={<OpenInNew/>}
-                    sx={{mt: 2}}
+                    startIcon={<OpenInNew />}
+                    sx={{ mt: 2 }}
                     onClick={(() => {
                         window.open(content.src)
                     })}

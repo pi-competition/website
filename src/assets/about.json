@@ -22,8 +22,8 @@
             "title": "Architecture",
             "type": "image",
             "src": "/architecture.png",
-            "width": 600,
-            "height": 500,
+            "widthFactor": 0.4,
+            "heightFactor": 0.4,
             "subsection": "system overview"
         },
         {
