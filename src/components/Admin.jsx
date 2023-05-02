@@ -81,7 +81,7 @@ const Admin = () => {
     const dividerStyleNoText = { bgcolor: "#1565c0" }
     if (loading) {
         return (
-            <div>Saved password is wrong. Re-enter it <a href="/admin/login">here</a></div>
+            <div>Saved password is wrong or the controller is offline. Re-enter it <a href="/admin/login">here</a></div>
         )
     } else {
         return (

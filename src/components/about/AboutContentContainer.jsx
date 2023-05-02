@@ -7,7 +7,7 @@ const AboutContentContainer = ({ content }) => {
         jsx = (
             <div className="about-container">
                 <h3 className="text-xl">{content.title}</h3>
-                <img src={content.src} alt={content.title} className="about-container-image"></img>
+                <img src={content.src} alt={content.title} width={content.width} height={550} className="about-container-image"></img>
             </div>
         )
     } else if (content.type === "text") {

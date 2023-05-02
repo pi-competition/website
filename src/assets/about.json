@@ -19,10 +19,12 @@
             "subsection": "engineering"
         },
         {
-            "title": "A Very Confusing Diagram",
+            "title": "A Comprehensive system diagram",
             "type": "image",
-            "src": "https://cdn.discordapp.com/attachments/1043510032618238082/1087365305870852136/hg5i5la6Q4.png",
-            "subsection": "System Overview"
+            "src": "https://cdn.discordapp.com/attachments/1043510032618238082/1102966200692125776/image.png",
+            "width": 600,
+            "height": 550,
+            "subsection": "system overview"
         },
         {
             "title": "Hosting",

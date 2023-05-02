@@ -24,9 +24,9 @@ const About = () => {
         <div className='about'>
             <br />
             <Typography sx={{ fontWeight: 500, }} variant="h3" align="center" paragraph>
-              <Gradient dir="left-to-right" from="#FF4500" to="#ffa500">
-              About
-              </Gradient>
+                <Gradient dir="left-to-right" from="#FF4500" to="#ffa500">
+                    About
+                </Gradient>
             </Typography>
             <br />
             <br />

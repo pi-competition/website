@@ -16,25 +16,15 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import { Link } from 'react-router-dom';
 import configFile from "../config/config.json"
 
-const NavigationBar = ({ giveTheme }) => {
+const NavigationBar = ({ giveTheme, online }) => {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [reRenderVar, setReRenderVar] = useState(null);
-    const [online, setOnline] = useState(false)
-    const [statusNotiColour, setStatusNotiColour] = useState("purple")
+    const [statusNotiColour, setStatusNotiColour] = useState("pink")
 
     useEffect(() => {
-        fetch(configFile.apiURL + "/api/ping")
-            .then((response) => {
-                if (response.status !== 200) {
-                    setOnline(false)
-
-                    setStatusNotiColour("orangered")
-                } else {
-                    setOnline(true)
-                    setStatusNotiColour("green")
-                }
-            })
-    })
+        if (online === true) setStatusNotiColour("green")
+        else setStatusNotiColour("orangered")
+    }, [online])
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -216,7 +206,7 @@ const NavigationBar = ({ giveTheme }) => {
                                 >
                                     <Typography
                                         sx={{
-                                            fontWeight: 100,
+                                            fontWeight: "bold",
                                         }}
                                     >
 
@@ -238,7 +228,7 @@ const NavigationBar = ({ giveTheme }) => {
                                 >
                                     <Typography
                                         sx={{
-                                            fontWeight: 100,
+                                            fontWeight: "bold",
                                         }}
                                     >
 
@@ -260,7 +250,7 @@ const NavigationBar = ({ giveTheme }) => {
                                 >
                                     <Typography
                                         sx={{
-                                            fontWeight: 100,
+                                            fontWeight: "bold",
                                         }}
                                     >
 
@@ -282,7 +272,7 @@ const NavigationBar = ({ giveTheme }) => {
                                 >
                                     <Typography
                                         sx={{
-                                            fontWeight: 100,
+                                            fontWeight: "bold",
                                         }}
                                     >
 
@@ -304,7 +294,7 @@ const NavigationBar = ({ giveTheme }) => {
                                 >
                                     <Typography
                                         sx={{
-                                            fontWeight: 100,
+                                            fontWeight: "bold",
                                         }}
                                     >
 
@@ -327,7 +317,7 @@ const NavigationBar = ({ giveTheme }) => {
                                 >
                                     <Typography
                                         sx={{
-                                            fontWeight: 100,
+                                            fontWeight: "bold",
                                         }}
                                     >
 
@@ -349,7 +339,7 @@ const NavigationBar = ({ giveTheme }) => {
                                 >
                                     <Typography
                                         sx={{
-                                            fontWeight: 100,
+                                            fontWeight: "bold",
                                         }}
                                     >
 
@@ -369,7 +359,7 @@ const NavigationBar = ({ giveTheme }) => {
                             >
                                 <Typography
                                     sx={{
-                                        fontWeight: 100,
+                                        fontWeight: "bold",
                                     }}
                                 >
 
@@ -379,7 +369,7 @@ const NavigationBar = ({ giveTheme }) => {
                         </ButtonGroup>
                     </Box>
 
-                    <Box sx={{ flexGrow: 0, display: "flex", flexDirection: "row" }}>
+                    <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' }, flexDirection: "row" }}>
                         <a
                             href="https://grafana-pi01.ben-services.eu.org/d/tUwKjoiRz/dev-stuff?orgId=1&search=open&query=folder:current"
                             target="_blank"
@@ -397,7 +387,7 @@ const NavigationBar = ({ giveTheme }) => {
                             >
                                 <Typography
                                     sx={{
-                                        fontWeight: 100,
+                                        fontWeight: "bold",
                                     }}
                                 >
 

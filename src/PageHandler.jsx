@@ -3,10 +3,10 @@ import { Outlet } from 'react-router-dom'
 import NavigationBar from "./components/NavigationBar"
 
 
-const PageHandler = ({ giveTheme }) => {
+const PageHandler = ({ giveTheme, online }) => {
     return (
         <div className="page-handler">
-            <NavigationBar giveTheme={giveTheme} />
+            <NavigationBar giveTheme={giveTheme} online={online} />
             <Outlet />
         </div>
 
