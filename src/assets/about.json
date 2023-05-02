@@ -49,6 +49,24 @@
             "subsection": "backend"
         },
         {
+            "title": "RADAR",
+            "type": "text",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            "subsection": "backend"
+        },
+        {
+            "title": "Controller Firmware",
+            "type": "text",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            "subsection": "backend"
+        },
+        {
+            "title": "Car Firmware",
+            "type": "text",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            "subsection": "backend"
+        },
+        {
             "title": "Map Detection",
             "type": "text",
             "text": "Map detection is based off parsing image data from a camera (converted to HSV format), using the OpenCV library for many image processing steps. It requires one frame containing four Aruco tags to create a boundary for operating track area. These tags are used to define a warp matrix to distort future frames to only consider the operating area.\nFrom this area, colours are then sampled to create two images, one with the road-dots (nodes) and another with the intersections. The road-dots have a blob-detector run on them to discretise the positions, then are linked up by considering each point in turn and connecting it to reasonable neighbours, creating a number of connected dots known as path series. The nodes at the end of the path series are then projected further until they collide with a non-zero intersection value, at which point an intersection-node is created and linked up. The final stage is linking up all the nodes into one bidirectional graph (here using NetworkX for some trivial algorithmic processes) which can then be used to pathfind and locate cars upon.",
