@@ -5,7 +5,7 @@ All code in this repository is licensed under the MIT license. See LICENSE for m
 > © 2023 TEAM PANIC - All Rights Reserved
 
 # 🌐 Website for PA Consulting Raspberry PI Competition
-[View Website](teampanic.eu.org)
+[View Website](https://teampanic.eu.org)
 
 ## ☁️ Hosting
 The website is hosted on cloudflare pages.
