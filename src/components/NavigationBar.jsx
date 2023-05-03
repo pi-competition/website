@@ -371,7 +371,7 @@ const NavigationBar = ({ giveTheme, online }) => {
 
                     <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' }, flexDirection: "row", alignItems: "center" }}>
                         <a
-                            href="https://grafana-pi01.ben-services.eu.org/d/tUwKjoiRz/dev-stuff?orgId=1&search=open&query=folder:current"
+                            href="https://grafana-pi01.ben-services.eu.org/d/WqVloJZRz/home?orgId=1"
                             target="_blank"
                             rel="noreferrer"
                         >
