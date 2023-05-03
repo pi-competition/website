@@ -13,12 +13,6 @@
             "subsection": "project overview"
         },
         {
-            "title": "Scaling up",
-            "text": "A reasonable start for the project would be to deploy the solution in a urban city the allow electric cars to charge while stationary",
-            "type": "text",
-            "subsection": "project overview"
-        },
-        {
             "title": "Cars",
             "text": "The car is built in a custom designed 3d printed shell. It drives using two DC motors with gearboxes, controlled from a Raspberry Pi HAT, and uses a TP4056 charge controller to take power input from a Qi coil. The coil charges seperate Lithium Ion batteries for the Pi (using a Pi Sugar HAT) and the motors, to ensure we have enough power for both.",
             "type": "text",
