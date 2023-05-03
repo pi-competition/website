@@ -39,9 +39,7 @@ const Home = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Link to={"/about"} sx={{ width: "100%" }}>
-                                    <Button sx={{ width: "100%" }} id="home-page-button" variant="contained">View</Button>
-                                </Link>
+                                <Button sx={{ width: "100%" }} id="home-page-button" variant="contained" href="/about">View</Button>
                             </CardActions>
                         </Card>
                     </Grid>
@@ -58,9 +56,7 @@ const Home = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Link to={"/design"} sx={{ width: "100%" }}>
-                                    <Button sx={{ width: "100%" }} id="home-page-button" variant="contained">View</Button>
-                                </Link>
+                                <Button sx={{ width: "100%" }} id="home-page-button" variant="contained" href="/design">View</Button>
                             </CardActions>
                         </Card>
                     </Grid>
@@ -77,9 +73,7 @@ const Home = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Link to={"/team"} sx={{ width: "100%" }} >
-                                    <Button sx={{ width: "100%" }} id="home-page-button" variant="contained">View</Button>
-                                </Link>
+                                <Button sx={{ width: "100%" }} id="home-page-button" variant="contained" href="/team">View</Button>
                             </CardActions>
                         </Card>
                     </Grid>
@@ -96,9 +90,7 @@ const Home = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Link to={"/map"} sx={{ width: "100%" }}>
-                                    <Button sx={{ width: "100%" }} id="home-page-button" variant="contained">View</Button>
-                                </Link>
+                                <Button sx={{ width: "100%" }} id="home-page-button" variant="contained" href="/map">View</Button>
                             </CardActions>
                         </Card>
                     </Grid>
@@ -115,9 +107,7 @@ const Home = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Link to={"/stats"} sx={{ width: "100%" }}>
-                                    <Button sx={{ width: "100%" }} id="home-page-button" variant="contained">View</Button>
-                                </Link>
+                                <Button sx={{ width: "100%" }} id="home-page-button" variant="contained" href="/stats">View</Button>
                             </CardActions>
                         </Card>
                     </Grid>
@@ -134,9 +124,7 @@ const Home = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Link to={"/admin"} sx={{ width: "100%" }}>
-                                    <Button sx={{ width: "100%" }} id="home-page-button" variant="contained">View</Button>
-                                </Link>
+                                <Button sx={{ width: "100%" }} id="home-page-button" variant="contained" href="/admin">View</Button>
                             </CardActions>
                         </Card>
                     </Grid>

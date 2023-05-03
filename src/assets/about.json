@@ -8,7 +8,7 @@
         },
         {
             "title": "The Idea",
-            "text": "The idea behing PANIC is to fix the main issue preventing people from using more environmentally friendly electric cars, namely, the range (or lack thereof). Since electric cars are slower to fuel than petrol, range and longevity of batteries is critical.<br/>Team PANIC fixes this in two ways:<ul><li>By using the autonomous driving algorithm, cars are more collaborative and wait times are reduced, so cars change speed less often, reducing losses from inefficiencies.</li><li>The wireless charging solution allows cars to charge while on the road, so if stopped in traffic, or at pedestrian crossings or similar, if a wireless charging pad is installed beneath the road (the plan is to include them in high-traffic areas of busy cities) the car can charge while waiting.</li></ul>",
+            "text": "The idea behing PANIC is to fix the main issue preventing people from using more environmentally friendly electric cars, namely, the range (or lack therof). Since electric cars are slower to fuel than petrol, range and longevity of batteries is critical.<br/>Team PANIC fixes this in two ways:<br/> <b>•</b> By using the autonomous driving algorithm, cars are more collaborative and wait times are reduced, so cars change speed less often, reducing losses from inefficiencies.<br/> <b>•</b> The wireless charging solution allows cars to charge while on the road, so if stopped in traffic, or at pedestrian crossings or similar, if a wireless charging pad is installed beneath the road (the plan is to include them in high-traffic areas of busy cities) the car can charge while waiting.",
             "type": "text",
             "subsection": "project overview"
         },
