@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 import Gradient from 'rgt'
 import content from "../assets/about.json"
 import AboutContentContainer from './about/AboutContentContainer'
+import {Accordion, AccordionDetails, AccordionSummary} from '@mui/material'
 
 const About = () => {
     let sectionCounter = 0;
@@ -38,10 +39,17 @@ const About = () => {
                         sectionCounter++;
                         return (
                             <div key={section.title + "-subsection"}>
-                                <p className='text-2xl bold flex ' id="about-subheading" >{formatSubheading(section.subsection)}</p>
-                                <div>
-                                    <AboutContentContainer content={section} />
-                                </div>
+                                <Accordion>
+                                    <AccordionSummary>
+                                        {formatSubheading(section.subsection)}
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        <p className='text-2xl bold flex ' id="about-subheading" >{formatSubheading(section.subsection)}</p>
+                                        <div>
+                                            <AboutContentContainer content={section} />
+                                        </div>
+                                    </AccordionDetails>
+                                </Accordion>
                             </div>
 
                         )
@@ -61,6 +69,7 @@ const About = () => {
                                 <div key={section.title + "-" + section.subsection + "subsection"
                                 } >
                                     <p className='text-2xl bold flex ' id="about-subheading" >{formatSubheading(section.subsection)}</p>
+                                    
                                     <div>
                                         <AboutContentContainer content={section} />
                                     </div>
