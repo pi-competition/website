@@ -4,7 +4,13 @@
             "title": "Team PANIC",
             "text": "Our team name, PANIC, stands for Pathfinding Automobile Network of Induction Charging. It also felt fitting, in case our li-ion batteries caught on fire.",
             "type": "text",
-            "subsection": "team name"
+            "subsection": "project overview"
+        },
+        {
+            "title": "The Idea",
+            "text": "lorem ispum etc",
+            "type": "text",
+            "subsection": "project overview"
         },
         {
             "title": "Cars",
