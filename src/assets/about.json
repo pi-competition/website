@@ -1,8 +1,8 @@
 {
     "sections": [
         {
-            "title": "<marquee>Team PANIC</marquee>",
-            "text": "Our team name, PANIC, stands for Pathfinding Automobile Network of Induction Charging. It also felt fitting, in case our li-ion batteries caught on fire.",
+            "title": "Team PANIC",
+            "text": "Our team name, PANIC, stands for <b>Pathfinding Automobile Network of Induction Charging</b>. It also felt fitting, in case our li-ion batteries caught on fire.",
             "type": "text",
             "subsection": "project overview"
         },
@@ -35,11 +35,11 @@
         {
             "title": "",
             "type": "text",
-            "text": "Our system is made up of a number of components, each with their own purpose. The website is used for controlling the car and the server such as directing the cars to a specific location. The website also displays current statistics of the controller and cars such as ticks per second and temperature. The API is a complex and efficient communication method for facilitating data transfer between the website, the control server and the car. The architecture is designed to be modular, allowing for easy expansion and modification.",
+            "text": "Our system is made up of a number of components, each with their own purpose. The architecture is designed to be modular, allowing for easy expansion and modification (for example, an additional car).<br></br> The website is used for controlling the car and the server such as directing the cars to a specific location. The website also displays current statistics of the controller and cars such as ticks per second and temperature. <br></br>The API is a complex and efficient communication method for facilitating data transfer between the website, the control server and the car.<br></br>The use of reverse tunnels allows the controller to be accessed from anywhere in the world, and it works on any network without configuration.",
             "subsection": "system overview"
         },
         {
-            "title": "How its built",
+            "title": "How it's built",
             "type": "text",
             "text": "The website is built using React.js, a popular frontend framework used by companies like Facebook and Twitter, and MUI (Material UI), a library which provides prebuilt standardized React components to make the website look nice, and act more consistent.",
             "subsection": "website"
@@ -57,7 +57,7 @@
             "subsection": "backend"
         },
         {
-            "title": "RADAR",
+            "title": "Radar",
             "type": "text",
             "text": "Radar is an in-house tool for discovering devices on a local network. It scans the network for devices that respond to ICMP echo requests (ping). With this data, it attempts to identify devices by their MAC address. It is used by all devices to connect to each other and can be used on any network without changes to the configuration.",
             "subsection": "backend"
@@ -77,7 +77,7 @@
         {
             "title": "Map Detection",
             "type": "text",
-            "text": "Map detection is based off parsing image data from a camera (converted to HSV format), using the OpenCV library for many image processing steps. It requires one frame containing four Aruco tags to create a boundary for operating track area. These tags are used to define a warp matrix to distort future frames to only consider the operating area.\nFrom this area, colours are then sampled to create two images, one with the road-dots (nodes) and another with the intersections. The road-dots have a blob-detector run on them to discretise the positions, then are linked up by considering each point in turn and connecting it to reasonable neighbours, creating a number of connected dots known as path series. The nodes at the end of the path series are then projected further until they collide with a non-zero intersection value, at which point an intersection-node is created and linked up. The final stage is linking up all the nodes into one bidirectional graph (here using NetworkX for some trivial algorithmic processes) which can then be used to pathfind and locate cars upon.",
+            "text": "Map detection is based off parsing image data from a camera (converted to HSV format), using the OpenCV library for many image processing steps. It requires one frame containing four Aruco tags to create a boundary for operating track area. These tags are used to define a warp matrix to distort future frames to only consider the operating area.<br></br>From this area, colours are then sampled to create two images, one with the road-dots (nodes) and another with the intersections. The road-dots have a blob-detector run on them to discretise the positions, then are linked up by considering each point in turn and connecting it to reasonable neighbours, creating a number of connected dots known as path series. The nodes at the end of the path series are then projected further until they collide with a non-zero intersection value, at which point an intersection-node is created and linked up. The final stage is linking up all the nodes into one bidirectional graph (here using NetworkX for some trivial algorithmic processes) which can then be used to pathfind and locate cars upon.",
             "subsection": "algorithms"
         },
         {
@@ -89,7 +89,7 @@
         {
             "title": "Collision avoidance",
             "type": "text",
-            "text": "Despite only one car in this example, collision avoidance was still a consideration in algorithm design. The node space was originally split over a number of Zones containing a specific number of nodes, such that two cars occupying neighbouring Zones would not physically collide. Cars then forecasted in how long they would require a Zone to be free, and the creation of subsequent routes would be penalized for requiring the car to wait. If waiting was required, cars then waited for approval from the controller before proceeding.\nHowever, since only one car was ever built, this didn't end up being used.",
+            "text": "Despite only one car in this example, collision avoidance was still a consideration in algorithm design. The node space was originally split over a number of Zones containing a specific number of nodes, such that two cars occupying neighbouring Zones would not physically collide. Cars then forecasted in how long they would require a Zone to be free, and the creation of subsequent routes would be penalized for requiring the car to wait. If waiting was required, cars then waited for approval from the controller before proceeding.<br></br>However, since only one car was ever built, this didn't end up being used.",
             "subsection": "algorithms"
         },
         {
